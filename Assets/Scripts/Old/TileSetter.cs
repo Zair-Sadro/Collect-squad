@@ -5,6 +5,8 @@ using System;
 
 public class TileSetter : MonoBehaviour
 {
+    [SerializeField] private Transform tilesSpawnerParent;
+
     [Header("Add to Unit Settings")]
     [SerializeField] private Transform setupPoint;
     [SerializeField] private Vector3 tilesScale;
@@ -18,7 +20,7 @@ public class TileSetter : MonoBehaviour
     private float _currentRemovingTime;
     private bool _isInBuildZone;
 
-    private List<GameObject> tiles = new List<GameObject>();
+    private List<Tile> tiles = new List<Tile>();
 
     public event Action<int> OnTilesCountChanged;
 
@@ -30,48 +32,50 @@ public class TileSetter : MonoBehaviour
         _currentRemovingTime = timeToRemoveTile;
     }
 
-    private void AddTile(GameObject plate)
+    private void AddTile(Tile tile)
     {
-        plate.transform.SetParent(setupPoint);
+        tile.OnBack();
+        tile.transform.SetParent(setupPoint);
+
         if (tiles.Count % tilesRow == 0)
-            plate.transform.localPosition = new Vector3(0, yOffset * tiles.Count, 0);
+            tile.transform.localPosition = new Vector3(0, yOffset * tiles.Count, 0);
         else
-            plate.transform.localPosition = new Vector3(0, yOffset * (tiles.Count - 1), zOffset);
+            tile.transform.localPosition = new Vector3(0, yOffset * (tiles.Count - 1), zOffset);
 
-        plate.transform.localRotation = Quaternion.Euler(Vector3.zero);
-        plate.transform.localScale = tilesScale;
-        tiles.Add(plate.gameObject);
+        tile.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        tile.transform.localScale = tilesScale;
+        tiles.Add(tile);
         OnTilesCountChanged?.Invoke(tiles.Count);
-        
         //add vibration
-
     }
+
     public void RemoveTiles()
     {
-        RemovingTile();
+        StartCoroutine(RemovingTile());
     }
 
-    private void RemovingTile()
+    private IEnumerator RemovingTile()
     {
-        while(_isInBuildZone && tiles.Count > 0)
+        for (int i = tiles.Count - 1; i >= 0; i--)
         {
-            if(_currentRemovingTime <= 0)
-            {
-                Destroy(tiles[tiles.Count - 1]);
-                tiles.RemoveAt(tiles.Count - 1);
-                OnTilesCountChanged?.Invoke(tiles.Count);
-                _currentRemovingTime = timeToRemoveTile;
-            }
-            else
-                _currentRemovingTime -= Time.deltaTime;
+            tiles[i].gameObject.SetActive(false);
+            tiles[i].OnGround();
+            tiles[i].transform.SetParent(tilesSpawnerParent);
+            tiles.Remove(tiles[i]);
+            //add tiles to tower
+            OnTilesCountChanged?.Invoke(tiles.Count);
+            yield return new WaitForSeconds(timeToRemoveTile);
         }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.TryGetComponent(out Tile tile) && tiles.Count < maxTiles)
+            AddTile(tile);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("PlayerPlate") && tiles.Count < maxTiles)
-            AddTile(other.gameObject);
-
 
         if (other.TryGetComponent(out Test t))
             _isInBuildZone = true;
