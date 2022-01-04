@@ -95,19 +95,19 @@ public class UIScript : MonoBehaviour
     
     void Update()
     {
-        if (player.failed && !bot.win)
-        {
-            failedPanel.SetActive(true);
-            joystick.SetActive(false);
-            faildCoins.text = "10";
-        }
-
-        if (bot.win && !player.failed)
-        {
-            winPanel.SetActive(true);
-            joystick.SetActive(false);
-            winCoins.text = "100";
-        }
+      // if (player.failed && !bot.win)
+      // {
+      //     failedPanel.SetActive(true);
+      //     joystick.SetActive(false);
+      //     faildCoins.text = "10";
+      // }
+      //
+      // if (bot.win && !player.failed)
+      // {
+      //     winPanel.SetActive(true);
+      //     joystick.SetActive(false);
+      //     winCoins.text = "100";
+      // }
     }
 
     public void NextLevel()

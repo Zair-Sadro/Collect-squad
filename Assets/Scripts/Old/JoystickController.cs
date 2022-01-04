@@ -5,12 +5,10 @@ using UnityEngine;
 public class JoystickController : MonoBehaviour
 {
     public GameObject handler;
-
-    Vector3 target;
-
     public PlayerController playerContr;
-
     public GameObject stick;
+
+    private Vector3 target;
 
     void Start()
     {
@@ -35,13 +33,13 @@ public class JoystickController : MonoBehaviour
             if (target.magnitude < 50)
             {
                 handler.transform.position = touchPos;
-                playerContr.direction = target;
+                playerContr.PlayerDirection = target;
             }
 
             else if (touch.phase == TouchPhase.Ended)
             {
                 handler.transform.position = stick.transform.position;
-                playerContr.direction = Vector3.zero;
+                playerContr.PlayerDirection = Vector3.zero;
                 stick.SetActive(false);
             }
         }
