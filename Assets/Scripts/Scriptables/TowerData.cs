@@ -10,7 +10,7 @@ public enum UnitType
 
 public enum TowerLevelType
 {
-    level1, level2, level3
+    None, level1, level2, level3
 }
 
 [CreateAssetMenu(menuName ="Data/TowerData")]

@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   towerLevels:
-  - levelType: 0
+  - levelType: 1
     tilesToUpgrade: 10
     unitPrefab: {fileID: 0}
-  - levelType: 1
+  - levelType: 2
     tilesToUpgrade: 20
     unitPrefab: {fileID: 0}
-  - levelType: 2
+  - levelType: 3
     tilesToUpgrade: 30
     unitPrefab: {fileID: 0}

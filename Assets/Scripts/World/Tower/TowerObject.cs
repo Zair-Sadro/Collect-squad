@@ -1,20 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
-public class TowerObject : MonoBehaviour
+public class TowerObject : ATowerObject
 {
-    [SerializeField] private TowerData data;
-    [SerializeField] private TowerLevelType levelType;
     [SerializeField] private Transform spawnPoint;
-
-
-    public TowerData Data => data;
-    public TowerLevelType LevelType => levelType;
-
-    public void Init()
-    {
-        Debug.Log(data.name + "is build");
-    }
+    
 
 }
