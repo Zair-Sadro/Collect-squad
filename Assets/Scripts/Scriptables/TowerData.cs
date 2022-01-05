@@ -1,0 +1,42 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System.Linq;
+
+public enum UnitType
+{
+    DontMatter, Sword, Spear, Bow
+}
+
+public enum TowerLevelType
+{
+    level1, level2, level3
+}
+
+[CreateAssetMenu(menuName ="Data/TowerData")]
+public class TowerData : ScriptableObject
+{
+    [SerializeField] private UnitType type;
+    [SerializeField] private List<TowerLevel> towerLevels = new List<TowerLevel>();
+
+    public UnitType Type => type;
+    public List<TowerLevel> TowerLevels => towerLevels;
+
+
+    public TowerLevel GetTowerByLvl(TowerLevelType level)
+    {
+        return towerLevels.Where(t => t.LevelType == level).FirstOrDefault();
+    }
+}
+
+[System.Serializable]
+public class TowerLevel
+{
+    [SerializeField] private TowerLevelType levelType;
+    [SerializeField] private int tilesToUpgrade;
+    [SerializeField] private GameObject unitPrefab;
+
+    public TowerLevelType LevelType => levelType;
+    public int TilesToUpgrade => tilesToUpgrade;
+    public GameObject UnitPrefab => unitPrefab;
+}
