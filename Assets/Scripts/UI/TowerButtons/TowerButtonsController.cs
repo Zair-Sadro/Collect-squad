@@ -6,6 +6,7 @@ public class TowerButtonsController : MonoBehaviour
 {
     [SerializeField] private TileSetter playerTileSetter;
     [SerializeField] private GameObject buttonsLayout;
+    [SerializeField] private DestroyTowerButton destroyTowerButton;
     [SerializeField] private List<TowerButton> towerButtons = new List<TowerButton>();
 
     private void OnEnable()
@@ -22,6 +23,7 @@ public class TowerButtonsController : MonoBehaviour
 
     private void BuildZoneExit()
     {
+        destroyTowerButton.gameObject.SetActive(false);
         buttonsLayout.gameObject.SetActive(false);
         foreach (var b in towerButtons)
             b.RemoveSubs();
@@ -30,7 +32,11 @@ public class TowerButtonsController : MonoBehaviour
     private void BuildZoneEnter(TowerBuildPlatform currentBuildPlatform)
     {
         if (currentBuildPlatform.IsTowerBuild)
+        {
+            destroyTowerButton.gameObject.SetActive(true);
+            destroyTowerButton.Init(currentBuildPlatform);
             return;
+        }
 
         buttonsLayout.gameObject.SetActive(true);
         foreach (var b in towerButtons)

@@ -10,6 +10,7 @@ public abstract class ATowerObject : MonoBehaviour
 
     protected TowerLevel _currentLevel;
 
+
     public TowerData Data => data;
     public TowerLevel CurrentLevel => _currentLevel;
 

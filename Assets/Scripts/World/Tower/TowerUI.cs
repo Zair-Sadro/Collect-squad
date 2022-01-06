@@ -11,9 +11,16 @@ public class TowerUI : MonoBehaviour
     [SerializeField] private TMP_Text tilesCounter;
     [SerializeField] private Image unitSpawnTimer;
 
-    public void SetTilesCounter(int current, int needed)
+    public void SetTilesCounter(int current, int needed, bool isMaxLevel)
     {
-        tilesCounter.text = current + "/" + needed;
+        if(isMaxLevel)
+            tilesCounter.gameObject.SetActive(false);
+        else
+        {
+            tilesCounter.gameObject.SetActive(true);
+            tilesCounter.text = current + "/" + needed;
+        }
+
     }
 
     private void OnEnable()

@@ -15,11 +15,17 @@ MonoBehaviour:
   type: 3
   towerLevels:
   - levelType: 1
-    tilesToUpgrade: 10
-    unitPrefab: {fileID: 0}
-  - levelType: 2
+    isUpgradeable: 1
+    isMaxLevel: 0
     tilesToUpgrade: 20
     unitPrefab: {fileID: 0}
+  - levelType: 2
+    isUpgradeable: 1
+    isMaxLevel: 0
+    tilesToUpgrade: 30
+    unitPrefab: {fileID: 0}
   - levelType: 3
+    isUpgradeable: 0
+    isMaxLevel: 1
     tilesToUpgrade: 30
     unitPrefab: {fileID: 0}

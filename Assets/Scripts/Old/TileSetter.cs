@@ -90,7 +90,6 @@ public class TileSetter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.TryGetComponent(out TowerBuildPlatform t))
         {
             OnBuildZoneEnter?.Invoke(t);

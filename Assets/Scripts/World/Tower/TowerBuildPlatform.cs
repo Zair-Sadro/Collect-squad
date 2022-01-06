@@ -23,6 +23,7 @@ public class TowerBuildPlatform : MonoBehaviour
 
     public event Action<int> OnTilesIncrease;
     public event Action OnNotEnoughTiles;
+    public event Action OnMaxLevelTowerReach;
 
     private ATowerObject _previousTower;
     private ATowerObject _activeTower;
@@ -40,7 +41,7 @@ public class TowerBuildPlatform : MonoBehaviour
     #endregion
 
 
-    private void OnEnable()
+    private void Start()
     {
         CreateBuildPlatform();
     }
@@ -48,32 +49,36 @@ public class TowerBuildPlatform : MonoBehaviour
     private void CreateBuildPlatform()
     {
         var platform = towers.Where(t => t.Data.Type == UnitType.DontMatter).FirstOrDefault();
+        platform.Init();
         BuiltTower(platform);
     }
 
     private void IncreaseTilesAmount()
     {
         if (_currentTiles >= _tilesToUpgrade)
-        {
-            TryToUpgradeTower();
             return;
-        }
+
         _currentTiles++;
-        towerUI.SetTilesCounter(_currentTiles, _tilesToUpgrade);
+
+        towerUI.SetTilesCounter(_currentTiles, _tilesToUpgrade, _activeTower.CurrentLevel.IsMaxLevel);
         OnTilesIncrease?.Invoke(_currentTiles);
     }
 
     private void TryToUpgradeTower()
     {
-        bool canUpgrade = _previousTower.CurrentLevel.LevelType != TowerLevelType.None &&
-                          _previousTower.CurrentLevel.LevelType != TowerLevelType.level3;
+        bool canUpgrade = _activeTower.CurrentLevel.IsUpgradeable && !_activeTower.CurrentLevel.IsMaxLevel;
 
-        if(canUpgrade)
+        if (canUpgrade)
         {
-            var nextLevelTower = towers.Where(t => t.Data.Type == _previousTower.Data.Type &&
-                                              t.CurrentLevel.LevelType == _previousTower.CurrentLevel.LevelType + 1).FirstOrDefault();
-            if(nextLevelTower)
-                BuiltTower(nextLevelTower);
+            var nextLevelTower = _activeTower as TowerObject;
+
+            if (_activeTower.CurrentLevel.IsMaxLevel)
+            {
+                OnMaxLevelTowerReach?.Invoke();
+                return;
+            }
+            else
+                BuiltTower(nextLevelTower.NextLevelTower);
         }
     }
 
@@ -98,9 +103,8 @@ public class TowerBuildPlatform : MonoBehaviour
             return;
         }
         DisablePreviousTower(_activeTower);
-        CreateNewTower(tower.Data.Type);
+        CreateNewTower(tower);
         StartCoroutine(ResetTilesGet(resetTime));
-        _isTowerBuild = true;
     }
 
     private void CreateNewTower(UnitType type)
@@ -111,11 +115,18 @@ public class TowerBuildPlatform : MonoBehaviour
         _activeTower = tower;
     }
 
+    private void CreateNewTower(ATowerObject tower)
+    {
+        tower.gameObject.SetActive(true);
+        ResetTilesCounter(tower.CurrentLevel);
+        _activeTower = tower;
+    }
+
     private void ResetTilesCounter(TowerLevel towerLevel)
     {
         _currentTiles = 0;
         _tilesToUpgrade = towerLevel.TilesToUpgrade;
-        towerUI.SetTilesCounter(_currentTiles, _tilesToUpgrade);
+        towerUI.SetTilesCounter(_currentTiles, _tilesToUpgrade, towerLevel.IsMaxLevel);
     }
 
     public void DestroyTower()
@@ -125,8 +136,15 @@ public class TowerBuildPlatform : MonoBehaviour
             Debug.Log("<color=yellow> Can't find tower to destroy </color>");
             return;
         }
+        var platform = towers.Where(t => t.Data.Type == UnitType.DontMatter).FirstOrDefault();
+        platform.Init();
 
-
+        _activeTower.gameObject.SetActive(false);
+        _previousTower = null;
+        _activeTower = platform;
+        platform.gameObject.SetActive(true);
+        ResetTilesCounter(platform.CurrentLevel);
+        _isTowerBuild = false;
     }
 
     private void DisablePreviousTower(ATowerObject tower)
@@ -143,6 +161,7 @@ public class TowerBuildPlatform : MonoBehaviour
         {
             if (_currentTiles >= _tilesToUpgrade)
             {
+                TryToUpgradeTower();
                 tileSetter.StopAllCoroutines();
                 return;
             }

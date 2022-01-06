@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildPlatformObject : ATowerObject
+public interface IDamageable
 {
-   
+    void TakeDamage(int amount);
 }
