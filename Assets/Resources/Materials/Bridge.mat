@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Bridge
-  m_Shader: {fileID: 4800000, guid: bcda9a4af3b5d8246a2910cff3e5af44, type: 3}
+  m_Shader: {fileID: 4800000, guid: 4609c28b77ae6c04689a8ba2b2fccba7, type: 3}
   m_ShaderKeywords: TCP2_MOBILE TCP2_REFLECTIONS_FRESNEL TCP2_RIM_LIGHTING_LIGHTMASK
     TCP2_UV_NORMALS_FULL
   m_LightmapFlags: 4
@@ -126,8 +126,8 @@ Material:
     - _ReflectionMapType: 0
     - _ReflectionSmoothness: 0.5
     - _RenderingMode: 0
-    - _RimMax: 0.703
-    - _RimMin: 0.656
+    - _RimMax: 1
+    - _RimMin: 0.605
     - _SingleIndirectColor: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -154,13 +154,13 @@ Material:
     - _UseSpecular: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.42121446, g: 0.754717, b: 0.33107865, a: 1}
-    - _Color: {r: 0.7735849, g: 0.47130197, b: 0.22258809, a: 1}
+    - _BaseColor: {r: 0.4245283, g: 0.39449093, b: 0.39449093, a: 1}
+    - _Color: {r: 0.4245283, g: 0.41852084, b: 0.41852084, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HColor: {r: 0.8213664, g: 0.9433962, b: 0.7965468, a: 1}
+    - _HColor: {r: 1, g: 1, b: 1, a: 1}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _RimColor: {r: 0.3679245, g: 0.210366, b: 0.13016197, a: 0.5}
-    - _SColor: {r: 0.3679245, g: 0.33147916, b: 0.33147916, a: 1}
+    - _RimColor: {r: 0.7830189, g: 0.7202296, b: 0.7202296, a: 0.5}
+    - _SColor: {r: 0.26415092, g: 0.2629049, b: 0.2629049, a: 1}
     - _SpecularColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
