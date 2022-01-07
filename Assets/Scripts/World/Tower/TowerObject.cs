@@ -10,16 +10,39 @@ public class TowerObject : ATowerObject, IDamageable
     [SerializeField, Range(1,1000)] private int maxHp;
     [SerializeField] private ATowerObject nextLevelTower;
     [Header("Units Settings")]
+    [SerializeField, Min(0)] private float spawnTime;
     [SerializeField] private Transform spawnPoint;
 
     private int _currentHp;
 
     public ATowerObject NextLevelTower => nextLevelTower;
 
-    public override void Init()
+    public override void Init(TowerBuildPlatform buildPlatform)
     {
-        base.Init();
+        base.Init(buildPlatform);
         _currentHp = maxHp;
+    }
+
+    private void OnEnable()
+    {
+        StartSpawn();
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
+    private void StartSpawn()
+    {
+        StartCoroutine(UnitSpawning(spawnTime));
+    }
+
+    private IEnumerator UnitSpawning(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Debug.Log("Spawn Unit");
+        StartSpawn();
     }
 
     public void TakeDamage(int amount)
@@ -31,6 +54,6 @@ public class TowerObject : ATowerObject, IDamageable
 
     private void DestroyTower()
     {
-        
+        _currentBuildPlatform.DestroyTower();
     }
 }
