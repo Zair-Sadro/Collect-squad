@@ -19,8 +19,9 @@ public class TowerBuildPlatform : MonoBehaviour
     [SerializeField] private Transform enemyTowerTarget;
 
     [SerializeField] private List<ATowerObject> towers = new List<ATowerObject>();
-    
 
+
+    public event Action<TowerBuildPlatform> OnTowerBuild;
     public event Action<int> OnTilesIncrease;
     public event Action OnNotEnoughTiles;
     public event Action OnMaxLevelTowerReach;
@@ -40,6 +41,16 @@ public class TowerBuildPlatform : MonoBehaviour
 
     #endregion
 
+    private void OnEnable()
+    {
+        InitTowers();
+    }
+
+    private void InitTowers()
+    {
+        for (int i = 0; i < towers.Count; i++)
+            towers[i].Init(this);
+    }
 
     private void Start()
     {
@@ -49,18 +60,20 @@ public class TowerBuildPlatform : MonoBehaviour
     private void CreateBuildPlatform()
     {
         var platform = towers.Where(t => t.Data.Type == UnitType.DontMatter).FirstOrDefault();
-        platform.Init();
         BuiltTower(platform);
     }
 
     private void IncreaseTilesAmount()
     {
-        if (_currentTiles >= _tilesToUpgrade)
+        if (_tilesToUpgrade == 0)
+        {
+            towerUI.ToggleCounter(false);
             return;
+        }
 
-        _currentTiles++;
+        _tilesToUpgrade--;
 
-        towerUI.SetTilesCounter(_currentTiles, _tilesToUpgrade, _activeTower.CurrentLevel.IsMaxLevel);
+        towerUI.SetTilesCounter(_tilesToUpgrade, _activeTower.CurrentLevel.IsMaxLevel);
         OnTilesIncrease?.Invoke(_currentTiles);
     }
 
@@ -93,6 +106,7 @@ public class TowerBuildPlatform : MonoBehaviour
         CreateNewTower(type);
         StartCoroutine(ResetTilesGet(resetTime));
         _isTowerBuild = true;
+        OnTowerBuild?.Invoke(this);
     }
 
     public void BuiltTower(ATowerObject tower)
@@ -126,7 +140,7 @@ public class TowerBuildPlatform : MonoBehaviour
     {
         _currentTiles = 0;
         _tilesToUpgrade = towerLevel.TilesToUpgrade;
-        towerUI.SetTilesCounter(_currentTiles, _tilesToUpgrade, towerLevel.IsMaxLevel);
+        towerUI.SetTilesCounter(_tilesToUpgrade, towerLevel.IsMaxLevel);
     }
 
     public void DestroyTower()
@@ -137,7 +151,6 @@ public class TowerBuildPlatform : MonoBehaviour
             return;
         }
         var platform = towers.Where(t => t.Data.Type == UnitType.DontMatter).FirstOrDefault();
-        platform.Init();
 
         _activeTower.gameObject.SetActive(false);
         _previousTower = null;
@@ -159,8 +172,9 @@ public class TowerBuildPlatform : MonoBehaviour
     {
         if(other.TryGetComponent(out TileSetter tileSetter))
         {
-            if (_currentTiles >= _tilesToUpgrade)
+            if (_tilesToUpgrade <= 0)
             {
+                towerUI.ToggleCounter(false);
                 TryToUpgradeTower();
                 tileSetter.StopAllCoroutines();
                 return;

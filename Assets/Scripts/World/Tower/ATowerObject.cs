@@ -9,21 +9,16 @@ public abstract class ATowerObject : MonoBehaviour
     [SerializeField] protected TowerLevelType levelType;
 
     protected TowerLevel _currentLevel;
-
+    protected TowerBuildPlatform _currentBuildPlatform;
 
     public TowerData Data => data;
     public TowerLevel CurrentLevel => _currentLevel;
 
 
-    public virtual void OnEnable()
+    public virtual void Init(TowerBuildPlatform buildPlatform)
     {
-        Init();
-    }
-
-    public virtual void Init()
-    {
-        Debug.Log(data.name + "is build");
         _currentLevel = data.TowerLevels.Where(t => t.LevelType == levelType).FirstOrDefault();
+        _currentBuildPlatform = buildPlatform;
     }
 
 
