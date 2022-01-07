@@ -36,11 +36,11 @@ public class TowerLevel
     [SerializeField] private bool isUpgradeable;
     [SerializeField] private bool isMaxLevel;
     [SerializeField] private int tilesToUpgrade;
-    [SerializeField] private GameObject unitPrefab;
+    [SerializeField] private BattleUnit unitPrefab;
 
     public TowerLevelType LevelType => levelType;
     public int TilesToUpgrade => tilesToUpgrade;
-    public GameObject UnitPrefab => unitPrefab;
+    public BattleUnit UnitPrefab => unitPrefab;
     public bool IsMaxLevel => isMaxLevel;
     public bool IsUpgradeable => isUpgradeable;
 }

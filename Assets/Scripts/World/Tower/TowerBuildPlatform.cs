@@ -36,6 +36,7 @@ public class TowerBuildPlatform : MonoBehaviour
 
     #region Properties
 
+    public Transform EnemyTower => enemyTowerTarget;
     public int CurrentTiles => _currentTiles;
     public bool IsTowerBuild => _isTowerBuild;
 

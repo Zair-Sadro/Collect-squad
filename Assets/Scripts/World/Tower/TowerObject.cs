@@ -41,7 +41,9 @@ public class TowerObject : ATowerObject, IDamageable
     private IEnumerator UnitSpawning(float time)
     {
         yield return new WaitForSeconds(time);
-        Debug.Log("Spawn Unit");
+        BattleUnit newUnit = Instantiate(CurrentLevel.UnitPrefab, this.transform);
+        newUnit.transform.localPosition = spawnPoint.localPosition;
+        newUnit.Init(_currentBuildPlatform.EnemyTower);
         StartSpawn();
     }
 
