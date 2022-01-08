@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 4738123549919608444}
   - component: {fileID: 3382843288222352596}
   - component: {fileID: 3382843288222352597}
+  - component: {fileID: 5460220877417812841}
   m_Layer: 0
   m_Name: Sword Tower lvl2
   m_TagString: Untagged
@@ -237,8 +238,24 @@ MonoBehaviour:
   levelType: 2
   maxHp: 200
   nextLevelTower: {fileID: 0}
-  spawnTime: 2
+  spawnTime: 5
   spawnPoint: {fileID: 0}
+--- !u!208 &5460220877417812841
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5371355023000118470}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.435, y: 2.8746126, z: 1.79}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 2.374613, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8972960778237272729
 GameObject:
   m_ObjectHideFlags: 0

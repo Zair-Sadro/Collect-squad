@@ -13,9 +13,10 @@ public class TowerBuildPlatform : MonoBehaviour
     [Header("Build Settings")]
     [SerializeField] private Collider coll;
     [SerializeField, Min(0)] private float resetTime;
-    
+
 
     [Header("Unit Target Tower")]
+    [SerializeField] private UnitTeam currentTeam;
     [SerializeField] private Transform enemyTowerTarget;
 
     [SerializeField] private List<ATowerObject> towers = new List<ATowerObject>();
@@ -36,6 +37,7 @@ public class TowerBuildPlatform : MonoBehaviour
 
     #region Properties
 
+    public UnitTeam CurrentTeam => currentTeam;
     public Transform EnemyTower => enemyTowerTarget;
     public int CurrentTiles => _currentTiles;
     public bool IsTowerBuild => _isTowerBuild;
@@ -60,7 +62,7 @@ public class TowerBuildPlatform : MonoBehaviour
 
     private void CreateBuildPlatform()
     {
-        var platform = towers.Where(t => t.Data.Type == UnitType.DontMatter).FirstOrDefault();
+        var platform = towers.Where(t => t.Data.Type == UnitType.Tower).FirstOrDefault();
         BuiltTower(platform);
     }
 
@@ -151,7 +153,7 @@ public class TowerBuildPlatform : MonoBehaviour
             Debug.Log("<color=yellow> Can't find tower to destroy </color>");
             return;
         }
-        var platform = towers.Where(t => t.Data.Type == UnitType.DontMatter).FirstOrDefault();
+        var platform = towers.Where(t => t.Data.Type == UnitType.Tower).FirstOrDefault();
 
         _activeTower.gameObject.SetActive(false);
         _previousTower = null;

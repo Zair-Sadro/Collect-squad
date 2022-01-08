@@ -37,4 +37,9 @@ public abstract class ASimpleStateController : MonoBehaviour
         _currentState.StartState();
     }
    
+    public AState GetState(StateType state)
+    {
+        return states.Where(s => s.StateType == state).FirstOrDefault();
+    }
+
 }

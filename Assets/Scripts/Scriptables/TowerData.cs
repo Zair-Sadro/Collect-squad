@@ -5,7 +5,7 @@ using System.Linq;
 
 public enum UnitType
 {
-    DontMatter, Sword, Spear, Bow
+    Tower, Sword, Spear, Bow
 }
 
 public enum TowerLevelType

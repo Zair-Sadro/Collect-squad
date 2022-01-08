@@ -13,11 +13,10 @@ public enum StateType
 public abstract class AState : MonoBehaviour
 {
     [SerializeField] protected StateCondition stateCondition;
-    [SerializeField] protected StateType stateType;
 
     protected ASimpleStateController _stateController;
 
-    public StateType StateType => stateType;
+    public abstract StateType StateType { get; }
 
     public abstract void Init(ASimpleStateController stateController);
 
