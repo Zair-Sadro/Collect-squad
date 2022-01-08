@@ -22,7 +22,6 @@ public class UnitChaseState : AState
 
     public override void StartState()
     {
-        Debug.Log("Starting state" + this.gameObject.name);
         stateCondition = StateCondition.Executing;
         LocalInit();
 
@@ -43,37 +42,47 @@ public class UnitChaseState : AState
         if (stateCondition != StateCondition.Executing)
             return;
 
-        Collider[] enemyTarget = Physics.OverlapSphere(transform.position, detectionRadius);
-        if (enemyTarget.Length > 0)
+        Collider[] enemyTargets = Physics.OverlapSphere(transform.position, detectionRadius);
+        if (enemyTargets.Length > 0)
         {
-            if (DetectedEnemyObject(enemyTarget[0], out var enemy))
+            for (int i = 0; i < enemyTargets.Length; i++)
             {
-                _navAgent.SetDestination(enemy.Transform.position);
-                Vector3 dist = enemy.Transform.position - transform.position;
-                if (dist.magnitude <= attackDistance)
+                if (DetectedEnemyObject(enemyTargets[i], out var enemy))
                 {
-                    var attackState = (UnitAttackState)_stateController.GetState(StateType.Attack);
-                    _stateController.ChangeState(StateType.Attack);
-                    attackState.AttackingTarget = enemy.Transform;
+                    SetTarget(enemy.Transform.position);
+                    Vector3 dist = enemy.Transform.position - transform.position;
+                    if (dist.magnitude <= attackDistance)
+                    {
+                        var attackState = (UnitAttackState)_stateController.GetState(StateType.Attack);
+                        _stateController.ChangeState(StateType.Attack);
+                        attackState.AttackingTarget = enemy.Transform;
+                    }
                 }
+                else
+                    SetTarget(_target.position);
             }
-            else
-                _navAgent.destination = _target.position;
         }
     }
-
-    private bool DetectedEnemyObject(Collider coll, out ITeamChangeable enemy)
+   
+    private void SetTarget(Vector3 target)
     {
-        var enemyInParent = coll.GetComponentInParent<ITeamChangeable>();
-        var enemyInChildren = coll.GetComponentInChildren<ITeamChangeable>();
+        if (_navAgent.enabled)
+            _navAgent.destination = target;
+    }
 
-        if (enemyInParent != null && enemyInParent.MyTeam != _thisUnitTeam)
+
+    private bool DetectedEnemyObject(Collider coll, out IBattleUnit enemy)
+    {
+        var enemyInParent = coll.GetComponentInParent<IBattleUnit>();
+        var enemyInChildren = coll.GetComponentInChildren<IBattleUnit>();
+
+        if (enemyInParent != null && enemyInParent.TeamObject.MyTeam != _thisUnitTeam)
         {
             enemy = enemyInParent;
             return true;
         }
 
-        if(enemyInChildren != null && enemyInChildren.MyTeam != _thisUnitTeam)
+        if(enemyInChildren != null && enemyInChildren.TeamObject.MyTeam != _thisUnitTeam)
         {
             enemy = enemyInChildren;
             return true;
@@ -86,8 +95,9 @@ public class UnitChaseState : AState
 
     public override void Stop()
     {
-        Debug.Log("Stoping state" + this.gameObject.name);
         stateCondition = StateCondition.Stopped;
+        _navAgent.ResetPath();
+        _navAgent.enabled = false;
         unitAnimator.SetBool("Run", false);
     }
 

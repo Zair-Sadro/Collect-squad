@@ -25,7 +25,6 @@ public class UnitAttackState : AState
 
     public override void StartState()
     {
-        Debug.Log("Starting state" + this.gameObject.name);
         stateCondition = StateCondition.Executing;
         LocalInit();
     }
@@ -52,18 +51,16 @@ public class UnitAttackState : AState
                 _stateController.ChangeState(StateType.Chase);
             else
                 _curCheckTime -= Time.deltaTime;
-           
-            
-           //Vector3 dir = AttackingTarget.position - _currentUnit.transform.position;
-           //Quaternion rot = Quaternion.LookRotation(Vector3.forward, dir);
-           //_currentUnit.transform.rotation = Quaternion.RotateTowards(_currentUnit.transform.rotation, rot, 600 * Time.deltaTime);
+
+            _currentUnit.transform.LookAt(AttackingTarget);
         }
-        
+        else
+            _stateController.ChangeState(StateType.Chase);
+
     }
 
     public override void Stop()
     {
         stateCondition = StateCondition.Stopped;
-        Debug.Log("Stoping state" + this.gameObject.name);
     }
 }

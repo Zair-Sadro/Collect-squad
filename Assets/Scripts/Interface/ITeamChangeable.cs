@@ -5,5 +5,5 @@ using UnityEngine;
 public interface ITeamChangeable 
 {
      UnitTeam MyTeam { get; }
-     Transform Transform { get; }
+     
 }

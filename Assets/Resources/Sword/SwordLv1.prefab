@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
+  timeToCheckTargets: 1
   isMovingWhenAttack: 0
   weapon: {fileID: 685175367895951461}
   unitAnimator: {fileID: 2735594666397910445}
@@ -360,7 +361,7 @@ MonoBehaviour:
   - Type: 0
     DamageToType: 1
   - Type: 1
-    DamageToType: 2
+    DamageToType: 1
   - Type: 2
     DamageToType: 2
   - Type: 3
@@ -1163,6 +1164,7 @@ GameObject:
   - component: {fileID: 293421591}
   - component: {fileID: 293421592}
   - component: {fileID: 293421593}
+  - component: {fileID: -8954424198973063499}
   m_Layer: 0
   m_Name: SwordLv1
   m_TagString: BotSwordLvl1
@@ -1290,10 +1292,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  health: 2
-  moveSpeed: 4
+  health: 3
+  moveSpeed: 1
   timeToDie: 0
   stateMachine: {fileID: 293421592}
+--- !u!208 &-8954424198973063499
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3902082482770664250}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.82, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &3950709945234543178
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUn
 {
     [SerializeField] private UnitType type;
     [SerializeField,Range(1,100)] private float health;
-    [SerializeField,Range(1,100)] private float moveSpeed;
+    [SerializeField,Range(0.1f,10)] private float moveSpeed;
     [SerializeField, Min(0)] private float timeToDie;
     [SerializeField] private UnitStateController stateMachine;
 
@@ -57,7 +57,7 @@ public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUn
 
     private IEnumerator Dying (float dieTime)
     {
-        //play death anim
+        Destroy(this.gameObject);
         yield return new WaitForSeconds(dieTime);
         //destroy gameobj
     }
