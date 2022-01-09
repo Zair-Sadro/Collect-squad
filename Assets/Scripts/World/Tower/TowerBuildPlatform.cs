@@ -37,6 +37,7 @@ public class TowerBuildPlatform : MonoBehaviour
 
     #region Properties
 
+    public ATowerObject ActiveTower => _activeTower;
     public UnitTeam CurrentTeam => currentTeam;
     public Transform EnemyTower => enemyTowerTarget;
     public int CurrentTiles => _currentTiles;
@@ -122,6 +123,7 @@ public class TowerBuildPlatform : MonoBehaviour
         DisablePreviousTower(_activeTower);
         CreateNewTower(tower);
         StartCoroutine(ResetTilesGet(resetTime));
+        OnTowerBuild?.Invoke(this);
     }
 
     private void CreateNewTower(UnitType type)

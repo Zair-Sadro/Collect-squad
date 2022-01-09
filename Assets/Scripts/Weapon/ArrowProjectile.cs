@@ -7,39 +7,54 @@ public class ArrowProjectile : ASpawnedObject
 {
 
     [SerializeField] private Rigidbody body;
-    [SerializeField] private float gravity = -18;
-    [SerializeField,Min(1)] private float heightOffset;
+    [SerializeField] private float speed = 10;
+    [SerializeField] private float timeToDisable = 2;
+    [SerializeField] private DamageCollider damageColl;
 
     private float _height;
     private Transform _target;
 
-    public void Init( Transform target)
+    public void Init( Transform target, AWeapon bow, BattleUnit thisUnit)
     {
         _target = target;
+        damageColl.Init(bow, thisUnit);
     }
 
 
-    private void FixedUpdate()
+    private void OnEnable()
     {
         GoToTarget();
     }
 
+
+    private void OnDisable()
+    {
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        body.velocity = Vector3.zero;
+    }
+
     private void GoToTarget()
     {
-        Physics.gravity = Vector3.up * gravity;
-        body.velocity = CallculateVelocity();
-        transform.LookAt(CallculateVelocity());
+        if (_target == null)
+            return;
+
+        StartCoroutine(Targeting(timeToDisable));
     }
 
-    private Vector3 CallculateVelocity()
+    private IEnumerator Targeting(float time)
     {
-        float yDir = _target.position.y - transform.position.y;
-        Vector3 xzDir = new Vector3(_target.position.x - transform.position.x, 0, _target.position.z - transform.position.z);
-        _height = xzDir.magnitude / heightOffset;
+        for (float i = 0; i < time; i+= Time.deltaTime)
+        {
+            if (_target == null)
+                yield break;
 
-        Vector3 velocityY = Vector3.up * Mathf.Sqrt(-2 * gravity * _height);
-        Vector3 velocityXZ = xzDir /(Mathf.Sqrt(-2 * _height / gravity) + Mathf.Sqrt(2 * (yDir - _height) / gravity));
-
-        return velocityY + velocityXZ;
+            var dir = _target.position - transform.position;
+            body.velocity = dir.normalized * speed;
+            yield return new WaitForEndOfFrame();
+        }
+        this.gameObject.SetActive(false);
     }
+
+    
+ 
 }

@@ -3,27 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangeWeapon : AWeapon
+public class BowWeapon : AWeapon
 {
     [SerializeField] private UnitAttackState attackState;
     [SerializeField] private ArrowSpawner arrowSpawner;
+    [SerializeField] private BattleUnit _currentUnit;
 
     public override WeaponType WeaponType => WeaponType.Range;
 
-    private void OnEnable()
+    private void Start()
     {
         InitArrows();
     }
 
     private void InitArrows()
     {
-
+        foreach (Transform child in transform)
+        {
+            if (child.TryGetComponent(out ArrowProjectile arrow))
+                arrow.Init(attackState.AttackingTarget, this, _currentUnit);
+        }  
     }
 
     public override void Attack()
     {
         if (State == WeaponState.Serenity)
         {
+            InitArrows();
             StopAllCoroutines();
             StartCoroutine(Attacking(WeaponSettings.TimeToAttack));
         }

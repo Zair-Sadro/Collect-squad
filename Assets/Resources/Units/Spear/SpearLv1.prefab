@@ -316,9 +316,9 @@ MonoBehaviour:
   - Type: 3
     DamageToType: 4
   weaponSettings:
-    TimeToAttack: 0.7
+    TimeToAttack: 1.2
     DamageTime: 0.2
-    TimeToReload: 1.3
+    TimeToReload: 0.2
     SerenityTime: 0
   damageColl: {fileID: 7013027136466745994}
 --- !u!1 &976868528664972874
@@ -624,7 +624,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &139218858938727255
 BoxCollider:
@@ -673,7 +673,6 @@ MonoBehaviour:
   type: 2
   health: 5
   moveSpeed: 0.7
-  timeToDie: 0
   stateMachine: {fileID: 668223887570475633}
 --- !u!114 &668223887570475633
 MonoBehaviour:
@@ -692,7 +691,9 @@ MonoBehaviour:
   states:
   - {fileID: 4067417859822415187}
   - {fileID: 7799778140592750529}
+  - {fileID: 3335204728115391081}
   navAgent: {fileID: 3489903848760182318}
+  navObstacle: {fileID: -6403643774555626612}
 --- !u!195 &3489903848760182318
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1207,6 +1208,53 @@ Transform:
   m_Father: {fileID: 7995518192977680979}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3314167499702133293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3199580374185713906}
+  - component: {fileID: 3335204728115391081}
+  m_Layer: 0
+  m_Name: Death
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3199580374185713906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3314167499702133293}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: -0.03700006, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5495819973626119029}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3335204728115391081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3314167499702133293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8632219239f2154f98dd517c86bda32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateCondition: 0
+  timeToDie: 3
+  unitAnimator: {fileID: 6733816612413939691}
+  coll: {fileID: 139218858938727255}
 --- !u!1 &3349099502401455089
 GameObject:
   m_ObjectHideFlags: 0
@@ -2088,7 +2136,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6533874808541880622}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2146,7 +2194,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 5847123964665949784}
-  _currentUnit: {fileID: 4766328390179673144}
+  currentUnit: {fileID: 4766328390179673144}
+  OnColliderEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6661235214572240335
 GameObject:
   m_ObjectHideFlags: 0
@@ -2176,6 +2227,7 @@ Transform:
   m_Children:
   - {fileID: 5971987632354706142}
   - {fileID: 6788818368087713078}
+  - {fileID: 3199580374185713906}
   m_Father: {fileID: 1307488097908443128}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

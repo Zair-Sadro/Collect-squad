@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 public class UnitAttackState : AState
 {
@@ -10,7 +11,9 @@ public class UnitAttackState : AState
     [SerializeField] private AWeapon weapon;
     [SerializeField] private Animator unitAnimator;
 
+
     private NavMeshAgent _navAgent;
+    private NavMeshObstacle _navObstacle;
     private BattleUnit _currentUnit;
 
     private float _curCheckTime;
@@ -32,8 +35,12 @@ public class UnitAttackState : AState
     private void LocalInit()
     {
         _navAgent = _stateController.UnitController.NavAgent;
+        _navObstacle = _stateController.UnitController.NavObstacle;
         _currentUnit = _stateController.UnitController.CurrentUnit;
+
         _navAgent.enabled = isMovingWhenAttack;
+        _navObstacle.enabled = isMovingWhenAttack;
+
         _curCheckTime = timeToCheckTargets;
         unitAnimator.SetTrigger("Attack");
     }
@@ -62,5 +69,10 @@ public class UnitAttackState : AState
     public override void Stop()
     {
         stateCondition = StateCondition.Stopped;
+    }
+
+    public void SetTarget(Transform target)
+    {
+        AttackingTarget = target;
     }
 }

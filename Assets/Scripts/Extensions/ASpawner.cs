@@ -11,6 +11,8 @@ public abstract class ASpawner : MonoBehaviour
 
     protected ObjectPooler<ASpawnedObject> objectPooler;
 
+    public ObjectPooler<ASpawnedObject> ObjectPooler => objectPooler;
+
     protected virtual void Start()
     {
         InitPooler();

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public enum UnitTeam
 {
@@ -13,7 +14,6 @@ public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUn
     [SerializeField] private UnitType type;
     [SerializeField,Range(1,100)] private float health;
     [SerializeField,Range(0.1f,10)] private float moveSpeed;
-    [SerializeField, Min(0)] private float timeToDie;
     [SerializeField] private UnitStateController stateMachine;
 
     private UnitTeam _team;
@@ -52,15 +52,10 @@ public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUn
 
     public void Die()
     {
-        StartCoroutine(Dying(timeToDie));
+        stateMachine.ChangeState(StateType.Die);
     }
 
-    private IEnumerator Dying (float dieTime)
-    {
-        Destroy(this.gameObject);
-        yield return new WaitForSeconds(dieTime);
-        //destroy gameobj
-    }
+   
 
     
 }

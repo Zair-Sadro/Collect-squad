@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
+using DG.Tweening;
 
 public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUnit
 {
@@ -17,6 +18,9 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
     private float _currentHp;
     private UnitTeam _currentTeam;
 
+    public event Action<float, float> OnGetDamaged;
+    public event Action<TowerObject> OnCurrentTowerDestroy;
+
     #region Properties
 
     public ITeamChangeable TeamObject => this;
@@ -25,6 +29,7 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
     public Transform Transform => transform;
     public UnitType Type => UnitType.Tower;
     public IDamageable Damageable => this;
+    public float SpawnTime => spawnTime;
 
     #endregion
 
@@ -63,12 +68,17 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
     public void TakeDamage(float amount)
     {
         _currentHp -= amount;
+        OnGetDamaged?.Invoke(_currentHp, maxHp);
+        transform.DORewind();
+        transform.DOShakeScale(0.1f, 0.05f);
+
         if (_currentHp < 0)
             DestroyTower();
     }
 
     private void DestroyTower()
     {
+        OnCurrentTowerDestroy?.Invoke(this);
         _currentBuildPlatform.DestroyTower();
     }
 }

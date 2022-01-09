@@ -293,6 +293,53 @@ Transform:
   m_Father: {fileID: 5294569756660092265}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 5.774877, y: -2.2889802, z: -43.21388}
+--- !u!1 &1138219954126839542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6336482940088734918}
+  - component: {fileID: 2341269337329937561}
+  m_Layer: 0
+  m_Name: Death
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6336482940088734918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138219954126839542}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0.110000014, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5021883112868922563}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2341269337329937561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138219954126839542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8632219239f2154f98dd517c86bda32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateCondition: 0
+  timeToDie: 3
+  unitAnimator: {fileID: 1084048710491835218}
+  coll: {fileID: 3639609021860440173}
 --- !u!1 &1276578924825758614
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +612,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &3639609021860440173
 BoxCollider:
@@ -614,7 +661,6 @@ MonoBehaviour:
   type: 2
   health: 5
   moveSpeed: 0.7
-  timeToDie: 0
   stateMachine: {fileID: 113299781089674808}
 --- !u!114 &113299781089674808
 MonoBehaviour:
@@ -633,7 +679,9 @@ MonoBehaviour:
   states:
   - {fileID: 2621059650552090727}
   - {fileID: 8774259329828746503}
+  - {fileID: 2341269337329937561}
   navAgent: {fileID: 8617614220537574155}
+  navObstacle: {fileID: -2667260372516397678}
 --- !u!195 &8617614220537574155
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -862,7 +910,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2250487324712425557}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -920,7 +968,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 6890207262891441806}
-  _currentUnit: {fileID: 8470932260209975922}
+  currentUnit: {fileID: 8470932260209975922}
+  OnColliderEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2366510043677958280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,6 +1398,7 @@ Transform:
   m_Children:
   - {fileID: 2713636807587872230}
   - {fileID: 5984904354481898403}
+  - {fileID: 6336482940088734918}
   m_Father: {fileID: 1307488097908443128}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1435,9 +1487,9 @@ MonoBehaviour:
   - Type: 3
     DamageToType: 4
   weaponSettings:
-    TimeToAttack: 0.7
+    TimeToAttack: 1.2
     DamageTime: 0.2
-    TimeToReload: 1.3
+    TimeToReload: 0.2
     SerenityTime: 0
   damageColl: {fileID: 7386952048317283100}
 --- !u!1 &3728863345218019788
