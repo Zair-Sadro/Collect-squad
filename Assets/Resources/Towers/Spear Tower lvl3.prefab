@@ -192,7 +192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5141275496287934019
 Transform:
   m_ObjectHideFlags: 0
@@ -239,6 +239,7 @@ MonoBehaviour:
   levelType: 3
   maxHp: 300
   nextLevelTower: {fileID: 0}
+  firstUnitSpawnTime: 0
   spawnTime: 5
   spawnPoint: {fileID: 0}
 --- !u!208 &2669230894788573481
