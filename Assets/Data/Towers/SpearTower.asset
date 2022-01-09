@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4be33b07bb3c634f9b0259bf39b681d, type: 3}
+  m_Name: SpearTower
+  m_EditorClassIdentifier: 
+  type: 2
+  towerLevels:
+  - levelType: 1
+    isUpgradeable: 1
+    isMaxLevel: 0
+    tilesToUpgrade: 20
+    unitPrefab: {fileID: 4766328390179673144, guid: 384c088b61065614b9550ba5c04bfc5f,
+      type: 3}
+  - levelType: 2
+    isUpgradeable: 1
+    isMaxLevel: 0
+    tilesToUpgrade: 30
+    unitPrefab: {fileID: 2328211514598083203, guid: 39025d2bba12715478fed24f04d20e72,
+      type: 3}
+  - levelType: 3
+    isUpgradeable: 0
+    isMaxLevel: 1
+    tilesToUpgrade: 30
+    unitPrefab: {fileID: 8470932260209975922, guid: 21b8ddb35c1ae184cafc9d327b27456f,
+      type: 3}

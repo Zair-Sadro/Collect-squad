@@ -449,7 +449,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1592545978}
+      - m_Target: {fileID: 0}
         m_MethodName: VibrationOn
         m_Mode: 1
         m_Arguments:
@@ -1397,7 +1397,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1592545978}
+      - m_Target: {fileID: 0}
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -1623,7 +1623,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1592545978}
+      - m_Target: {fileID: 0}
         m_MethodName: VibrationOff
         m_Mode: 1
         m_Arguments:
@@ -2152,7 +2152,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1592545977}
   - component: {fileID: 1592545976}
-  - component: {fileID: 1592545978}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -2235,49 +2234,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 143.963, y: -75.621, z: -31.015015}
---- !u!114 &1592545978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1592545975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b8a38efadc700f4781fe4816de20f48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1909206431857355960, guid: 885dfe17eb1cba74a98a992d0550d5f1, type: 3}
-  bot: {fileID: 4955274720901307552, guid: e18814c4217b0914baf469276f3c4b29, type: 3}
-  winPanel: {fileID: 1401421948}
-  failedPanel: {fileID: 1401421948}
-  joystick: {fileID: 875482610}
-  winCoins: {fileID: 1565662676}
-  faildCoins: {fileID: 1565662676}
-  coins: {fileID: 1565662676}
-  liguesLevel:
-  - {fileID: 839414012}
-  - {fileID: 1690062014}
-  - {fileID: 2035508795}
-  - {fileID: 1422463958}
-  - {fileID: 1739624124}
-  ligues:
-  - {fileID: 914421894}
-  - {fileID: 111782355}
-  - {fileID: 801551679}
-  - {fileID: 1438806232}
-  - {fileID: 1085919237}
-  - {fileID: 1161920103}
-  - {fileID: 168431761}
-  - {fileID: 1791314586}
-  vibrationOn: {fileID: 313079858}
-  vibrationOff: {fileID: 1252816668}
-  levelNumber: 0
-  countCoins: 0
-  countLevels: 1
-  loadLevelLigue: 0
-  loadLigue: 0
-  vibration: 0
 --- !u!1 &1665605144
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4be33b07bb3c634f9b0259bf39b681d, type: 3}
+  m_Name: BowTower
+  m_EditorClassIdentifier: 
+  type: 3
+  towerLevels:
+  - levelType: 1
+    isUpgradeable: 1
+    isMaxLevel: 0
+    tilesToUpgrade: 20
+    unitPrefab: {fileID: 5586038852656232383, guid: 4b6f8579464083e45a4c7035a05ac2a6,
+      type: 3}
+  - levelType: 2
+    isUpgradeable: 1
+    isMaxLevel: 0
+    tilesToUpgrade: 30
+    unitPrefab: {fileID: 3164933995780442657, guid: 0676b82e406d49346b73a25282ba1bde,
+      type: 3}
+  - levelType: 3
+    isUpgradeable: 0
+    isMaxLevel: 1
+    tilesToUpgrade: 30
+    unitPrefab: {fileID: 5706321919283115982, guid: 6d01a83f94e39e945810f89bda919c9a,
+      type: 3}
