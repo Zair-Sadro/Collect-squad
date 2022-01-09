@@ -18,14 +18,16 @@ MonoBehaviour:
     isUpgradeable: 1
     isMaxLevel: 0
     tilesToUpgrade: 20
-    unitPrefab: {fileID: 0}
+    unitPrefab: {fileID: 293421593, guid: 74d6753e1e2b8de44ba3bb7d78325343, type: 3}
   - levelType: 2
     isUpgradeable: 1
     isMaxLevel: 0
     tilesToUpgrade: 30
-    unitPrefab: {fileID: 0}
+    unitPrefab: {fileID: 1947128600206898454, guid: c79170907b1836042ad4f3ed60d3ec63,
+      type: 3}
   - levelType: 3
     isUpgradeable: 0
     isMaxLevel: 1
     tilesToUpgrade: 30
-    unitPrefab: {fileID: 0}
+    unitPrefab: {fileID: 4138240632278112201, guid: b90bc6d4398a07544a053cf976ad9ac3,
+      type: 3}

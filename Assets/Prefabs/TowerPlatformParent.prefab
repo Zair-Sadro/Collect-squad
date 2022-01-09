@@ -330,6 +330,7 @@ MonoBehaviour:
   towerUI: {fileID: 3382843288947136772}
   coll: {fileID: 3382843288824935632}
   resetTime: 2
+  currentTeam: 0
   enemyTowerTarget: {fileID: 0}
   towers:
   - {fileID: 3382843288201615676}

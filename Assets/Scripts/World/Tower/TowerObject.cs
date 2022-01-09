@@ -4,28 +4,40 @@ using UnityEngine;
 using System.Linq;
 using System;
 
-public class TowerObject : ATowerObject, IDamageable
+public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUnit
 {
     [Header("Tower settings")]
-    [SerializeField, Range(1,1000)] private int maxHp;
+    [SerializeField, Range(1,1000)] private float maxHp;
     [SerializeField] private ATowerObject nextLevelTower;
     [Header("Units Settings")]
+    [SerializeField, Min(0)] private float firstUnitSpawnTime;
     [SerializeField, Min(0)] private float spawnTime;
     [SerializeField] private Transform spawnPoint;
 
-    private int _currentHp;
+    private float _currentHp;
+    private UnitTeam _currentTeam;
 
+    #region Properties
+
+    public ITeamChangeable TeamObject => this;
+    public UnitTeam MyTeam => _currentTeam;
     public ATowerObject NextLevelTower => nextLevelTower;
+    public Transform Transform => transform;
+    public UnitType Type => UnitType.Tower;
+    public IDamageable Damageable => this;
+
+    #endregion
 
     public override void Init(TowerBuildPlatform buildPlatform)
     {
         base.Init(buildPlatform);
         _currentHp = maxHp;
+        _currentTeam = buildPlatform.CurrentTeam;
     }
 
     private void OnEnable()
     {
-        StartSpawn();
+        StartSpawn(firstUnitSpawnTime);
     }
 
     private void OnDisable()
@@ -33,19 +45,22 @@ public class TowerObject : ATowerObject, IDamageable
         StopAllCoroutines();
     }
 
-    private void StartSpawn()
+    private void StartSpawn(float time)
     {
-        StartCoroutine(UnitSpawning(spawnTime));
+        StartCoroutine(UnitSpawning(time));
     }
 
     private IEnumerator UnitSpawning(float time)
     {
         yield return new WaitForSeconds(time);
-        Debug.Log("Spawn Unit");
-        StartSpawn();
+        BattleUnit newUnit = Instantiate(CurrentLevel.UnitPrefab, this.transform);
+        newUnit.transform.localPosition = spawnPoint.localPosition;
+        newUnit.transform.parent = null;
+        newUnit.Init(_currentBuildPlatform.EnemyTower, _currentTeam);
+        StartSpawn(spawnTime);
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         _currentHp -= amount;
         if (_currentHp < 0)

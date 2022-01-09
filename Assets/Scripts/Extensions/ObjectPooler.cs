@@ -77,4 +77,9 @@ public class ObjectPooler<T> where T : MonoBehaviour
 
         return null;
     }
+
+    public List<T> GetPool()
+    {
+        return prefabPool;
+    }
 }
