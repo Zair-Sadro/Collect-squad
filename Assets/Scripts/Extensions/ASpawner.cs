@@ -7,6 +7,7 @@ public abstract class ASpawner : MonoBehaviour
 {
     [SerializeField] private ASpawnedObject prefab;
     [SerializeField] protected SpawnerParams spawnerParams;
+    [SerializeField] protected Transform container;
 
     protected ObjectPooler<ASpawnedObject> objectPooler;
 
@@ -17,7 +18,7 @@ public abstract class ASpawner : MonoBehaviour
 
     private void InitPooler()
     {
-        objectPooler = new ObjectPooler<ASpawnedObject>(prefab, this.transform);
+        objectPooler = new ObjectPooler<ASpawnedObject>(prefab, container);
         objectPooler.AutoExpand = spawnerParams.AutoExpandable;
         objectPooler.CreatePool(spawnerParams.QuantityInScene);
     }

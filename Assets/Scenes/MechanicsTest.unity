@@ -30337,6 +30337,7 @@ MonoBehaviour:
     maxX: 20.84
     minZ: 33.4
     maxZ: 62.67
+  container: {fileID: 0}
 --- !u!1001 &914179041
 PrefabInstance:
   m_ObjectHideFlags: 0
