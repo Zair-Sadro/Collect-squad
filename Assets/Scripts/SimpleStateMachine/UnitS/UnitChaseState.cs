@@ -9,11 +9,12 @@ public class UnitChaseState : AState
     [SerializeField, Range(1, 100)] private float attackDistance;
     [SerializeField] private Animator unitAnimator;
 
+    private NavMeshObstacle _navObstacle;
     private NavMeshAgent _navAgent;
     private Transform _target;
     private UnitTeam _thisUnitTeam;
 
-    public override StateType StateType => StateType.Chase;
+    public override StateType StateType => StateType.UnitChase;
 
     public override void Init(ASimpleStateController stateController)
     {
@@ -30,9 +31,12 @@ public class UnitChaseState : AState
     private void LocalInit()
     {
         _navAgent = _stateController.UnitController.NavAgent;
+        _navObstacle = _stateController.UnitController.NavObstacle;
         _target = _stateController.UnitController.ChaseTarget;
         _thisUnitTeam = _stateController.UnitController.CurrentUnit.MyTeam;
+
         _navAgent.enabled = true;
+        _navObstacle.enabled = true;
 
         unitAnimator.SetBool("Run", true);
     }
@@ -53,9 +57,9 @@ public class UnitChaseState : AState
                     Vector3 dist = enemy.Transform.position - transform.position;
                     if (dist.magnitude <= attackDistance)
                     {
-                        var attackState = (UnitAttackState)_stateController.GetState(StateType.Attack);
-                        _stateController.ChangeState(StateType.Attack);
-                        attackState.AttackingTarget = enemy.Transform;
+                        var attackState = (UnitAttackState)_stateController.GetState(StateType.UnitAttack);
+                        _stateController.ChangeState(StateType.UnitAttack);
+                        attackState.SetTarget(enemy.Transform);
                     }
                 }
                 else
@@ -98,6 +102,7 @@ public class UnitChaseState : AState
         stateCondition = StateCondition.Stopped;
         _navAgent.ResetPath();
         _navAgent.enabled = false;
+        _navObstacle.enabled = false;
         unitAnimator.SetBool("Run", false);
     }
 

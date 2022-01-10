@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
+using DG.Tweening;
 
 public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUnit
 {
@@ -12,19 +13,31 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
     [Header("Units Settings")]
     [SerializeField, Min(0)] private float firstUnitSpawnTime;
     [SerializeField, Min(0)] private float spawnTime;
+    [SerializeField] private int maxUnitsAlive;
     [SerializeField] private Transform spawnPoint;
 
+    private bool _wasDestroyed;
+    private int _currentUnitsAmount;
     private float _currentHp;
     private UnitTeam _currentTeam;
 
+
+    private List<BattleUnit> _spawnedUnits = new List<BattleUnit>();
+
+    public event Action<float, float> OnGetDamaged;
+    public event Action<TowerObject> OnCurrentTowerDestroy;
+
     #region Properties
 
+    public bool WasDestroyed => _wasDestroyed;
+    public int CurrentUnitsAmount { get => _currentUnitsAmount; set => _currentUnitsAmount = value; }
     public ITeamChangeable TeamObject => this;
     public UnitTeam MyTeam => _currentTeam;
     public ATowerObject NextLevelTower => nextLevelTower;
     public Transform Transform => transform;
     public UnitType Type => UnitType.Tower;
     public IDamageable Damageable => this;
+    public float SpawnTime => spawnTime;
 
     #endregion
 
@@ -47,6 +60,9 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
 
     private void StartSpawn(float time)
     {
+        if (_currentUnitsAmount > maxUnitsAlive)
+            return;
+
         StartCoroutine(UnitSpawning(time));
     }
 
@@ -54,21 +70,29 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
     {
         yield return new WaitForSeconds(time);
         BattleUnit newUnit = Instantiate(CurrentLevel.UnitPrefab, this.transform);
+        _currentUnitsAmount++;
         newUnit.transform.localPosition = spawnPoint.localPosition;
         newUnit.transform.parent = null;
-        newUnit.Init(_currentBuildPlatform.EnemyTower, _currentTeam);
+        newUnit.Init(_currentBuildPlatform.UnitMainTarget(), _currentTeam, this);
         StartSpawn(spawnTime);
     }
 
     public void TakeDamage(float amount)
     {
         _currentHp -= amount;
+        OnGetDamaged?.Invoke(_currentHp, maxHp);
+        transform.DORewind();
+        transform.DOShakeScale(0.1f, 0.05f);
+
         if (_currentHp < 0)
             DestroyTower();
     }
 
     private void DestroyTower()
     {
+        _wasDestroyed = true;
+        OnCurrentTowerDestroy?.Invoke(this);
         _currentBuildPlatform.DestroyTower();
     }
+
 }

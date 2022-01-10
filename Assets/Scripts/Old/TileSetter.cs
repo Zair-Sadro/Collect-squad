@@ -7,6 +7,7 @@ public class TileSetter : MonoBehaviour
 {
     [SerializeField] private Transform tilesSpawnerParent;
 
+    [SerializeField] private bool isThisBot = false;
     [Header("Add to Unit Settings")]
     [SerializeField] private Transform setupPoint;
     [SerializeField] private Vector3 tilesScale;
@@ -27,6 +28,9 @@ public class TileSetter : MonoBehaviour
     public event Action<TowerBuildPlatform> OnBuildZoneEnter;
     public event Action OnBuildZoneExit;
 
+
+    public bool IsThisBot => isThisBot;
+    public List<Tile> Tiles => _tiles;
     public bool IsInBuildZone { get => _isInBuildZone; set => _isInBuildZone = value; }
 
 

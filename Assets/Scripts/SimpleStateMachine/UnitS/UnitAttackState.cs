@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 public class UnitAttackState : AState
 {
@@ -10,13 +11,15 @@ public class UnitAttackState : AState
     [SerializeField] private AWeapon weapon;
     [SerializeField] private Animator unitAnimator;
 
+
     private NavMeshAgent _navAgent;
+    private NavMeshObstacle _navObstacle;
     private BattleUnit _currentUnit;
 
     private float _curCheckTime;
 
     public Transform AttackingTarget { get; set; }
-    public override StateType StateType => StateType.Attack;
+    public override StateType StateType => StateType.UnitAttack;
 
     public override void Init(ASimpleStateController stateController)
     {
@@ -32,8 +35,12 @@ public class UnitAttackState : AState
     private void LocalInit()
     {
         _navAgent = _stateController.UnitController.NavAgent;
+        _navObstacle = _stateController.UnitController.NavObstacle;
         _currentUnit = _stateController.UnitController.CurrentUnit;
+
         _navAgent.enabled = isMovingWhenAttack;
+        _navObstacle.enabled = isMovingWhenAttack;
+
         _curCheckTime = timeToCheckTargets;
         unitAnimator.SetTrigger("Attack");
     }
@@ -48,19 +55,24 @@ public class UnitAttackState : AState
             weapon.Attack();
 
             if (_curCheckTime < 0)
-                _stateController.ChangeState(StateType.Chase);
+                _stateController.ChangeState(StateType.UnitChase);
             else
                 _curCheckTime -= Time.deltaTime;
 
             _currentUnit.transform.LookAt(AttackingTarget);
         }
         else
-            _stateController.ChangeState(StateType.Chase);
+            _stateController.ChangeState(StateType.UnitChase);
 
     }
 
     public override void Stop()
     {
         stateCondition = StateCondition.Stopped;
+    }
+
+    public void SetTarget(Transform target)
+    {
+        AttackingTarget = target;
     }
 }
