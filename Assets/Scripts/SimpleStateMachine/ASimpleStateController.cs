@@ -11,6 +11,7 @@ public abstract class ASimpleStateController : MonoBehaviour
 
 
     public virtual UnitStateController UnitController { get; }
+    public virtual BotStateController BotController { get; }
 
     protected virtual void OnEnable()
     {

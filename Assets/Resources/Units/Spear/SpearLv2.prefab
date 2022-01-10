@@ -672,7 +672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   health: 3
-  moveSpeed: 0.7
+  moveSpeed: 0.25
   stateMachine: {fileID: 4178793420080663730}
 --- !u!114 &4178793420080663730
 MonoBehaviour:

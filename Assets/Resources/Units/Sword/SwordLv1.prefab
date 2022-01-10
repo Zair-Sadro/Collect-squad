@@ -1296,7 +1296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   health: 3
-  moveSpeed: 1
+  moveSpeed: 0.3
   stateMachine: {fileID: 293421592}
 --- !u!208 &-8954424198973063499
 NavMeshObstacle:

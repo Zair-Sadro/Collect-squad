@@ -6,15 +6,15 @@ using Random = UnityEngine.Random;
 
 public class TileSpawner : ASpawner
 {
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         StartSpawn();
     }
 
     public override void StartSpawn()
     {
-        StartCoroutine(SpawnRoutine(spawnerParams.SpawnTime));
+            StartCoroutine(SpawnRoutine(spawnerParams.SpawnTime));
     }
 
     protected override IEnumerator SpawnRoutine(float time)

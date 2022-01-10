@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -16,6 +18,11 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameState currentState;
     [SerializeField] private PlayerController player;
     [SerializeField] private UIController uiController;
+
+    [SerializeField] private UnityEvent OnLose;
+    [SerializeField] private UnityEvent OnWin;
+
+
 
     private event Action<GameState> OnStateChange;
 
@@ -98,7 +105,7 @@ public class GameController : MonoBehaviour
 
     private void OnMenuState()
     {
-
+        
     }
 
     private void OnCoreState()
@@ -108,13 +115,23 @@ public class GameController : MonoBehaviour
 
     private void OnWinState()
     {
-
+        uiController.ToggleMenu(MenuType.Win);
     }
 
     private void OnLoseState()
     {
-
+        uiController.ToggleMenu(MenuType.Lose);
     }
 
     #endregion
+
+    public void OnMenuClick()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void OnResetLevel()
+    {
+        SceneManager.LoadScene(1);
+    }
 }

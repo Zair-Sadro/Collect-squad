@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
+using Random = UnityEngine.Random;
 
 
 public class TowerBuildPlatform : MonoBehaviour
@@ -18,6 +19,7 @@ public class TowerBuildPlatform : MonoBehaviour
     [Header("Unit Target Tower")]
     [SerializeField] private UnitTeam currentTeam;
     [SerializeField] private Transform enemyTowerTarget;
+    [SerializeField] private Transform playerEnemyTarget;
 
     [SerializeField] private List<ATowerObject> towers = new List<ATowerObject>();
 
@@ -31,12 +33,14 @@ public class TowerBuildPlatform : MonoBehaviour
     private ATowerObject _activeTower;
 
     private bool _isTowerBuild;
+    private bool _wasDestroyed;
 
     private int _tilesToUpgrade;
     private int _currentTiles;
 
     #region Properties
 
+    public Transform PlayerEnemyTarget => playerEnemyTarget;
     public ATowerObject ActiveTower => _activeTower;
     public UnitTeam CurrentTeam => currentTeam;
     public Transform EnemyTower => enemyTowerTarget;
@@ -163,6 +167,7 @@ public class TowerBuildPlatform : MonoBehaviour
         platform.gameObject.SetActive(true);
         ResetTilesCounter(platform.CurrentLevel);
         _isTowerBuild = false;
+        _wasDestroyed = true;
     }
 
     private void DisablePreviousTower(ATowerObject tower)
@@ -177,6 +182,10 @@ public class TowerBuildPlatform : MonoBehaviour
     {
         if(other.TryGetComponent(out TileSetter tileSetter))
         {
+
+            if (tileSetter.IsThisBot)
+                TryBuildRandomTower();
+
             if (_tilesToUpgrade <= 0)
             {
                 towerUI.ToggleCounter(false);
@@ -189,6 +198,19 @@ public class TowerBuildPlatform : MonoBehaviour
         }
     }
 
+    private void TryBuildRandomTower()
+    {
+        if (_activeTower.CurrentLevel.LevelType > 0 && _activeTower != null)
+            return;
+
+        if(_tilesToUpgrade == 0 && _activeTower.CurrentLevel.LevelType == 0)
+        {
+            var randTower = towers.Where(t => t.CurrentLevel.LevelType == TowerLevelType.level1).ToList();
+            BuiltTower(randTower[Random.Range(0, randTower.Count)]);
+            _isTowerBuild = true;
+        }
+    }
+
     private IEnumerator ResetTilesGet(float time)
     {
         coll.enabled = false;
@@ -196,5 +218,23 @@ public class TowerBuildPlatform : MonoBehaviour
         coll.enabled = true;
     }
 
+
+    public Transform UnitMainTarget()
+    {
+       var enemyTower = enemyTowerTarget.GetComponent<TowerBuildPlatform>();
+
+       if (enemyTower.ActiveTower != null && enemyTower.ActiveTower.CurrentLevel.LevelType > 0)
+           return enemyTowerTarget;
+       else if (enemyTower.ActiveTower.CurrentLevel.LevelType == 0 && _wasDestroyed)
+           return playerEnemyTarget;
+      
+        return enemyTowerTarget;
+    }
+
+    public void StopTowersActivity()
+    {
+        foreach (var t in towers)
+            t.StopAllCoroutines();
+    }
 
 }

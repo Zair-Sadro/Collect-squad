@@ -17,15 +17,16 @@ public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUn
     [SerializeField] private UnitStateController stateMachine;
 
     private UnitTeam _team;
-    private Transform _towerTarget;
+    private Transform _attackTarget;
     private float _currentHealth;
+    private TowerObject _tower;
 
     #region Properties
 
     public ITeamChangeable TeamObject => this;
     public IDamageable Damageable => this;
     public UnitTeam MyTeam => _team;
-    public Transform TowerTarget => _towerTarget;
+    public Transform TowerTarget => _attackTarget;
     public Transform Transform => transform;
     public UnitType Type => type;
     public float Health => health;
@@ -34,9 +35,10 @@ public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUn
 
     #endregion
 
-    public void Init(Transform towerToAttack, UnitTeam team)
+    public void Init(Transform attackTarget, UnitTeam team, TowerObject tower)
     {
-        _towerTarget = towerToAttack;
+        _attackTarget = attackTarget;
+        _tower = tower;
         _team = team;
         _currentHealth = health;
         stateMachine.Init(this);
@@ -52,6 +54,7 @@ public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUn
 
     public void Die()
     {
+        _tower.CurrentUnitsAmount--;
         stateMachine.ChangeState(StateType.Die);
     }
 

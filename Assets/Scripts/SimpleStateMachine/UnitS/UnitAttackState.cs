@@ -19,7 +19,7 @@ public class UnitAttackState : AState
     private float _curCheckTime;
 
     public Transform AttackingTarget { get; set; }
-    public override StateType StateType => StateType.Attack;
+    public override StateType StateType => StateType.UnitAttack;
 
     public override void Init(ASimpleStateController stateController)
     {
@@ -55,14 +55,14 @@ public class UnitAttackState : AState
             weapon.Attack();
 
             if (_curCheckTime < 0)
-                _stateController.ChangeState(StateType.Chase);
+                _stateController.ChangeState(StateType.UnitChase);
             else
                 _curCheckTime -= Time.deltaTime;
 
             _currentUnit.transform.LookAt(AttackingTarget);
         }
         else
-            _stateController.ChangeState(StateType.Chase);
+            _stateController.ChangeState(StateType.UnitChase);
 
     }
 

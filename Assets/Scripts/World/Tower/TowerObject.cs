@@ -13,16 +13,24 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
     [Header("Units Settings")]
     [SerializeField, Min(0)] private float firstUnitSpawnTime;
     [SerializeField, Min(0)] private float spawnTime;
+    [SerializeField] private int maxUnitsAlive;
     [SerializeField] private Transform spawnPoint;
 
+    private bool _wasDestroyed;
+    private int _currentUnitsAmount;
     private float _currentHp;
     private UnitTeam _currentTeam;
+
+
+    private List<BattleUnit> _spawnedUnits = new List<BattleUnit>();
 
     public event Action<float, float> OnGetDamaged;
     public event Action<TowerObject> OnCurrentTowerDestroy;
 
     #region Properties
 
+    public bool WasDestroyed => _wasDestroyed;
+    public int CurrentUnitsAmount { get => _currentUnitsAmount; set => _currentUnitsAmount = value; }
     public ITeamChangeable TeamObject => this;
     public UnitTeam MyTeam => _currentTeam;
     public ATowerObject NextLevelTower => nextLevelTower;
@@ -52,6 +60,9 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
 
     private void StartSpawn(float time)
     {
+        if (_currentUnitsAmount > maxUnitsAlive)
+            return;
+
         StartCoroutine(UnitSpawning(time));
     }
 
@@ -59,9 +70,10 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
     {
         yield return new WaitForSeconds(time);
         BattleUnit newUnit = Instantiate(CurrentLevel.UnitPrefab, this.transform);
+        _currentUnitsAmount++;
         newUnit.transform.localPosition = spawnPoint.localPosition;
         newUnit.transform.parent = null;
-        newUnit.Init(_currentBuildPlatform.EnemyTower, _currentTeam);
+        newUnit.Init(_currentBuildPlatform.UnitMainTarget(), _currentTeam, this);
         StartSpawn(spawnTime);
     }
 
@@ -78,7 +90,9 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
 
     private void DestroyTower()
     {
+        _wasDestroyed = true;
         OnCurrentTowerDestroy?.Invoke(this);
         _currentBuildPlatform.DestroyTower();
     }
+
 }
