@@ -1144,6 +1144,7 @@ MonoBehaviour:
   - {fileID: 7120475631943721216}
   - {fileID: 537599541443037808}
   moveSpeed: 3
+  animator: {fileID: 0}
   navAgent: {fileID: 4636531569541514763}
   botTileSetter: {fileID: 7314024398954670222}
   playerPlatforms: []
@@ -1241,6 +1242,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  distance: 0
 --- !u!1 &4022060117024151497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,7 +1323,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1cbb3c3b0d323a743b58858f7e122c2c, type: 2}
+  - {fileID: 2100000, guid: 77d75e27394248a44a187f3f411dc6a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
