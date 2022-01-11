@@ -1073,6 +1073,7 @@ GameObject:
   - component: {fileID: 3498828454383532775}
   - component: {fileID: 7314024398954670222}
   - component: {fileID: 4636531569541514763}
+  - component: {fileID: 2048265703}
   m_Layer: 0
   m_Name: BotMain
   m_TagString: Bot
@@ -1087,7 +1088,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3633850737924445337}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.3600724, y: -0.00000333786, z: -46.986423}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1109,7 +1110,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 1
   m_Constraints: 126
   m_CollisionDetection: 0
@@ -1124,7 +1125,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.6158183, z: 1.3169775}
+  m_Size: {x: 2.4, y: 3.6158183, z: 2.4}
   m_Center: {x: 0, y: 1.6543182, z: 0.039810658}
 --- !u!114 &3498828454383532775
 MonoBehaviour:
@@ -1143,11 +1144,15 @@ MonoBehaviour:
   states:
   - {fileID: 7120475631943721216}
   - {fileID: 537599541443037808}
-  moveSpeed: 3
-  animator: {fileID: 0}
+  moveSpeed: 10
+  animator: {fileID: 3633850738211526385}
   navAgent: {fileID: 4636531569541514763}
   botTileSetter: {fileID: 7314024398954670222}
-  playerPlatforms: []
+  playerPlatforms:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   tileSpawner: {fileID: 0}
 --- !u!114 &7314024398954670222
 MonoBehaviour:
@@ -1162,14 +1167,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilesSpawnerParent: {fileID: 0}
-  isThisBot: 0
   setupPoint: {fileID: 1532945090005571986}
   tilesScale: {x: 75, y: 75, z: 75}
   zOffset: 0.36
-  yOffset: 0.4
+  yOffset: 0.29
   tilesRow: 2
   maxTiles: 30
   timeToRemoveTile: 0.1
+  isThisBot: 1
+  desiredTowerToBuild: {fileID: 0}
 --- !u!195 &4636531569541514763
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1192,6 +1198,90 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2048265703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633850737924445337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404a8af7fb01e7f479274ed552c27f9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 1
+  health: 1
+  overTrigger: {fileID: 0}
+  OnDieEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3633850738211526385}
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Die
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3498828454383532775}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4636531569541514763}
+        m_MethodName: ResetPath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4636531569541514763}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5195925077152697345}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3633850737924445328}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3636133882580028437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,13 +1326,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
-  timeInBuildZone: 2.5
+  timeInBuildZone: 1
+  runToTowerTime: 3
   botTowers:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  distance: 0
+  distance: 5
 --- !u!1 &4022060117024151497
 GameObject:
   m_ObjectHideFlags: 0
@@ -2430,6 +2521,7 @@ MonoBehaviour:
   stateCondition: 0
   minTileToGrab: 3
   maxTileToGrab: 8
+  timeToGrabTile: 3
 --- !u!1 &8731303475627502975
 GameObject:
   m_ObjectHideFlags: 0

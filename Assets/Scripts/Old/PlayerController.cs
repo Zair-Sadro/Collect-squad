@@ -50,5 +50,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
+    }
+
    
 }

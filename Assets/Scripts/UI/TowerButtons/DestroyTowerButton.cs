@@ -20,7 +20,7 @@ public class DestroyTowerButton : MonoBehaviour
         if (_buildPlatform == null)
             return;
 
-        _buildPlatform.DestroyTower();
+        _buildPlatform.DestroyTower(_buildPlatform.TimeToDestroy, _buildPlatform.DestroyEvent);
     }
 
     public void RemoveSubs()

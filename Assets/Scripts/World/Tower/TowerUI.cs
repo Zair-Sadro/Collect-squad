@@ -42,6 +42,7 @@ public class TowerUI : MonoBehaviour
     private void OnClearPlatform()
     {
         tilesCounter.rectTransform.anchoredPosition = posTileCounterBeforeTower;
+        healthBar.SetActive(false);
     }
 
     private void OnTowerBuild(TowerBuildPlatform platform)
@@ -66,13 +67,13 @@ public class TowerUI : MonoBehaviour
         tower.OnCurrentTowerDestroy -= OnTowerDestroy;
 
         unitSpawnTimer.gameObject.SetActive(false);
-        healthBar.gameObject.SetActive(false);
+        healthBar.SetActive(false);
         StopAllCoroutines();
     }
 
     private void OnTowerDamaged(float cur, float max)
     {
-        healthBar.gameObject.SetActive(true);
+        healthBar.SetActive(true);
         healthBarFill.fillAmount = cur / max;
     }
 

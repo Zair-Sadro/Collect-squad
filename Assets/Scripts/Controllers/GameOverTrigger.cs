@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class GameOverTrigger : MonoBehaviour
 {
     [SerializeField] private Transform mainTarget;
+    [SerializeField] private BuilderUnit builderUnit;
     [SerializeField] private UnitTeam oppositeTeam;
     [SerializeField] private float chaseSpeed;
     [SerializeField] private GameState endState;
@@ -20,6 +21,7 @@ public class GameOverTrigger : MonoBehaviour
             if(unit.MyTeam == oppositeTeam)
             {
                 OnFinishPointChecked?.Invoke();
+                builderUnit.AllowGetAttacked();
                 var controller = unit.GetComponent<UnitStateController>();
 
                 unit.FinishInit(mainTarget, chaseSpeed);

@@ -68,19 +68,20 @@ public class BotFindTileState : AState
 
         while(_tileSetter.Tiles.Count < _randomTilesToGrab)
         {
-            _animator.SetBool("Run", true);
             
             if(_currentGrabTime <= 0)
             {
                 if(_navAgent.enabled)
                     _navAgent.ResetPath();
 
+                _animator.SetBool("Run", false);
                 target = DesiredTile();
                 _currentGrabTime = maxTileToGrab;
             }
             else
             {
                 _currentGrabTime -= Time.deltaTime;
+                _animator.SetBool("Run", true);
                 SetTarget(target);
             }
 

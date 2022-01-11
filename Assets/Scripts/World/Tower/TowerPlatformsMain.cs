@@ -11,4 +11,10 @@ public class TowerPlatformsMain : MonoBehaviour
         foreach (var tower in towerPlatforms)
             tower.StopTowersActivity();
     }
+
+    public void SetTargetToBuilder()
+    {
+        foreach (var tower in towerPlatforms)
+            tower.SetTargetToBuilder();
+    }
 }

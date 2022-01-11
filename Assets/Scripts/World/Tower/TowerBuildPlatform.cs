@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using System;
 using Random = UnityEngine.Random;
+using UnityEngine.Events;
 
 
 public class TowerBuildPlatform : MonoBehaviour
@@ -14,7 +15,12 @@ public class TowerBuildPlatform : MonoBehaviour
     [Header("Build Settings")]
     [SerializeField] private Collider coll;
     [SerializeField, Min(0)] private float resetTime;
-
+    [SerializeField] private float timeToDestroy;
+    [SerializeField] private float timeToDestroyByUnits;
+    [SerializeField] private UnityEvent OnBuildEvent;
+    [SerializeField] private UnityEvent OnDestroyEvent;
+    [SerializeField] private UnityEvent OnDestroyByUnitsEvent;
+    [SerializeField] private UnityEvent OnClearPlatformEvent;
 
     [Header("Unit Target Tower")]
     [SerializeField] private TowerBuildPlatform oppositeTower;
@@ -43,6 +49,10 @@ public class TowerBuildPlatform : MonoBehaviour
 
     #region Properties
 
+    public UnityEvent DestroyEvent => OnDestroyEvent;
+    public UnityEvent DestroyByUnits => OnDestroyByUnitsEvent;
+    public float TimeToDestroyByUnits => timeToDestroyByUnits;
+    public float TimeToDestroy => timeToDestroy;
     public TowerUI TowerUI => towerUI;
     public TowerBuildPlatform OppositeTower => oppositeTower;
     public Transform PlayerEnemyTarget => playerEnemyTarget;
@@ -121,6 +131,7 @@ public class TowerBuildPlatform : MonoBehaviour
         StartCoroutine(ResetTilesGet(resetTime));
         _isTowerBuild = true;
         OnTowerBuild?.Invoke(this);
+        OnBuildEvent?.Invoke();
     }
 
     public void BuiltTower(ATowerObject tower)
@@ -134,6 +145,7 @@ public class TowerBuildPlatform : MonoBehaviour
         CreateNewTower(tower);
         StartCoroutine(ResetTilesGet(resetTime));
         OnTowerBuild?.Invoke(this);
+        OnBuildEvent?.Invoke();
     }
 
     private void CreateNewTower(UnitType type)
@@ -158,13 +170,15 @@ public class TowerBuildPlatform : MonoBehaviour
         towerUI.SetTilesCounter(_tilesToUpgrade, towerLevel.IsMaxLevel);
     }
 
-    public void DestroyTower()
+    public void DestroyTower(float time, UnityEvent destroyEvent)
     {
-        if(_activeTower == null)
-        {
-            Debug.Log("<color=yellow> Can't find tower to destroy </color>");
-            return;
-        }
+        StartCoroutine(Destroying(time, destroyEvent));
+    }
+
+    private IEnumerator Destroying(float time, UnityEvent destroyEvent)
+    {
+        destroyEvent?.Invoke();
+        yield return new WaitForSeconds(time);
         var platform = towers.Where(t => t.Data.Type == UnitType.Tower).FirstOrDefault();
 
         _activeTower.gameObject.SetActive(false);
@@ -175,6 +189,8 @@ public class TowerBuildPlatform : MonoBehaviour
         _isTowerBuild = false;
         _wasDestroyed = true;
         OnClearPlatform?.Invoke();
+        yield return new WaitForSeconds(1);
+        OnClearPlatformEvent?.Invoke();
     }
 
     private void DisablePreviousTower(ATowerObject tower)

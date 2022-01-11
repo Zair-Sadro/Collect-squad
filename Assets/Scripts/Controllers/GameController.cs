@@ -17,11 +17,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private UserData data;
     [SerializeField] private GameState currentState;
     [SerializeField] private PlayerController player;
+    [SerializeField] private TowerPlatformsMain playerMainTowersController;
+    [SerializeField] private TowerPlatformsMain botMainTowersController;
     [SerializeField] private UIController uiController;
-
-    [SerializeField] private UnityEvent OnLose;
-    [SerializeField] private UnityEvent OnWin;
-
 
 
     private event Action<GameState> OnStateChange;
@@ -116,11 +114,15 @@ public class GameController : MonoBehaviour
     private void OnWinState()
     {
         uiController.ToggleMenu(MenuType.Win);
+        playerMainTowersController.StopTowerActivity();
+        botMainTowersController.StopTowerActivity();
     }
 
     private void OnLoseState()
     {
         uiController.ToggleMenu(MenuType.Lose);
+        playerMainTowersController.StopTowerActivity();
+        botMainTowersController.StopTowerActivity();
     }
 
     #endregion

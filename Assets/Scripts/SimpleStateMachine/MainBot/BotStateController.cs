@@ -21,6 +21,10 @@ public class BotStateController : ASimpleStateController
     public List<TowerBuildPlatform> PlayerPlatforms => playerPlatforms;
     public TileSpawner TileSpawner => tileSpawner;
 
+    public void SetSpeed(float speed)
+    {
+        moveSpeed = speed;
+    }
     
 
 }

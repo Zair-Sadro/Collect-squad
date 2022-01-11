@@ -99,7 +99,7 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
     {
         _wasDestroyed = true;
         OnCurrentTowerDestroy?.Invoke(this);
-        _currentBuildPlatform.DestroyTower();
+        _currentBuildPlatform.DestroyTower(_currentBuildPlatform.TimeToDestroyByUnits, _currentBuildPlatform.DestroyByUnits);
     }
 
 }
