@@ -2495,7 +2495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  health: 1
+  health: 2
   moveSpeed: 0.5
   stateMachine: {fileID: 4219186828248626425}
 --- !u!114 &4219186828248626425
@@ -2529,7 +2529,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 4.25
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -2637,7 +2637,7 @@ MonoBehaviour:
   - Type: 0
     DamageToType: 1
   - Type: 1
-    DamageToType: 2
+    DamageToType: 1
   - Type: 2
     DamageToType: 1
   - Type: 3

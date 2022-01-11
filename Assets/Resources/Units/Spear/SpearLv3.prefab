@@ -659,7 +659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  health: 5
+  health: 3
   moveSpeed: 0.25
   stateMachine: {fileID: 113299781089674808}
 --- !u!114 &113299781089674808
@@ -1481,11 +1481,11 @@ MonoBehaviour:
   events: []
   damages:
   - Type: 0
-    DamageToType: 1
-  - Type: 1
     DamageToType: 2
+  - Type: 1
+    DamageToType: 4
   - Type: 2
-    DamageToType: 1
+    DamageToType: 2
   - Type: 3
     DamageToType: 4
   - Type: 4

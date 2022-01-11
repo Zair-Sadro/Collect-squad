@@ -314,7 +314,7 @@ MonoBehaviour:
   - Type: 2
     DamageToType: 1
   - Type: 3
-    DamageToType: 4
+    DamageToType: 2
   - Type: 4
     DamageToType: 100
   weaponSettings:
@@ -673,7 +673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  health: 5
+  health: 2
   moveSpeed: 0.25
   stateMachine: {fileID: 668223887570475633}
 --- !u!114 &668223887570475633
