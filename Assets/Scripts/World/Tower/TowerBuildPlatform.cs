@@ -201,7 +201,7 @@ public class TowerBuildPlatform : MonoBehaviour
                 return;
             }
 
-            tileSetter.RemoveTiles(IncreaseTilesAmount);
+            tileSetter.RemoveTiles(IncreaseTilesAmount, this);
         }
     }
 
@@ -230,7 +230,6 @@ public class TowerBuildPlatform : MonoBehaviour
         enemyTowerTarget.parent = playerEnemyTarget;
         enemyTowerTarget.transform.localPosition = Vector3.zero;
     }
-    
 
     public void StopTowersActivity()
     {

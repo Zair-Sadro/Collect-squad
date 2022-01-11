@@ -13,6 +13,7 @@ public class BuilderUnit : MonoBehaviour, IBattleUnit, ITeamChangeable, IDamagea
     private float _currentHealth;
 
     private bool _isSpotable = false;
+    private bool _isDamageable = false;
 
     #region Properties
 
@@ -27,6 +28,8 @@ public class BuilderUnit : MonoBehaviour, IBattleUnit, ITeamChangeable, IDamagea
     public IDamageable Damageable => this;
 
     public bool IsSpotable => _isSpotable;
+
+    public bool IsDamageable => _isDamageable;
 
 
     #endregion
@@ -49,5 +52,6 @@ public class BuilderUnit : MonoBehaviour, IBattleUnit, ITeamChangeable, IDamagea
     public void AllowGetAttacked()
     {
         _isSpotable = true;
+        _isDamageable = true;
     }
 }

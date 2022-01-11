@@ -40,6 +40,7 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
     public IDamageable Damageable => this;
     public float SpawnTime => spawnTime;
     public bool IsSpotable => true;
+    public bool IsDamageable => true;
 
     #endregion
 
@@ -53,6 +54,7 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
 
     private void OnEnable()
     {
+        _currentUnitsAmount = 0;
         StartSpawn(firstUnitSpawnTime);
     }
 

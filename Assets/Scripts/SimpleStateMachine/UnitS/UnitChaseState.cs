@@ -14,6 +14,8 @@ public class UnitChaseState : AState
     private Transform _target;
     private UnitTeam _thisUnitTeam;
 
+    private bool _hasTarget;
+
     public override StateType StateType => StateType.UnitChase;
 
     public override void Init(ASimpleStateController stateController)
@@ -61,9 +63,9 @@ public class UnitChaseState : AState
                     Vector3 dist = enemy.Transform.position - transform.position;
                     if (dist.magnitude <= attackDistance)
                     {
-                        var attackState = (UnitAttackState)_stateController.GetState(StateType.UnitAttack);
-                        _stateController.ChangeState(StateType.UnitAttack);
-                        attackState.SetTarget(enemy.Transform);
+                         var attackState = (UnitAttackState)_stateController.GetState(StateType.UnitAttack);
+                         _stateController.ChangeState(StateType.UnitAttack);
+                         attackState.SetTarget(enemy.Transform);
                     }
                 }
                 else
@@ -72,6 +74,7 @@ public class UnitChaseState : AState
         }
     }
    
+
     private void SetTarget(Vector3 target)
     {
         if (_navAgent.enabled)

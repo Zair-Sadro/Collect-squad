@@ -6,8 +6,7 @@ using System;
 public class TileSetter : MonoBehaviour
 {
     [SerializeField] private Transform tilesSpawnerParent;
-
-    [SerializeField] private bool isThisBot = false;
+    
     [Header("Add to Unit Settings")]
     [SerializeField] private Transform setupPoint;
     [SerializeField] private Vector3 tilesScale;
@@ -17,6 +16,10 @@ public class TileSetter : MonoBehaviour
     [SerializeField] private int maxTiles;
     [Space]
     [SerializeField] private float timeToRemoveTile;
+
+    [Header("Bot Settings")]
+    [SerializeField] private bool isThisBot = false;
+    [SerializeField] private TowerBuildPlatform desiredTowerToBuild;
 
     private float _currentRemovingTime;
     private bool _isInBuildZone;
@@ -56,10 +59,21 @@ public class TileSetter : MonoBehaviour
         //add vibration
     }
 
-    public void RemoveTiles(Action towerTileIncrease)
+    public void RemoveTiles(Action towerTileIncrease, TowerBuildPlatform tower)
     {
-        if(!_isGivingTiles)
-            StartCoroutine(RemovingTile(towerTileIncrease));
+        if(isThisBot)
+        {
+            if (desiredTowerToBuild != null && desiredTowerToBuild == tower)
+            {
+                if (!_isGivingTiles)
+                    StartCoroutine(RemovingTile(towerTileIncrease));
+            }
+        }
+        else
+        {
+            if (!_isGivingTiles)
+                StartCoroutine(RemovingTile(towerTileIncrease));
+        }
     }
 
     private IEnumerator RemovingTile(Action towerTileIncrease)
@@ -111,5 +125,8 @@ public class TileSetter : MonoBehaviour
         }
     }
 
-
+    public TowerBuildPlatform SetDiseredBuild(TowerBuildPlatform platform)
+    {
+        return desiredTowerToBuild = platform;
+    }
 }

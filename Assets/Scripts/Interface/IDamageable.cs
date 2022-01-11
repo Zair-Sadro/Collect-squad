@@ -5,5 +5,6 @@ using UnityEngine;
 public interface IDamageable
 {
     void TakeDamage(float amount);
+    bool IsDamageable { get; }
     ITeamChangeable TeamObject { get; }
 }

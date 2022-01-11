@@ -997,7 +997,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 60.000004, y: 180.00002, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.01, y: 7.08}
+  m_AnchoredPosition: {x: -0.01, y: 0.193}
   m_SizeDelta: {x: 3.4238038, y: 2.6729736}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3382843288559341696
@@ -1029,8 +1029,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 99
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 67c9ad302fa9d45499c04cc8c710e0ca, type: 2}
+  m_sharedMaterial: {fileID: 8422752978303447085, guid: 67c9ad302fa9d45499c04cc8c710e0ca,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1054,8 +1055,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 1.25
+  m_fontSizeBase: 1.25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1305,7 +1306,7 @@ MonoBehaviour:
   healthBar: {fileID: 1189473729806311752}
   buttonsLayout: {fileID: 771199520}
   posTileCounterBeforeTower: {x: -0.01, y: 0.193, z: 0.15}
-  posTileCounterAfterTower: {x: -0.01, y: 7.08, z: 0.15}
+  posTileCounterAfterTower: {x: 2.41, y: 5.12, z: 0.15}
   towerButtons:
   - {fileID: 1076427774197338105}
   - {fileID: 3125595979306809597}
@@ -1795,7 +1796,7 @@ PrefabInstance:
     - target: {fileID: 3382843287515703201, guid: dfb2870c24f856a4ebc80390dc1ae551,
         type: 3}
       propertyPath: maxUnitsAlive
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3382843287515703201, guid: dfb2870c24f856a4ebc80390dc1ae551,
         type: 3}
@@ -2037,7 +2038,7 @@ PrefabInstance:
     - target: {fileID: 3382843289535215805, guid: 12264a84016556445b0f9d2fa1bf0409,
         type: 3}
       propertyPath: maxUnitsAlive
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3382843289535215805, guid: 12264a84016556445b0f9d2fa1bf0409,
         type: 3}
@@ -3362,7 +3363,7 @@ PrefabInstance:
     - target: {fileID: 3382843289316063839, guid: 273dc1f4c5483e34087c3e0742257bbb,
         type: 3}
       propertyPath: maxUnitsAlive
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3382843289316063839, guid: 273dc1f4c5483e34087c3e0742257bbb,
         type: 3}

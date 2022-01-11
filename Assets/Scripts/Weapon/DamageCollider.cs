@@ -23,7 +23,7 @@ public class DamageCollider : MonoBehaviour
             OnColliderEnter?.Invoke();
             for (int i = 0; i < weapon.Damages.Count; i++)
             {
-                if (enemy.Type == weapon.Damages[i].Type)
+                if (enemy.Type == weapon.Damages[i].Type && enemy.Damageable.IsDamageable)
                     enemy.Damageable.TakeDamage(weapon.Damages[i].DamageToType);
             }
        }

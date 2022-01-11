@@ -37,7 +37,7 @@ public class TowerUI : MonoBehaviour
 
     private void Start()
     {
-        tilesCounter.rectTransform.DOLocalMoveY(posTileCounterBeforeTower.y, 0.2f);
+        tilesCounter.rectTransform.DOLocalMove(posTileCounterBeforeTower, 0.1f);
     }
     private void OnClearPlatform()
     {

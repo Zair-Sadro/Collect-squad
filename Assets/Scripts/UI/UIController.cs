@@ -19,7 +19,13 @@ public class UIController : MonoBehaviour
     public void ToggleMenu(MenuType type)
     {
         for (int i = 0; i < menus.Count; i++)
-            menus[i].gameObject.SetActive(menus[i].Type == type);
+        {
+            if (menus[i].Type == type)
+                menus[i].gameObject.SetActive(true);
+            else
+                menus[i].gameObject.SetActive(false);
+        }
+            
     }
 
 }

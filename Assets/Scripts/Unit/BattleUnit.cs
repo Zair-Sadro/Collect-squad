@@ -32,6 +32,7 @@ public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUn
     public float Health => health;
     public float MoveSpeed => moveSpeed;
     public bool IsSpotable => true;
+    public bool IsDamageable => true;
 
 
     #endregion

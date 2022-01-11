@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class BotTowerChooseState : AState
 {
     [SerializeField, Min(0)] private float timeInBuildZone;
+    [SerializeField] private float runToTowerTime;
     [SerializeField] private List<Transform> botTowers = new List<Transform>();
     [SerializeField] private float distance;
 
@@ -29,7 +30,8 @@ public class BotTowerChooseState : AState
     {
         stateCondition = StateCondition.Executing;
         LocalInit();
-        StartCoroutine(WalkToTower());
+        _target = TowerToGo();
+        StartCoroutine(WalkToTower(runToTowerTime));
     }
 
     private void LocalInit()
@@ -61,12 +63,12 @@ public class BotTowerChooseState : AState
             _navAgent.destination = target;
     }
 
-    private IEnumerator WalkToTower()
+    private IEnumerator WalkToTower(float time)
     {
-        while(_tileSetter.Tiles.Count > 0)
+        while(Vector3.Distance(transform.parent.position, _target) > 3)
         {
             _animator.SetBool("Run", true);
-            SetTarget(TowerToGo());
+            SetTarget(_target);
             yield return null;
         }
         StartCoroutine(WaitForTime(timeInBuildZone));
@@ -92,11 +94,13 @@ public class BotTowerChooseState : AState
                     _navAgent.ResetPath();
 
                 target = _playerBuildPlatforms[i].OppositeTower.transform.position;
+                _tileSetter.SetDiseredBuild(_playerBuildPlatforms[i].OppositeTower);
             }
             else
             {
-                var randomTower = botTowers[Random.Range(0, botTowers.Count)];
-                target = randomTower.position;
+                var randomTower = _playerBuildPlatforms[Random.Range(0, _playerBuildPlatforms.Count)].OppositeTower;
+                target = randomTower.transform.position;
+                _tileSetter.SetDiseredBuild(randomTower);
             }
         }
         return target;

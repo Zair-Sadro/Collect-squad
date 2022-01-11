@@ -2120,7 +2120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
-  detectionRadius: 15
+  detectionRadius: 10
   attackDistance: 15
   unitAnimator: {fileID: 4405156995307731600}
 --- !u!1 &7274094237208686865
