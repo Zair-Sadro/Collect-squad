@@ -46,6 +46,10 @@ public class UnitChaseState : AState
         if (stateCondition != StateCondition.Executing)
             return;
 
+        if (GameController.Instance.CurrentState == GameState.Win || GameController.Instance.CurrentState == GameState.Lose)
+            _stateController.ChangeState(StateType.Idle);
+
+
         Collider[] enemyTargets = Physics.OverlapSphere(transform.position, detectionRadius);
         if (enemyTargets.Length > 0)
         {
@@ -80,13 +84,13 @@ public class UnitChaseState : AState
         var enemyInParent = coll.GetComponentInParent<IBattleUnit>();
         var enemyInChildren = coll.GetComponentInChildren<IBattleUnit>();
 
-        if (enemyInParent != null && enemyInParent.TeamObject.MyTeam != _thisUnitTeam)
+        if (enemyInParent != null && enemyInParent.TeamObject.MyTeam != _thisUnitTeam && enemyInParent.IsSpotable)
         {
             enemy = enemyInParent;
             return true;
         }
 
-        if(enemyInChildren != null && enemyInChildren.TeamObject.MyTeam != _thisUnitTeam)
+        if(enemyInChildren != null && enemyInChildren.TeamObject.MyTeam != _thisUnitTeam && enemyInChildren.IsSpotable)
         {
             enemy = enemyInChildren;
             return true;

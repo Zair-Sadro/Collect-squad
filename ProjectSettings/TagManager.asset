@@ -4,41 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PlayerSold
   - PlayerPlate
-  - BotSold
   - Bot
-  - Bomb
-  - BotTower
-  - Tower1
+  - EnemyPlate
+  - PlayerBlocker
+  - BotBowLvl1
+  - FxTemporaire
   - BotSpearLvl1
   - BotSwordLvl1
-  - BotBowLvl1
-  - BotSwordLvl3
-  - Tower3
-  - BotBowLvl3
-  - BotSpearLvl3
-  - BotBowLvl2
-  - BotSpearLvl2
-  - Tower2
-  - BotSwordLvl2
-  - PlayerSwordLvl3
-  - PlayerBowLvl3
-  - PlayerSpearLvl3
-  - PlayerTower
-  - PlayerSpearLvl1
-  - PlayerSwordLvl1
-  - PlayerBowLvl1
-  - PlayerBowLvl2
-  - PlayerSpearLvl2
-  - PlayerSwordLvl2
-  - EnemyPlate
-  - Taken
-  - Built
-  - Broken
-  - FxTemporaire
-  - Water
-  - BoostUp
   layers:
   - Default
   - TransparentFX

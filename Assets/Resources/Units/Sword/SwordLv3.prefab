@@ -123,6 +123,51 @@ Transform:
   m_Father: {fileID: 7414838485421131030}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &323044527244792587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7453543531553737293}
+  - component: {fileID: 3311045566362528728}
+  m_Layer: 0
+  m_Name: Idle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7453543531553737293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323044527244792587}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.29, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1954231549419198725}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3311045566362528728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323044527244792587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab649f390b716942b1a0dfbfe161b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateCondition: 0
+  animator: {fileID: 2735594666397910445}
 --- !u!1 &611412414754365504
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,7 +1027,7 @@ GameObject:
   - component: {fileID: 5379108118253532138}
   m_Layer: 0
   m_Name: SwordLv3
-  m_TagString: BotSwordLvl1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1088,6 +1133,7 @@ MonoBehaviour:
   - {fileID: 5674186221386740399}
   - {fileID: 4739615089041844543}
   - {fileID: 4058744071927574605}
+  - {fileID: 3311045566362528728}
   navAgent: {fileID: 63511315494026800}
   navObstacle: {fileID: 5379108118253532138}
 --- !u!195 &63511315494026800
@@ -1251,6 +1297,7 @@ Transform:
   - {fileID: 6061912853086543919}
   - {fileID: 6677698440888060714}
   - {fileID: 4145955451118211289}
+  - {fileID: 7453543531553737293}
   m_Father: {fileID: 4426242338286829952}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1461,6 +1508,8 @@ MonoBehaviour:
     DamageToType: 2
   - Type: 3
     DamageToType: 4
+  - Type: 4
+    DamageToType: 100
   weaponSettings:
     TimeToAttack: 0.3
     DamageTime: 0.2
@@ -2076,7 +2125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
-  detectionRadius: 5
+  detectionRadius: 6
   attackDistance: 2
   unitAnimator: {fileID: 2735594666397910445}
 --- !u!1 &6156867202225357053

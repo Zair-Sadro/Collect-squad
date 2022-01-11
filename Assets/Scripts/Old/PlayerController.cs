@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private UnitTeam team;
     [SerializeField] private float speed;
     [SerializeField] private Rigidbody body;
     [SerializeField] private Animator playerAnimator;
@@ -11,8 +14,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ParticleSystem dustParticle;
     [SerializeField] private TileSetter tileSetter;
 
+
+    #region Properties
+
     public Vector3 PlayerDirection { get; set; }
+
     public TileSetter TileSetter => tileSetter;
+
+    public Transform Transform => this.transform;
+
+    #endregion
+
 
     private void FixedUpdate()
     {
@@ -37,4 +49,6 @@ public class PlayerController : MonoBehaviour
             dustParticle.gameObject.SetActive(false);
         }
     }
+
+   
 }

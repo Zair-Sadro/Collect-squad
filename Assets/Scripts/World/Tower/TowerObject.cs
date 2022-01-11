@@ -20,6 +20,7 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
     private int _currentUnitsAmount;
     private float _currentHp;
     private UnitTeam _currentTeam;
+    private TowerUI _towerUI;
 
 
     private List<BattleUnit> _spawnedUnits = new List<BattleUnit>();
@@ -38,6 +39,7 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
     public UnitType Type => UnitType.Tower;
     public IDamageable Damageable => this;
     public float SpawnTime => spawnTime;
+    public bool IsSpotable => true;
 
     #endregion
 
@@ -46,6 +48,7 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
         base.Init(buildPlatform);
         _currentHp = maxHp;
         _currentTeam = buildPlatform.CurrentTeam;
+        _towerUI = buildPlatform.TowerUI;
     }
 
     private void OnEnable()
@@ -63,6 +66,7 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
         if (_currentUnitsAmount > maxUnitsAlive)
             return;
 
+        _towerUI.StartSpawnTimer(spawnTime);
         StartCoroutine(UnitSpawning(time));
     }
 
@@ -72,8 +76,9 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
         BattleUnit newUnit = Instantiate(CurrentLevel.UnitPrefab, this.transform);
         _currentUnitsAmount++;
         newUnit.transform.localPosition = spawnPoint.localPosition;
+        newUnit.transform.localRotation = Quaternion.Euler(0, 180, 0);
         newUnit.transform.parent = null;
-        newUnit.Init(_currentBuildPlatform.UnitMainTarget(), _currentTeam, this);
+        newUnit.Init(_currentBuildPlatform.EnemyTower, _currentTeam, this);
         StartSpawn(spawnTime);
     }
 

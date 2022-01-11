@@ -29,7 +29,6 @@ public class BotTowerChooseState : AState
     {
         stateCondition = StateCondition.Executing;
         LocalInit();
-        _target = TowerToGo();
         StartCoroutine(WalkToTower());
     }
 
@@ -67,7 +66,7 @@ public class BotTowerChooseState : AState
         while(_tileSetter.Tiles.Count > 0)
         {
             _animator.SetBool("Run", true);
-            SetTarget(_target);
+            SetTarget(TowerToGo());
             yield return null;
         }
         StartCoroutine(WaitForTime(timeInBuildZone));
@@ -88,7 +87,12 @@ public class BotTowerChooseState : AState
         {
 
             if (_playerBuildPlatforms[i].ActiveTower.CurrentLevel.LevelType > 0)
-                target = _playerBuildPlatforms[i].EnemyTower.position;
+            {
+                if (_navAgent.enabled)
+                    _navAgent.ResetPath();
+
+                target = _playerBuildPlatforms[i].OppositeTower.transform.position;
+            }
             else
             {
                 var randomTower = botTowers[Random.Range(0, botTowers.Count)];

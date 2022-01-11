@@ -92,7 +92,7 @@ public class TileSetter : MonoBehaviour
             AddTile(tile);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.TryGetComponent(out TowerBuildPlatform t))
         {

@@ -13,11 +13,17 @@ public class TowerUI : MonoBehaviour
     [SerializeField] private Image unitSpawnTimer;
     [SerializeField] private Image healthBarFill;
     [SerializeField] private GameObject healthBar;
+    [SerializeField] private GameObject buttonsLayout;
+    [SerializeField] private Vector3 posTileCounterBeforeTower;
+    [SerializeField] private Vector3 posTileCounterAfterTower;
+
+    [SerializeField] private List<TowerButton> towerButtons = new List<TowerButton>();
 
     private void OnEnable()
     {
         buildPlatform.OnNotEnoughTiles += OnNotEnoughTiles;
         buildPlatform.OnTowerBuild += OnTowerBuild;
+        buildPlatform.OnClearPlatform += OnClearPlatform;
     }
 
 
@@ -25,11 +31,23 @@ public class TowerUI : MonoBehaviour
     {
         buildPlatform.OnNotEnoughTiles -= OnNotEnoughTiles;
         buildPlatform.OnTowerBuild -= OnTowerBuild;
+        buildPlatform.OnClearPlatform -= OnClearPlatform;
+    }
+
+
+    private void Start()
+    {
+        tilesCounter.rectTransform.DOLocalMoveY(posTileCounterBeforeTower.y, 0.2f);
+    }
+    private void OnClearPlatform()
+    {
+        tilesCounter.rectTransform.anchoredPosition = posTileCounterBeforeTower;
     }
 
     private void OnTowerBuild(TowerBuildPlatform platform)
     {
         UpdateHealthAndTimer(platform.ActiveTower);
+        tilesCounter.rectTransform.anchoredPosition = posTileCounterAfterTower;
     }
 
     private void UpdateHealthAndTimer(ATowerObject currentTower)
@@ -39,7 +57,6 @@ public class TowerUI : MonoBehaviour
             TowerObject tower = (TowerObject)currentTower;
             tower.OnGetDamaged += OnTowerDamaged;
             tower.OnCurrentTowerDestroy += OnTowerDestroy;
-            StartCoroutine(SpawnTimeFill(tower.SpawnTime));
         }
     }
 
@@ -71,18 +88,22 @@ public class TowerUI : MonoBehaviour
 
     }
 
+    public void StartSpawnTimer(float time)
+    {
+        StartCoroutine(SpawnTimeFill(time));
+    }
+
     private IEnumerator SpawnTimeFill(float time)
     {
         unitSpawnTimer.gameObject.SetActive(true);
+        float curTime = 0;
 
-        for (float i = time; i > 0; i-= Time.deltaTime)
-        {
-            unitSpawnTimer.fillAmount = i / time;
-            if (i <= 0)
-                i = time;
-
-            yield return new WaitForEndOfFrame();
-        }
+       for (float i = time; 0 <= curTime; i -= Time.deltaTime)
+       {
+           curTime = i;
+           unitSpawnTimer.fillAmount = curTime / time;
+           yield return new WaitForEndOfFrame();
+       }
     }
 
     public void ToggleCounter(bool on)
@@ -95,5 +116,22 @@ public class TowerUI : MonoBehaviour
     {
         tilesCounter.transform.DORewind();
         tilesCounter.transform.DOShakeScale(0.2f, 0.3f);
+    }
+
+    public void ButtonsUnsub()
+    {
+        foreach (var b in towerButtons)
+            b.RemoveSubs();
+    }
+
+    public void InitButtons(TowerBuildPlatform platform)
+    {
+        foreach (var b in towerButtons)
+            b.Init(platform);
+    }
+
+    public void ToogleButtons(bool on)
+    {
+        buttonsLayout.SetActive(on);
     }
 }

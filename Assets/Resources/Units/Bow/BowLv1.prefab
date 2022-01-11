@@ -61,6 +61,7 @@ Transform:
   - {fileID: 3404136422836285670}
   - {fileID: 3463418223194632787}
   - {fileID: 3791858733147109982}
+  - {fileID: 4587231620648055175}
   m_Father: {fileID: 7337986260694924558}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -588,6 +589,51 @@ Transform:
   m_Father: {fileID: 4818597961747847724}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 8.351707, y: 172.34496, z: -78.072266}
+--- !u!1 &1443669937730561879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4587231620648055175}
+  - component: {fileID: 3808021480045482230}
+  m_Layer: 0
+  m_Name: Idle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4587231620648055175
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443669937730561879}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7557451418984038682}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3808021480045482230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443669937730561879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab649f390b716942b1a0dfbfe161b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateCondition: 0
+  animator: {fileID: 4582192453508610785}
 --- !u!1 &1533108124945865338
 GameObject:
   m_ObjectHideFlags: 0
@@ -2364,7 +2410,7 @@ GameObject:
   - component: {fileID: 3820743909701554120}
   m_Layer: 0
   m_Name: BowLv1
-  m_TagString: BotBowLvl1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2470,6 +2516,7 @@ MonoBehaviour:
   - {fileID: 6365015054139505420}
   - {fileID: 2253142580054679431}
   - {fileID: 6880587239122685709}
+  - {fileID: 3808021480045482230}
   navAgent: {fileID: 857119259323506848}
   navObstacle: {fileID: 3820743909701554120}
 --- !u!195 &857119259323506848
@@ -2595,6 +2642,8 @@ MonoBehaviour:
     DamageToType: 1
   - Type: 3
     DamageToType: 1
+  - Type: 4
+    DamageToType: 100
   weaponSettings:
     TimeToAttack: 1
     DamageTime: 0.2

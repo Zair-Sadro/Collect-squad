@@ -7,10 +7,13 @@ public class BotFindTileState : AState
 {
     [SerializeField] private int minTileToGrab;
     [SerializeField] private int maxTileToGrab;
+    [SerializeField] private float timeToGrabTile;
 
+
+    private int _randomTilesToGrab;
+    private float _currentGrabTime;
 
     private BotStateController _botController;
-    private int _randomTilesToGrab;
     private Animator _animator;
     private TileSetter _tileSetter;
     private NavMeshAgent _navAgent;
@@ -60,21 +63,43 @@ public class BotFindTileState : AState
 
     private IEnumerator TakingTiles()
     {
+        var target = DesiredTile();
+
         while(_tileSetter.Tiles.Count != _randomTilesToGrab)
         {
             _animator.SetBool("Run", true);
 
-            for (int i = 0; i < _choosedTiles.Count; i++)
+            if(_currentGrabTime <= 0)
             {
-                if (!_choosedTiles[i].IsTaken && _choosedTiles[i].gameObject.activeInHierarchy)
-                {
-                    if(!_navAgent.hasPath)
-                        SetTarget(_choosedTiles[i].transform.localPosition);
-                }
+                if (_navAgent.enabled)
+                    _navAgent.ResetPath();
+
+                target = DesiredTile();
+                _currentGrabTime = timeToGrabTile;
             }
+            else
+            {
+                _currentGrabTime -= Time.deltaTime;
+                SetTarget(target);
+            }
+
             yield return null;
         }
         _stateController.ChangeState(StateType.BotTowerChoose);
+    }
+
+    private Vector3 DesiredTile()
+    {
+        Vector3 path = transform.position;
+
+        for (int i = 0; i < _choosedTiles.Count; i++)
+        {
+            if (!_choosedTiles[i].IsTaken && _choosedTiles[i].gameObject.activeInHierarchy)
+            {
+                path = _choosedTiles[i].transform.localPosition;
+            }
+        }
+        return path;
     }
 
     private void SetTarget(Vector3 target)

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IBattleUnit
 {
+    bool IsSpotable { get; }
     Transform Transform { get; }
     UnitType Type { get; }
     IDamageable Damageable { get; }

@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 3942665198077705202}
   m_Layer: 0
   m_Name: BowLv2
-  m_TagString: BotBowLvl1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -387,6 +387,7 @@ MonoBehaviour:
   - {fileID: 4484619278869874322}
   - {fileID: 8731713541177909785}
   - {fileID: 8149570916019809547}
+  - {fileID: 4815541685827055254}
   navAgent: {fileID: 7893855092083285310}
   navObstacle: {fileID: 3942665198077705202}
 --- !u!195 &7893855092083285310
@@ -521,6 +522,51 @@ Transform:
   m_Father: {fileID: 4296852048769429868}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 32.987144, y: -27.57257, z: -18.716455}
+--- !u!1 &853471936154946537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6267398653521383690}
+  - component: {fileID: 4815541685827055254}
+  m_Layer: 0
+  m_Name: Idle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6267398653521383690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853471936154946537}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.913295, y: 0.07000041, z: 1.9754581}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1047355231073418372}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4815541685827055254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853471936154946537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab649f390b716942b1a0dfbfe161b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateCondition: 0
+  animator: {fileID: 6484820403885492095}
 --- !u!1 &930402346436985395
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,10 +620,12 @@ MonoBehaviour:
     DamageToType: 1
   - Type: 3
     DamageToType: 1
+  - Type: 4
+    DamageToType: 100
   weaponSettings:
     TimeToAttack: 1
     DamageTime: 0.2
-    TimeToReload: 0.2
+    TimeToReload: 0.3
     SerenityTime: 0
   attackState: {fileID: 8731713541177909785}
   arrowSpawner: {fileID: 8268638301145627761}
@@ -2377,6 +2425,7 @@ Transform:
   - {fileID: 5283969229429132664}
   - {fileID: 6231023142705729485}
   - {fileID: 6596048877225806308}
+  - {fileID: 6267398653521383690}
   m_Father: {fileID: 269162297165676688}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

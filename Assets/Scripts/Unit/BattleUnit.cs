@@ -31,6 +31,7 @@ public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUn
     public UnitType Type => type;
     public float Health => health;
     public float MoveSpeed => moveSpeed;
+    public bool IsSpotable => true;
 
 
     #endregion
@@ -42,6 +43,12 @@ public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUn
         _team = team;
         _currentHealth = health;
         stateMachine.Init(this);
+    }
+
+    public void FinishInit(Transform finishTarget, float speed)
+    {
+        _attackTarget = finishTarget;
+        moveSpeed = speed;
     }
 
     public void TakeDamage(float amount)

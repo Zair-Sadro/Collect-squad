@@ -17,6 +17,7 @@ public class TowerBuildPlatform : MonoBehaviour
 
 
     [Header("Unit Target Tower")]
+    [SerializeField] private TowerBuildPlatform oppositeTower;
     [SerializeField] private UnitTeam currentTeam;
     [SerializeField] private Transform enemyTowerTarget;
     [SerializeField] private Transform playerEnemyTarget;
@@ -25,6 +26,8 @@ public class TowerBuildPlatform : MonoBehaviour
 
 
     public event Action<TowerBuildPlatform> OnTowerBuild;
+    public event Action OnClearPlatform;
+
     public event Action<int> OnTilesIncrease;
     public event Action OnNotEnoughTiles;
     public event Action OnMaxLevelTowerReach;
@@ -40,11 +43,14 @@ public class TowerBuildPlatform : MonoBehaviour
 
     #region Properties
 
+    public TowerUI TowerUI => towerUI;
+    public TowerBuildPlatform OppositeTower => oppositeTower;
     public Transform PlayerEnemyTarget => playerEnemyTarget;
     public ATowerObject ActiveTower => _activeTower;
     public UnitTeam CurrentTeam => currentTeam;
     public Transform EnemyTower => enemyTowerTarget;
     public int CurrentTiles => _currentTiles;
+    public int TilesToUpgrade => _tilesToUpgrade;
     public bool IsTowerBuild => _isTowerBuild;
 
     #endregion
@@ -168,6 +174,7 @@ public class TowerBuildPlatform : MonoBehaviour
         ResetTilesCounter(platform.CurrentLevel);
         _isTowerBuild = false;
         _wasDestroyed = true;
+        OnClearPlatform?.Invoke();
     }
 
     private void DisablePreviousTower(ATowerObject tower)
@@ -218,18 +225,12 @@ public class TowerBuildPlatform : MonoBehaviour
         coll.enabled = true;
     }
 
-
-    public Transform UnitMainTarget()
+    public void SetTargetToBuilder()
     {
-       var enemyTower = enemyTowerTarget.GetComponent<TowerBuildPlatform>();
-
-       if (enemyTower.ActiveTower != null && enemyTower.ActiveTower.CurrentLevel.LevelType > 0)
-           return enemyTowerTarget;
-       else if (enemyTower.ActiveTower.CurrentLevel.LevelType == 0 && _wasDestroyed)
-           return playerEnemyTarget;
-      
-        return enemyTowerTarget;
+        enemyTowerTarget.parent = playerEnemyTarget;
+        enemyTowerTarget.transform.localPosition = Vector3.zero;
     }
+    
 
     public void StopTowersActivity()
     {

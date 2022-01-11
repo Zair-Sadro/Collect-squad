@@ -26,4 +26,10 @@ public class Tile : ASpawnedObject
         body.isKinematic = false;
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("PlayerBlocker"))
+            this.gameObject.SetActive(false);
+    }
+
 }

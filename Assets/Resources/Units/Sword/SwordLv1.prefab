@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
-  detectionRadius: 5
+  detectionRadius: 6
   attackDistance: 2
   unitAnimator: {fileID: 2735594666397910445}
 --- !u!1 &2131039788
@@ -125,6 +125,7 @@ Transform:
   - {fileID: 660289110}
   - {fileID: 1377731629}
   - {fileID: 2100500189246703258}
+  - {fileID: 1321994670987177635}
   m_Father: {fileID: 4426242338286829952}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -367,6 +368,8 @@ MonoBehaviour:
     DamageToType: 2
   - Type: 3
     DamageToType: 4
+  - Type: 4
+    DamageToType: 100
   weaponSettings:
     TimeToAttack: 0.3
     DamageTime: 0.2
@@ -1027,6 +1030,51 @@ Transform:
   m_Father: {fileID: 772859417051877063}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -53.151176, y: -2.65294, z: 7.009219}
+--- !u!1 &3360029595014946897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1321994670987177635}
+  - component: {fileID: 65533691696153135}
+  m_Layer: 0
+  m_Name: Idle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1321994670987177635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3360029595014946897}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.29, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2131039789}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &65533691696153135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3360029595014946897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab649f390b716942b1a0dfbfe161b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateCondition: 0
+  animator: {fileID: 2735594666397910445}
 --- !u!1 &3385982742530381871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,7 +1216,7 @@ GameObject:
   - component: {fileID: -8954424198973063499}
   m_Layer: 0
   m_Name: SwordLv1
-  m_TagString: BotSwordLvl1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1280,6 +1328,7 @@ MonoBehaviour:
   - {fileID: 660289109}
   - {fileID: 1377731630}
   - {fileID: 1376949256569947455}
+  - {fileID: 65533691696153135}
   navAgent: {fileID: 293421591}
   navObstacle: {fileID: -8954424198973063499}
 --- !u!114 &293421593

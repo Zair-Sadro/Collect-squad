@@ -92,6 +92,7 @@ Transform:
   - {fileID: 3281040806095351959}
   - {fileID: 3649602035220656674}
   - {fileID: 8932076655853340469}
+  - {fileID: 4978523871040491645}
   m_Father: {fileID: 7449154517114109311}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1005,10 +1006,12 @@ MonoBehaviour:
     DamageToType: 1
   - Type: 3
     DamageToType: 1
+  - Type: 4
+    DamageToType: 100
   weaponSettings:
     TimeToAttack: 1
     DamageTime: 0.2
-    TimeToReload: 0.2
+    TimeToReload: 0.3
     SerenityTime: 0
   attackState: {fileID: 2157699270638608374}
   arrowSpawner: {fileID: 6510025151184397239}
@@ -2244,6 +2247,51 @@ Transform:
   m_Father: {fileID: 4439783314177523501}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -53.22365, y: -86.124695, z: 11.130868}
+--- !u!1 &7568966407505250521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4978523871040491645}
+  - component: {fileID: 7812822717753791562}
+  m_Layer: 0
+  m_Name: Idle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4978523871040491645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568966407505250521}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.6832943, y: -0.47999954, z: 1.9754581}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7661752399030059371}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7812822717753791562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568966407505250521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab649f390b716942b1a0dfbfe161b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateCondition: 0
+  animator: {fileID: 4405156995307731600}
 --- !u!1 &7794435990112004037
 GameObject:
   m_ObjectHideFlags: 0
@@ -2262,7 +2310,7 @@ GameObject:
   - component: {fileID: 4133090759947568220}
   m_Layer: 0
   m_Name: BowLv3
-  m_TagString: BotBowLvl1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2368,6 +2416,7 @@ MonoBehaviour:
   - {fileID: 6548346314348854141}
   - {fileID: 2157699270638608374}
   - {fileID: 3704205269513227670}
+  - {fileID: 7812822717753791562}
   navAgent: {fileID: 671155486885699793}
   navObstacle: {fileID: 4133090759947568220}
 --- !u!195 &671155486885699793
