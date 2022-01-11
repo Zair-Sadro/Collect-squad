@@ -25,15 +25,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459239508846123977}
-  m_LocalRotation: {x: -0, y: 0.9891129, z: 0.1471587, w: 0}
-  m_LocalPosition: {x: 0, y: 4.855, z: -0.258}
+  m_LocalRotation: {x: 0.13035426, y: -0.00000578165, z: -0.00000073388213, w: -0.99146754}
+  m_LocalPosition: {x: 0, y: 4.74, z: 0.57}
   m_LocalScale: {x: 0.41417426, y: 0.41417426, z: 0.41417426}
   m_Children:
   - {fileID: 3931882197644202056}
   - {fileID: 7268375954789479226}
   m_Father: {fileID: 4738123549919608444}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -16.925001, y: 180.00002, z: 0}
+  m_LocalEulerAnglesHint: {x: -14.9800005, y: -359.999, z: 0}
 --- !u!33 &445218283967518795
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -107,13 +107,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4875561470389736530}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7072302, z: 0.7069834, w: 0}
   m_LocalPosition: {x: 0, y: 4.066, z: -0.021}
   m_LocalScale: {x: 1.96675, y: 0.33178508, z: 1.96675}
   m_Children: []
   m_Father: {fileID: 4738123549919608444}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 180, z: 0}
 --- !u!33 &8069665611781731447
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -192,7 +192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4738123549919608444
 Transform:
   m_ObjectHideFlags: 0
@@ -221,7 +221,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.5, y: 5.721463, z: 4.5}
+  m_Size: {x: 3, y: 5.721463, z: 3}
   m_Center: {x: 0, y: 2.3607316, z: 0}
 --- !u!114 &3382843288617963346
 MonoBehaviour:
@@ -237,10 +237,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 4f01c4b7d0546d3448af3a8f374c34e7, type: 2}
   levelType: 2
-  maxHp: 200
+  maxHp: 400
   nextLevelTower: {fileID: 0}
-  firstUnitSpawnTime: 0
+  firstUnitSpawnTime: 5
   spawnTime: 5
+  maxUnitsAlive: 10
   spawnPoint: {fileID: 0}
 --- !u!208 &7770660211775376997
 NavMeshObstacle:
@@ -251,12 +252,12 @@ NavMeshObstacle:
   m_GameObject: {fileID: 5371355023000118470}
   m_Enabled: 1
   serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1.435, y: 2.8746126, z: 1.79}
+  m_Shape: 0
+  m_Extents: {x: 2, y: 1, z: 2}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 2.374613, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
   m_TimeToStationary: 0.5
 --- !u!1 &8972960778237272729
 GameObject:
@@ -283,13 +284,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8972960778237272729}
-  m_LocalRotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7072302, z: 0.7069834, w: 0}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 4738123549919608444}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 180, z: 0}
 --- !u!33 &6949497992444738273
 MeshFilter:
   m_ObjectHideFlags: 0
