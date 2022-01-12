@@ -132,8 +132,8 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void OnResetLevel()
+    public void OnLevelLoad(int index)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(index);
     }
 }

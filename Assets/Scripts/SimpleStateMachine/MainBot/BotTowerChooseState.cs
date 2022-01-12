@@ -54,7 +54,9 @@ public class BotTowerChooseState : AState
     public override void Stop()
     {
         stateCondition = StateCondition.Stopped;
-        _navAgent.ResetPath();
+
+        if(_navAgent.enabled)
+            _navAgent.ResetPath();
     }
 
     private void SetTarget(Vector3 target)
