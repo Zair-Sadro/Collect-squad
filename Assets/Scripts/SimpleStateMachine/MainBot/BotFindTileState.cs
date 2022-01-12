@@ -7,7 +7,9 @@ public class BotFindTileState : AState
 {
     [SerializeField] private int minTileToGrab;
     [SerializeField] private int maxTileToGrab;
+    [SerializeField] private float checkRadius;
     [SerializeField] private float timeToGrabTile;
+    [SerializeField] private LayerMask whatIsTile;
 
 
     private int _randomTilesToGrab;
@@ -44,7 +46,7 @@ public class BotFindTileState : AState
         LocalInit();
         ChooseTilesToCollect();
         _currentGrabTime = maxTileToGrab;
-        StartCoroutine(TakingTiles(timeToGrabTile));
+       // StartCoroutine(TakingTiles(timeToGrabTile));
     }
 
 
@@ -52,6 +54,8 @@ public class BotFindTileState : AState
     {
         if (stateCondition != StateCondition.Executing)
             return;
+
+        CheckForTile();
     }
 
 
@@ -71,10 +75,10 @@ public class BotFindTileState : AState
             
             if(_currentGrabTime <= 0)
             {
+                _animator.SetBool("Run", false);
                 if(_navAgent.enabled)
                     _navAgent.ResetPath();
 
-                _animator.SetBool("Run", false);
                 target = DesiredTile();
                 _currentGrabTime = maxTileToGrab;
             }
@@ -118,5 +122,33 @@ public class BotFindTileState : AState
     {
         _randomTilesToGrab = Random.Range(minTileToGrab, maxTileToGrab);
         return _randomTilesToGrab;
+    }
+
+    private void CheckForTile()
+    {
+        Collider[] colls = Physics.OverlapSphere(transform.position, checkRadius, whatIsTile);
+
+        if(colls.Length > 0)
+        {
+            _animator.SetBool("Run", true);
+
+            for (int i = 0; i < colls.Length; i++)
+            {
+                if(colls[i].TryGetComponent(out Tile tile))
+                {
+                    if(_navAgent.enabled && !_navAgent.hasPath)
+                        SetTarget(tile.transform.localPosition);
+                }
+            }
+        }
+
+        if(_tileSetter.Tiles.Count >= _randomTilesToGrab)
+            _stateController.ChangeState(StateType.BotTowerChoose);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, checkRadius);
     }
 }

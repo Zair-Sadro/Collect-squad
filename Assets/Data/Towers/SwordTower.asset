@@ -28,6 +28,6 @@ MonoBehaviour:
   - levelType: 3
     isUpgradeable: 0
     isMaxLevel: 1
-    tilesToUpgrade: 30
+    tilesToUpgrade: 1000
     unitPrefab: {fileID: 4138240632278112201, guid: b90bc6d4398a07544a053cf976ad9ac3,
       type: 3}

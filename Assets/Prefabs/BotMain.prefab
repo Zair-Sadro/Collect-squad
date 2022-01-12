@@ -2500,7 +2500,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8590868720046846415}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 177473854644494546}
@@ -2521,7 +2521,11 @@ MonoBehaviour:
   stateCondition: 0
   minTileToGrab: 3
   maxTileToGrab: 8
+  checkRadius: 40
   timeToGrabTile: 3
+  whatIsTile:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &8731303475627502975
 GameObject:
   m_ObjectHideFlags: 0

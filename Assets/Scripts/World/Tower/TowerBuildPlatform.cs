@@ -25,7 +25,7 @@ public class TowerBuildPlatform : MonoBehaviour
     [Header("Unit Target Tower")]
     [SerializeField] private TowerBuildPlatform oppositeTower;
     [SerializeField] private UnitTeam currentTeam;
-    [SerializeField] private Transform enemyTowerTarget;
+    [SerializeField] private Transform chaseTarget;
     [SerializeField] private Transform playerEnemyTarget;
 
     [SerializeField] private List<ATowerObject> towers = new List<ATowerObject>();
@@ -58,7 +58,7 @@ public class TowerBuildPlatform : MonoBehaviour
     public Transform PlayerEnemyTarget => playerEnemyTarget;
     public ATowerObject ActiveTower => _activeTower;
     public UnitTeam CurrentTeam => currentTeam;
-    public Transform EnemyTower => enemyTowerTarget;
+    public Transform EnemyTower => chaseTarget;
     public int CurrentTiles => _currentTiles;
     public int TilesToUpgrade => _tilesToUpgrade;
     public bool IsTowerBuild => _isTowerBuild;
@@ -243,14 +243,30 @@ public class TowerBuildPlatform : MonoBehaviour
 
     public void SetTargetToBuilder()
     {
-        enemyTowerTarget.parent = playerEnemyTarget;
-        enemyTowerTarget.transform.localPosition = Vector3.zero;
+        chaseTarget.parent = playerEnemyTarget;
+        chaseTarget.transform.localPosition = Vector3.zero;
     }
 
     public void StopTowersActivity()
     {
         foreach (var t in towers)
             t.StopAllCoroutines();
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if(chaseTarget != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(transform.position, chaseTarget.localPosition);
+            Gizmos.DrawSphere(chaseTarget.transform.localPosition, 0.2f);
+        }
+
+        if(oppositeTower != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(transform.position, oppositeTower.transform.position);
+        }
     }
 
 }

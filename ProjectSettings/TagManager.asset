@@ -12,6 +12,7 @@ TagManager:
   - FxTemporaire
   - BotSpearLvl1
   - BotSwordLvl1
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - 
   - PlayerBlocker
   - Player
-  - 
-  - 
+  - EnemyTile
+  - PlayerTile
   - 
   - 
   - 

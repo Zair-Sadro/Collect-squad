@@ -1864,7 +1864,7 @@ MonoBehaviour:
   spawnerParams:
     spawnTime: 0
     autoExpandable: 0
-    quantityInScene: 5
+    quantityInScene: 10
     minX: 0
     maxX: 0
     minZ: 0

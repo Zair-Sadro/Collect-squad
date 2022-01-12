@@ -25,6 +25,8 @@ public class TileSetter : MonoBehaviour
     private bool _isInBuildZone;
     private bool _isGivingTiles;
 
+    private TowerBuildPlatform _currentTowerPlatform;
+
     private List<Tile> _tiles = new List<Tile>();
 
     public event Action<int> OnTilesCountChanged;
@@ -106,6 +108,24 @@ public class TileSetter : MonoBehaviour
             AddTile(tile);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out TowerBuildPlatform t))
+        {
+            _currentTowerPlatform = t;
+            _currentTowerPlatform.OnTowerBuild += OnBuild;
+        }
+    }
+
+    private void OnBuild(TowerBuildPlatform obj)
+    {
+        OnBuildZoneExit?.Invoke();
+        _isGivingTiles = false;
+        _isInBuildZone = false;
+        StopAllCoroutines();
+        _currentTowerPlatform.OnTowerBuild -= OnBuild;
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.TryGetComponent(out TowerBuildPlatform t))
@@ -122,6 +142,12 @@ public class TileSetter : MonoBehaviour
             _isInBuildZone = false;
             OnBuildZoneExit?.Invoke();
             StopRemovingTiles();
+        }
+
+        if (_currentTowerPlatform != null)
+        {
+            _currentTowerPlatform.OnTowerBuild -= OnBuild;
+            _currentTowerPlatform = null;
         }
     }
 
