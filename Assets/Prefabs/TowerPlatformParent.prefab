@@ -6178,7 +6178,7 @@ MonoBehaviour:
   healthBarFill: {fileID: 6337386130965858546}
   healthBar: {fileID: 1189473729806311752}
   buttonsLayout: {fileID: 771199520}
-  posTileCounterBeforeTower: {x: -0.01, y: 0.193, z: 0.15}
+  posTileCounterBeforeTower: {x: -0.01, y: 1.907, z: 0.15}
   posTileCounterAfterTower: {x: 2.41, y: 5.12, z: 0.15}
   towerButtons:
   - {fileID: 1076427774197338105}
@@ -21089,6 +21089,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sword Tower lvl2
       objectReference: {fileID: 0}
+    - target: {fileID: 5371355023000118470, guid: eb07ef87e2cff704c8d7885f5b74d6ce,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb07ef87e2cff704c8d7885f5b74d6ce, type: 3}
 --- !u!4 &8012876048407890600 stripped
@@ -21374,6 +21379,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spear Tower lvl1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590607066525229730, guid: ca677961d05ddd44b91f432fe595f865,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca677961d05ddd44b91f432fe595f865, type: 3}

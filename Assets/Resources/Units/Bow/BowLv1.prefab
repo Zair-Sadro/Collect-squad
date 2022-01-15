@@ -2236,8 +2236,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
-  detectionRadius: 15
-  attackDistance: 10
+  detectionRadius: 10
+  attackDistance: 7
   unitAnimator: {fileID: 4582192453508610785}
 --- !u!1 &7370056247677415776
 GameObject:
@@ -2637,7 +2637,7 @@ MonoBehaviour:
   - Type: 0
     DamageToType: 1
   - Type: 1
-    DamageToType: 1
+    DamageToType: 0.5
   - Type: 2
     DamageToType: 1
   - Type: 3
