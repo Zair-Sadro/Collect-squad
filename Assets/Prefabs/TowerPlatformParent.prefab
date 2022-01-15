@@ -5972,6 +5972,7 @@ MonoBehaviour:
   isPrecreateTower: 0
   precreatedTowerType: 0
   coll: {fileID: 3382843288824935632}
+  firstUnitInvincibilityTime: 1
   resetTime: 2
   timeToDestroy: 1
   timeToDestroyByUnits: 0
@@ -21036,6 +21037,11 @@ PrefabInstance:
       propertyPath: nextLevelTower
       value: 
       objectReference: {fileID: 1230737}
+    - target: {fileID: 3382843288222352597, guid: eb07ef87e2cff704c8d7885f5b74d6ce,
+        type: 3}
+      propertyPath: firstUnitSpawnTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4738123549919608444, guid: eb07ef87e2cff704c8d7885f5b74d6ce,
         type: 3}
       propertyPath: m_RootOrder
@@ -21143,6 +21149,11 @@ PrefabInstance:
       propertyPath: nextLevelTower
       value: 
       objectReference: {fileID: 59322288}
+    - target: {fileID: 3382843287515703201, guid: dfb2870c24f856a4ebc80390dc1ae551,
+        type: 3}
+      propertyPath: firstUnitSpawnTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5106522520060049432, guid: dfb2870c24f856a4ebc80390dc1ae551,
         type: 3}
       propertyPath: m_RootOrder
@@ -21240,6 +21251,11 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1520215894}
+    - target: {fileID: 3382843289535215805, guid: 12264a84016556445b0f9d2fa1bf0409,
+        type: 3}
+      propertyPath: firstUnitSpawnTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5141275496287934019, guid: 12264a84016556445b0f9d2fa1bf0409,
         type: 3}
       propertyPath: m_RootOrder
@@ -21342,6 +21358,11 @@ PrefabInstance:
       propertyPath: nextLevelTower
       value: 
       objectReference: {fileID: 821300914}
+    - target: {fileID: 3382843289225299596, guid: ca677961d05ddd44b91f432fe595f865,
+        type: 3}
+      propertyPath: firstUnitSpawnTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5106522520060049432, guid: ca677961d05ddd44b91f432fe595f865,
         type: 3}
       propertyPath: m_RootOrder
@@ -21444,6 +21465,11 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1520215894}
+    - target: {fileID: 3382843288170742421, guid: d4fae35a8a02e5e4d9f408cc326e4890,
+        type: 3}
+      propertyPath: firstUnitSpawnTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5141275496287934019, guid: d4fae35a8a02e5e4d9f408cc326e4890,
         type: 3}
       propertyPath: m_RootOrder
@@ -21546,6 +21572,11 @@ PrefabInstance:
       propertyPath: nextLevelTower
       value: 
       objectReference: {fileID: 621195265}
+    - target: {fileID: 3382843287942384248, guid: 9715db15644640f4d877d9cb504ba24e,
+        type: 3}
+      propertyPath: firstUnitSpawnTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5106522520060049432, guid: 9715db15644640f4d877d9cb504ba24e,
         type: 3}
       propertyPath: m_RootOrder
@@ -21648,6 +21679,11 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1520215894}
+    - target: {fileID: 3382843289292223774, guid: 55b121cf394cc01479d0f129a16fb016,
+        type: 3}
+      propertyPath: firstUnitSpawnTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5141275496287934019, guid: 55b121cf394cc01479d0f129a16fb016,
         type: 3}
       propertyPath: m_RootOrder
@@ -21755,6 +21791,11 @@ PrefabInstance:
       propertyPath: nextLevelTower
       value: 
       objectReference: {fileID: 1511408539}
+    - target: {fileID: 3382843289316063839, guid: 273dc1f4c5483e34087c3e0742257bbb,
+        type: 3}
+      propertyPath: firstUnitSpawnTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4738123549919608444, guid: 273dc1f4c5483e34087c3e0742257bbb,
         type: 3}
       propertyPath: m_RootOrder
@@ -21857,6 +21898,11 @@ PrefabInstance:
       propertyPath: nextLevelTower
       value: 
       objectReference: {fileID: 344455921}
+    - target: {fileID: 3382843288617963346, guid: 28da665919180f248a017275a15b3e61,
+        type: 3}
+      propertyPath: firstUnitSpawnTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4738123549919608444, guid: 28da665919180f248a017275a15b3e61,
         type: 3}
       propertyPath: m_RootOrder
