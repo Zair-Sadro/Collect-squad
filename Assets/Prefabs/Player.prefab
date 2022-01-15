@@ -6838,7 +6838,7 @@ MonoBehaviour:
   zOffset: 0.36
   yOffset: 0.29
   tilesRow: 2
-  maxTiles: 30
+  maxTiles: 100
   timeToRemoveTile: 0.1
   isThisBot: 0
   desiredTowerToBuild: {fileID: 0}

@@ -14,6 +14,7 @@ public class GameOverTrigger : MonoBehaviour
 
     public GameState EndState => endState;
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out BattleUnit unit))
