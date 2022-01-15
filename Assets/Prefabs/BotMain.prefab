@@ -1144,6 +1144,7 @@ MonoBehaviour:
   states:
   - {fileID: 7120475631943721216}
   - {fileID: 537599541443037808}
+  - {fileID: 6101239384680337203}
   moveSpeed: 10
   animator: {fileID: 3633850738211526385}
   navAgent: {fileID: 4636531569541514763}
@@ -1172,7 +1173,7 @@ MonoBehaviour:
   zOffset: 0.36
   yOffset: 0.29
   tilesRow: 2
-  maxTiles: 30
+  maxTiles: 100
   timeToRemoveTile: 0.1
   isThisBot: 1
   desiredTowerToBuild: {fileID: 0}
@@ -1892,6 +1893,52 @@ Transform:
   m_Father: {fileID: 9069147495905315589}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5784961105723505458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9016920121105787181}
+  - component: {fileID: 6101239384680337203}
+  m_Layer: 0
+  m_Name: Idle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9016920121105787181
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5784961105723505458}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 177473854644494546}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6101239384680337203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5784961105723505458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811fd2ba80282b0469b95e5dc01d623a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateCondition: 0
+  animClip: {fileID: -203655887218126122, guid: 2e699f66f1e685348aa27b16215d6011,
+    type: 3}
 --- !u!1 &5872488496839146333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2351,6 +2398,7 @@ Transform:
   m_Children:
   - {fileID: 1456057677820285274}
   - {fileID: 2368014299422820815}
+  - {fileID: 9016920121105787181}
   m_Father: {fileID: 3633850737924445340}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

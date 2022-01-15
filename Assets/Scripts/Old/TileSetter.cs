@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using DG.Tweening;
 
 public class TileSetter : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class TileSetter : MonoBehaviour
     [Header("Add to Unit Settings")]
     [SerializeField] private Transform setupPoint;
     [SerializeField] private Vector3 tilesScale;
+    [SerializeField] private float tileSetSpeed;
     [SerializeField, Range(0, 100)] private float zOffset;
     [SerializeField, Range(0, 100)] private float yOffset = 0;
     [SerializeField] private int tilesRow = 2;
@@ -25,6 +27,7 @@ public class TileSetter : MonoBehaviour
     private bool _isInBuildZone;
     private bool _isGivingTiles;
 
+    private Tile _lastSetTile;
     private TowerBuildPlatform _currentTowerPlatform;
 
     private List<Tile> _tiles = new List<Tile>();
@@ -58,7 +61,8 @@ public class TileSetter : MonoBehaviour
         tile.transform.localScale = tilesScale;
         _tiles.Add(tile);
         OnTilesCountChanged?.Invoke(_tiles.Count);
-        //add vibration
+
+       // Vibration.Vibrate(1);
     }
 
     public void RemoveTiles(Action towerTileIncrease, TowerBuildPlatform tower)
@@ -81,23 +85,35 @@ public class TileSetter : MonoBehaviour
     private IEnumerator RemovingTile(Action towerTileIncrease)
     {
         _isGivingTiles = true;
-
         for (int i = _tiles.Count - 1; i >= 0; i--)
         {
+            _lastSetTile = _tiles[i];
+            _lastSetTile.transform.DOMove(_currentTowerPlatform.transform.position, tileSetSpeed);
+
+            yield return new WaitForSeconds(timeToRemoveTile);
+
             _tiles[i].gameObject.SetActive(false);
             _tiles[i].OnGround();
             _tiles[i].transform.SetParent(tilesSpawnerParent);
             _tiles.Remove(_tiles[i]);
             towerTileIncrease();
             OnTilesCountChanged?.Invoke(_tiles.Count);
-            yield return new WaitForSeconds(timeToRemoveTile);
+            // Vibration.Vibrate(1);
         }
-
         _isGivingTiles = false;
     }
 
     public void StopRemovingTiles()
     {
+        if(_lastSetTile != null)
+        {
+            _lastSetTile.gameObject.SetActive(false);
+            _lastSetTile.OnGround();
+            _lastSetTile.transform.SetParent(tilesSpawnerParent);
+            _tiles.Remove(_lastSetTile);
+            OnTilesCountChanged?.Invoke(_tiles.Count);
+        }
+
         _isGivingTiles = false;
         StopAllCoroutines();
     }
@@ -130,6 +146,7 @@ public class TileSetter : MonoBehaviour
     {
         if (other.TryGetComponent(out TowerBuildPlatform t))
         {
+            _currentTowerPlatform = t;
             OnBuildZoneEnter?.Invoke(t);
             _isInBuildZone = true;
         }

@@ -7,7 +7,13 @@ public enum StateCondition
 
 public enum StateType
 {
-    None, UnitChase, UnitAttack, Die, BotFindTile, BotTowerChoose, Idle
+    None = 0,
+    UnitChase = 1,
+    UnitAttack = 2,
+    Die = 3,
+    BotFindTile = 4,
+    BotTowerChoose = 5,
+    Idle = 6
 }
 
 public abstract class AState : MonoBehaviour

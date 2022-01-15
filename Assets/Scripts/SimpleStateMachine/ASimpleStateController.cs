@@ -37,7 +37,15 @@ public abstract class ASimpleStateController : MonoBehaviour
         _currentState = states.Where(s => s.StateType == newState).FirstOrDefault();
         _currentState.StartState();
     }
-   
+
+    public virtual void ChangeState(int newState)
+    {
+        _currentState.Stop();
+        _currentState = states.Where(s => s.StateType == (StateType)newState).FirstOrDefault();
+        _currentState.StartState();
+    }
+
+
     public AState GetState(StateType state)
     {
         return states.Where(s => s.StateType == state).FirstOrDefault();
