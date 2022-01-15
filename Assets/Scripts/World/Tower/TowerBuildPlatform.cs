@@ -92,12 +92,15 @@ public class TowerBuildPlatform : MonoBehaviour
         BuiltTower(platform);
 
         if (isPrecreateTower)
-        {
-            DisablePreviousTower(_activeTower);
-            CreateNewTower(precreatedTowerType);
-            OnTowerBuild?.Invoke(this);
-            OnBuildEvent?.Invoke();
-        }
+            PrebuildTower(precreatedTowerType);
+    }
+
+    public void PrebuildTower(UnitType type)
+    {
+        DisablePreviousTower(_activeTower);
+        CreateNewTower(type);
+        OnTowerBuild?.Invoke(this);
+        OnBuildEvent?.Invoke();
     }
 
     private void IncreaseTilesAmount()

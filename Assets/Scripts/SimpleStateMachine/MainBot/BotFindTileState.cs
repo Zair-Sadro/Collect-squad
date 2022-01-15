@@ -46,7 +46,6 @@ public class BotFindTileState : AState
         LocalInit();
         ChooseTilesToCollect();
         _currentGrabTime = maxTileToGrab;
-       // StartCoroutine(TakingTiles(timeToGrabTile));
     }
 
 
@@ -65,47 +64,7 @@ public class BotFindTileState : AState
         _choosedTiles.Clear();
         _animator.SetBool("Run", false);
     }
-
-    private IEnumerator TakingTiles(float time)
-    {
-        var target = DesiredTile();
-
-        while(_tileSetter.Tiles.Count < _randomTilesToGrab)
-        {
-            
-            if(_currentGrabTime <= 0)
-            {
-                _animator.SetBool("Run", false);
-                if(_navAgent.enabled)
-                    _navAgent.ResetPath();
-
-                target = DesiredTile();
-                _currentGrabTime = maxTileToGrab;
-            }
-            else
-            {
-                _currentGrabTime -= Time.deltaTime;
-                _animator.SetBool("Run", true);
-                SetTarget(target);
-            }
-
-            yield return null;
-        }
-        
-        _stateController.ChangeState(StateType.BotTowerChoose);
-    }
-
-    private Vector3 DesiredTile()
-    {
-        Vector3 path = new Vector3(0, 0, -25);
-
-        for (int i = 0; i < _choosedTiles.Count; i++)
-        {
-            if (!_choosedTiles[i].IsTaken && _choosedTiles[i].gameObject.activeInHierarchy)
-                path = _choosedTiles[i].transform.localPosition;
-        }
-        return path;
-    }
+   
 
     private void SetTarget(Vector3 target)
     {
