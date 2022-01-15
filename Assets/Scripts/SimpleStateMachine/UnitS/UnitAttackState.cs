@@ -30,6 +30,7 @@ public class UnitAttackState : AState
     {
         stateCondition = StateCondition.Executing;
         LocalInit();
+        unitAnimator.SetBool("Run", false);
     }
 
     private void LocalInit()
@@ -42,7 +43,6 @@ public class UnitAttackState : AState
         _navObstacle.enabled = isMovingWhenAttack;
 
         _curCheckTime = timeToCheckTargets;
-        unitAnimator.SetTrigger("Attack");
     }
 
     public override void Execute()
