@@ -18,6 +18,7 @@ public class TowerBuildPlatform : MonoBehaviour
 
     [Header("Build Settings")]
     [SerializeField] private Collider coll;
+    [SerializeField] private float firstUnitInvincibilityTime;
     [SerializeField, Min(0)] private float resetTime;
     [SerializeField] private float timeToDestroy;
     [SerializeField] private float timeToDestroyByUnits;
@@ -54,6 +55,7 @@ public class TowerBuildPlatform : MonoBehaviour
 
     #region Properties
 
+    public float FirstUnitInvincibilityTime => firstUnitInvincibilityTime;
     public UnityEvent DestroyEvent => OnDestroyEvent;
     public UnityEvent DestroyByUnits => OnDestroyByUnitsEvent;
     public float TimeToDestroyByUnits => timeToDestroyByUnits;

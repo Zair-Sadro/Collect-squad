@@ -18,6 +18,7 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
 
     private bool _wasDestroyed;
     private int _currentUnitsAmount;
+    private float _firstUnitInvinciblityTime;
     private float _currentHp;
     private UnitTeam _currentTeam;
     private TowerUI _towerUI;
@@ -30,6 +31,7 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
 
     #region Properties
 
+    public float InvincibilityTime => _firstUnitInvinciblityTime;
     public bool WasDestroyed => _wasDestroyed;
     public int CurrentUnitsAmount { get => _currentUnitsAmount; set => _currentUnitsAmount = value; }
     public ITeamChangeable TeamObject => this;
@@ -50,6 +52,7 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
         _currentHp = maxHp;
         _currentTeam = buildPlatform.CurrentTeam;
         _towerUI = buildPlatform.TowerUI;
+        _firstUnitInvinciblityTime = buildPlatform.FirstUnitInvincibilityTime;
     }
 
     private void OnEnable()

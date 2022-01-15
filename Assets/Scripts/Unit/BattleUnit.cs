@@ -18,8 +18,10 @@ public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUn
 
     private UnitTeam _team;
     private Transform _attackTarget;
-    private float _currentHealth;
     private TowerObject _tower;
+    private float _currentHealth;
+    private float _invinciblityTime;
+    private bool _canBeDamaged;
 
     #region Properties
 
@@ -32,7 +34,7 @@ public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUn
     public float Health => health;
     public float MoveSpeed => moveSpeed;
     public bool IsSpotable => true;
-    public bool IsDamageable => true;
+    public bool IsDamageable => _canBeDamaged;
 
 
     #endregion
@@ -44,6 +46,9 @@ public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUn
         _team = team;
         _currentHealth = health;
         stateMachine.Init(this);
+        _invinciblityTime = _tower.InvincibilityTime;
+
+        StartCoroutine(SpawnInvincibility(_invinciblityTime));
     }
 
     public void FinishInit(Transform finishTarget, float speed)
@@ -51,6 +56,14 @@ public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUn
         _attackTarget = finishTarget;
         moveSpeed = speed;
     }
+
+    private IEnumerator SpawnInvincibility(float time)
+    {
+        _canBeDamaged = false;
+        yield return new WaitForSeconds(time);
+        _canBeDamaged = true;
+    }
+
 
     public void TakeDamage(float amount)
     {
