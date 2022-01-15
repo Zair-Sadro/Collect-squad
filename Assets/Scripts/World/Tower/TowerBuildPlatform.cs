@@ -5,12 +5,16 @@ using System.Linq;
 using System;
 using Random = UnityEngine.Random;
 using UnityEngine.Events;
-
+using System.Threading.Tasks;
 
 public class TowerBuildPlatform : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] private TowerUI towerUI;
+
+    [Header("Precreate tower")]
+    [SerializeField] private bool isPrecreateTower;
+    [SerializeField] private UnitType precreatedTowerType;
 
     [Header("Build Settings")]
     [SerializeField] private Collider coll;
@@ -27,6 +31,7 @@ public class TowerBuildPlatform : MonoBehaviour
     [SerializeField] private UnitTeam currentTeam;
     [SerializeField] private Transform chaseTarget;
     [SerializeField] private Transform playerEnemyTarget;
+
 
     [SerializeField] private List<ATowerObject> towers = new List<ATowerObject>();
 
@@ -81,10 +86,18 @@ public class TowerBuildPlatform : MonoBehaviour
         CreateBuildPlatform();
     }
 
-    private void CreateBuildPlatform()
+    private  void CreateBuildPlatform()
     {
         var platform = towers.Where(t => t.Data.Type == UnitType.Tower).FirstOrDefault();
         BuiltTower(platform);
+
+        if (isPrecreateTower)
+        {
+            DisablePreviousTower(_activeTower);
+            CreateNewTower(precreatedTowerType);
+            OnTowerBuild?.Invoke(this);
+            OnBuildEvent?.Invoke();
+        }
     }
 
     private void IncreaseTilesAmount()

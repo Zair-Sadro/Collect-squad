@@ -6,7 +6,6 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private UnitTeam team;
     [SerializeField] private float speed;
     [SerializeField] private Rigidbody body;
     [SerializeField] private Animator playerAnimator;
@@ -48,6 +47,12 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetBool("Run", false);
             dustParticle.gameObject.SetActive(false);
         }
+    }
+
+    public void Stop()
+    {
+        body.velocity = Vector3.zero;
+        playerAnimator.SetBool("Run", false);
     }
 
     public void SetSpeed(float speed)

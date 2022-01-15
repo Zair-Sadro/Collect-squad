@@ -2694,9 +2694,24 @@ PrefabInstance:
       objectReference: {fileID: 697994424}
     - target: {fileID: 3382843288824935639, guid: 4dec278f5273dbe479e4964aadc6b838,
         type: 3}
+      propertyPath: isPrecreateTower
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382843288824935639, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
       propertyPath: playerEnemyTarget
       value: 
       objectReference: {fileID: 876432590}
+    - target: {fileID: 3382843288824935639, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: precreatedTowerType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382843288824935639, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: precreatedTowerLevel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3382843288947136761, guid: 4dec278f5273dbe479e4964aadc6b838,
         type: 3}
       propertyPath: m_Camera
@@ -2748,6 +2763,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7124954593311112822, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162858167612093274, guid: 4dec278f5273dbe479e4964aadc6b838,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3973,17 +3993,6 @@ MonoBehaviour:
   OnFinishPointChecked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 876432588}
-        m_MethodName: SetSpeed
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 6
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1973880452}
         m_MethodName: SetTargetToBuilder
         m_Mode: 1
@@ -4006,14 +4015,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1919640323}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 876432588}
+        m_MethodName: SetSpeed
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 5
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -4915,6 +4924,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1285904451, guid: df86d03248164654c81a36da6c58109b, type: 3}
+      propertyPath: m_Radius
+      value: 0.74131155
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285904451, guid: df86d03248164654c81a36da6c58109b, type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1285904452, guid: df86d03248164654c81a36da6c58109b, type: 3}
       propertyPath: overTrigger
       value: 
