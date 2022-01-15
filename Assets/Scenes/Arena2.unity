@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 230568696}
-  m_IndirectSpecularColor: {r: 0.43870708, g: 0.4868539, b: 0.56712234, a: 1}
+  m_IndirectSpecularColor: {r: 0.29297245, g: 0.51765144, b: 0.58697355, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5904,6 +5904,24 @@ PrefabInstance:
       objectReference: {fileID: 125772806}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c35520a017cf9f345bebfed1ec730e12, type: 3}
+--- !u!23 &1043534742 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3126781319149028334, guid: c35520a017cf9f345bebfed1ec730e12,
+    type: 3}
+  m_PrefabInstance: {fileID: 1043534741}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1043534743 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3126781319543088975, guid: c35520a017cf9f345bebfed1ec730e12,
+    type: 3}
+  m_PrefabInstance: {fileID: 1043534741}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1043534744 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3126781320322882885, guid: c35520a017cf9f345bebfed1ec730e12,
+    type: 3}
+  m_PrefabInstance: {fileID: 1043534741}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1155846708
 GameObject:
   m_ObjectHideFlags: 0
@@ -10677,14 +10695,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7815497030408273850, guid: c992160fc8ac08a4596df7fae0db460c,
         type: 3}
+      propertyPath: waterHeight
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7815497030408273850, guid: c992160fc8ac08a4596df7fae0db460c,
+        type: 3}
       propertyPath: waterRenderers.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7815497030408273850, guid: c992160fc8ac08a4596df7fae0db460c,
         type: 3}
       propertyPath: waterRenderers.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1043534744}
+    - target: {fileID: 7815497030408273850, guid: c992160fc8ac08a4596df7fae0db460c,
+        type: 3}
+      propertyPath: waterRenderers.Array.data[2]
+      value: 
+      objectReference: {fileID: 1043534743}
+    - target: {fileID: 7815497030408273850, guid: c992160fc8ac08a4596df7fae0db460c,
+        type: 3}
+      propertyPath: waterRenderers.Array.data[3]
+      value: 
+      objectReference: {fileID: 1043534742}
     - target: {fileID: 7815497031095545269, guid: c992160fc8ac08a4596df7fae0db460c,
         type: 3}
       propertyPath: waterProperties

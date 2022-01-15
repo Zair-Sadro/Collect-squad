@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 230568696}
-  m_IndirectSpecularColor: {r: 0.43870708, g: 0.4868539, b: 0.56712234, a: 1}
+  m_IndirectSpecularColor: {r: 0.29297245, g: 0.51765144, b: 0.58697355, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1539,6 +1539,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55152aeb512b1dc458cf06cbf4ef3e0e, type: 3}
+--- !u!23 &40482114 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2587823174335942715, guid: 55152aeb512b1dc458cf06cbf4ef3e0e,
+    type: 3}
+  m_PrefabInstance: {fileID: 40482113}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &40482115 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6117414825754542408, guid: 55152aeb512b1dc458cf06cbf4ef3e0e,
+    type: 3}
+  m_PrefabInstance: {fileID: 40482113}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &65018286
 GameObject:
   m_ObjectHideFlags: 0
@@ -8794,14 +8806,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7815497030408273850, guid: c992160fc8ac08a4596df7fae0db460c,
         type: 3}
+      propertyPath: waterHeight
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7815497030408273850, guid: c992160fc8ac08a4596df7fae0db460c,
+        type: 3}
       propertyPath: waterRenderers.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7815497030408273850, guid: c992160fc8ac08a4596df7fae0db460c,
         type: 3}
       propertyPath: waterRenderers.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 40482115}
+    - target: {fileID: 7815497030408273850, guid: c992160fc8ac08a4596df7fae0db460c,
+        type: 3}
+      propertyPath: waterRenderers.Array.data[2]
+      value: 
+      objectReference: {fileID: 40482114}
     - target: {fileID: 7815497031095545269, guid: c992160fc8ac08a4596df7fae0db460c,
         type: 3}
       propertyPath: waterProperties

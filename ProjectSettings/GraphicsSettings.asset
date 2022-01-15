@@ -63,7 +63,7 @@ GraphicsSettings:
       useCascadedShadowMaps: 1
       prefer32BitShadowMaps: 0
       enableLPPV: 1
-      useDitherMaskForAlphaBlendedShadows: 1
+      useDitherMaskForAlphaBlendedShadows: 0
     m_Automatic: 1
   m_LightmapStripping: 0
   m_FogStripping: 0
