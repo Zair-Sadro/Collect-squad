@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 230568696}
-  m_IndirectSpecularColor: {r: 0.29297245, g: 0.51765144, b: 0.58697355, a: 1}
+  m_IndirectSpecularColor: {r: 0.2979758, g: 0.51716465, b: 0.5898477, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -378,7 +378,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2120
+  m_Name: pb_Mesh-640114
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2513,7 +2513,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2110
+  m_Name: pb_Mesh-641542
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2970,7 +2970,7 @@ PrefabInstance:
     - target: {fileID: 3382843288824935639, guid: 4dec278f5273dbe479e4964aadc6b838,
         type: 3}
       propertyPath: isPrecreateTower
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3382843288824935639, guid: 4dec278f5273dbe479e4964aadc6b838,
         type: 3}
@@ -2980,7 +2980,7 @@ PrefabInstance:
     - target: {fileID: 3382843288824935639, guid: 4dec278f5273dbe479e4964aadc6b838,
         type: 3}
       propertyPath: precreatedTowerType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3382843288824935639, guid: 4dec278f5273dbe479e4964aadc6b838,
         type: 3}
@@ -4019,7 +4019,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2128
+  m_Name: pb_Mesh-640122
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5149,9 +5149,19 @@ PrefabInstance:
       objectReference: {fileID: 2084819322}
     - target: {fileID: 3382843288824935639, guid: 4dec278f5273dbe479e4964aadc6b838,
         type: 3}
+      propertyPath: isPrecreateTower
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382843288824935639, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
       propertyPath: playerEnemyTarget
       value: 
       objectReference: {fileID: 156576123}
+    - target: {fileID: 3382843288824935639, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: precreatedTowerType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3382843288947136761, guid: 4dec278f5273dbe479e4964aadc6b838,
         type: 3}
       propertyPath: m_Camera

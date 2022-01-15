@@ -216,19 +216,19 @@ MonoBehaviour:
           m_CallState: 2
   damages:
   - Type: 0
-    DamageToType: 1
+    DamageToType: 1.5
   - Type: 1
-    DamageToType: 2
+    DamageToType: 3
   - Type: 2
-    DamageToType: 1
+    DamageToType: 1.5
   - Type: 3
-    DamageToType: 2
+    DamageToType: 3
   - Type: 4
     DamageToType: 100
   weaponSettings:
-    TimeToAttack: 1.2
+    TimeToAttack: 0.35
     DamageTime: 0.2
-    TimeToReload: 0.2
+    TimeToReload: 0.35
     SerenityTime: 0
   damageColl: {fileID: 4980200084808349497}
 --- !u!1 &685961290248169071
@@ -690,7 +690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   health: 3
-  moveSpeed: 0.25
+  moveSpeed: 0.4
   stateMachine: {fileID: 4178793420080663730}
 --- !u!114 &4178793420080663730
 MonoBehaviour:
@@ -810,8 +810,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885422764271513586}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.473, y: 0.191, z: 2.038}
-  m_LocalScale: {x: 0.9999999, y: 1, z: 1.2795895}
+  m_LocalPosition: {x: 0.473, y: 0.191, z: 2.076}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 1.3552202}
   m_Children: []
   m_Father: {fileID: 3111625747173347496}
   m_RootOrder: 1
@@ -1571,7 +1571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
-  timeToCheckTargets: 1
+  timeToCheckTargets: 0.5
   isMovingWhenAttack: 0
   weapon: {fileID: 943445507880044717}
   unitAnimator: {fileID: 4947678522817879389}

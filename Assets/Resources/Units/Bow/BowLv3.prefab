@@ -765,7 +765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
-  timeToCheckTargets: 1
+  timeToCheckTargets: 1.8
   isMovingWhenAttack: 0
   weapon: {fileID: 9191849662947489976}
   unitAnimator: {fileID: 4405156995307731600}
@@ -1027,7 +1027,7 @@ MonoBehaviour:
   weaponSettings:
     TimeToAttack: 1
     DamageTime: 0.2
-    TimeToReload: 0.3
+    TimeToReload: 1
     SerenityTime: 0
   attackState: {fileID: 2157699270638608374}
   arrowSpawner: {fileID: 6510025151184397239}
@@ -2136,8 +2136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
-  detectionRadius: 12
-  attackDistance: 9
+  detectionRadius: 8
+  attackDistance: 3
   unitAnimator: {fileID: 4405156995307731600}
 --- !u!1 &7274094237208686865
 GameObject:
@@ -2412,7 +2412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   health: 3
-  moveSpeed: 0.5
+  moveSpeed: 0.45
   stateMachine: {fileID: 4051239791432037512}
 --- !u!114 &4051239791432037512
 MonoBehaviour:

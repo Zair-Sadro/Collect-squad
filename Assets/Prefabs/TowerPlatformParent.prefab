@@ -5969,6 +5969,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerUI: {fileID: 3382843288947136772}
+  isPrecreateTower: 0
+  precreatedTowerType: 0
   coll: {fileID: 3382843288824935632}
   resetTime: 2
   timeToDestroy: 1
@@ -21021,6 +21023,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3382843288222352597, guid: eb07ef87e2cff704c8d7885f5b74d6ce,
         type: 3}
+      propertyPath: maxHp
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382843288222352597, guid: eb07ef87e2cff704c8d7885f5b74d6ce,
+        type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1520215894}
@@ -21123,6 +21130,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3382843287515703201, guid: dfb2870c24f856a4ebc80390dc1ae551,
         type: 3}
+      propertyPath: maxHp
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382843287515703201, guid: dfb2870c24f856a4ebc80390dc1ae551,
+        type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1520215894}
@@ -21220,6 +21232,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3382843289535215805, guid: 12264a84016556445b0f9d2fa1bf0409,
         type: 3}
+      propertyPath: maxHp
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382843289535215805, guid: 12264a84016556445b0f9d2fa1bf0409,
+        type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1520215894}
@@ -21310,6 +21327,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3382843288824935633}
     m_Modifications:
+    - target: {fileID: 3382843289225299596, guid: ca677961d05ddd44b91f432fe595f865,
+        type: 3}
+      propertyPath: maxHp
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3382843289225299596, guid: ca677961d05ddd44b91f432fe595f865,
         type: 3}
       propertyPath: spawnPoint
@@ -21414,6 +21436,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3382843288170742421, guid: d4fae35a8a02e5e4d9f408cc326e4890,
         type: 3}
+      propertyPath: maxHp
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382843288170742421, guid: d4fae35a8a02e5e4d9f408cc326e4890,
+        type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1520215894}
@@ -21504,6 +21531,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3382843288824935633}
     m_Modifications:
+    - target: {fileID: 3382843287942384248, guid: 9715db15644640f4d877d9cb504ba24e,
+        type: 3}
+      propertyPath: maxHp
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3382843287942384248, guid: 9715db15644640f4d877d9cb504ba24e,
         type: 3}
       propertyPath: spawnPoint
@@ -21608,6 +21640,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3382843289292223774, guid: 55b121cf394cc01479d0f129a16fb016,
         type: 3}
+      propertyPath: maxHp
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382843289292223774, guid: 55b121cf394cc01479d0f129a16fb016,
+        type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1520215894}
@@ -21705,6 +21742,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3382843289316063839, guid: 273dc1f4c5483e34087c3e0742257bbb,
         type: 3}
+      propertyPath: maxHp
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382843289316063839, guid: 273dc1f4c5483e34087c3e0742257bbb,
+        type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1520215894}
@@ -21800,6 +21842,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3382843288824935633}
     m_Modifications:
+    - target: {fileID: 3382843288617963346, guid: 28da665919180f248a017275a15b3e61,
+        type: 3}
+      propertyPath: maxHp
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3382843288617963346, guid: 28da665919180f248a017275a15b3e61,
         type: 3}
       propertyPath: spawnPoint
