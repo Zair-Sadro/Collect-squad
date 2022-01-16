@@ -65,8 +65,7 @@ public class TileSetter : MonoBehaviour
         _tiles.Add(tile);
         OnTilesCountChanged?.Invoke(_tiles.Count);
 
-        if(!isThisBot)
-            Vibration.Vibrate(1);
+      
     }
 
     public void RemoveTiles(Action towerTileIncrease, TowerBuildPlatform tower)
@@ -104,7 +103,7 @@ public class TileSetter : MonoBehaviour
             OnTilesCountChanged?.Invoke(_tiles.Count);
 
             if (!isThisBot)
-                Vibration.Vibrate(1);
+                Vibration.Vibrate(25);
         }
         _isGivingTiles = false;
     }
@@ -133,7 +132,12 @@ public class TileSetter : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         if (other.collider.TryGetComponent(out Tile tile) && _tiles.Count < maxTiles)
+        {
+            if (!isThisBot)
+                Vibration.Vibrate(25);
+
             AddTile(tile);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

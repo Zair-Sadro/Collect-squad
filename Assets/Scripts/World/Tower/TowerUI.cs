@@ -48,6 +48,7 @@ public class TowerUI : MonoBehaviour
     private void OnTowerBuild(TowerBuildPlatform platform)
     {
         UpdateHealthAndTimer(platform.ActiveTower);
+        healthBar.SetActive(false);
         tilesCounter.rectTransform.anchoredPosition = posTileCounterAfterTower;
     }
 

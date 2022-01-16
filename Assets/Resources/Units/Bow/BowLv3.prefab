@@ -2137,7 +2137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateCondition: 0
   detectionRadius: 8
-  attackDistance: 3.1
+  attackDistance: 5
   unitAnimator: {fileID: 4405156995307731600}
 --- !u!1 &7274094237208686865
 GameObject:

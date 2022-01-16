@@ -14,6 +14,7 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
     [SerializeField, Min(0)] private float firstUnitSpawnTime;
     [SerializeField, Min(0)] private float spawnTime;
     [SerializeField] private int maxUnitsAlive;
+    [SerializeField] private Vector3 spawnRotation;
     [SerializeField] private Transform spawnPoint;
 
     private bool _wasDestroyed;
@@ -31,6 +32,8 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
 
     #region Properties
 
+    public float CurrentHealth => _currentHp;
+    public float MaxHealth => maxHp;
     public float InvincibilityTime => _firstUnitInvinciblityTime;
     public bool WasDestroyed => _wasDestroyed;
     public int CurrentUnitsAmount { get => _currentUnitsAmount; set => _currentUnitsAmount = value; }
@@ -81,7 +84,7 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
         BattleUnit newUnit = Instantiate(CurrentLevel.UnitPrefab, this.transform);
         _currentUnitsAmount++;
         newUnit.transform.localPosition = spawnPoint.localPosition;
-        newUnit.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        newUnit.transform.localRotation = Quaternion.Euler(spawnRotation);
         newUnit.transform.parent = null;
         newUnit.Init(_currentBuildPlatform.EnemyTower, _currentTeam, this);
         StartSpawn(spawnTime);

@@ -1186,6 +1186,36 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1189473729806311752, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376269981664131678, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7933522
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376269981664131678, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376269981664131678, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6087629
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376269981664131678, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376269981664131678, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 285
+      objectReference: {fileID: 0}
     - target: {fileID: 2538903988883337096, guid: 4dec278f5273dbe479e4964aadc6b838,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -8069,6 +8099,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1376269981664131678, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376269981664131678, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376269981664131678, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 2538903988883337096, guid: 4dec278f5273dbe479e4964aadc6b838,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -8295,6 +8340,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7162858167704846010, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162858169385623743, guid: 4dec278f5273dbe479e4964aadc6b838,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -9368,6 +9418,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189473729806311752, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376269981664131678, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.79335225
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376269981664131678, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376269981664131678, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.60876286
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376269981664131678, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376269981664131678, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 2538903988883337096, guid: 4dec278f5273dbe479e4964aadc6b838,
         type: 3}
