@@ -5150,7 +5150,7 @@ PrefabInstance:
     - target: {fileID: 3382843288824935639, guid: 4dec278f5273dbe479e4964aadc6b838,
         type: 3}
       propertyPath: isPrecreateTower
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3382843288824935639, guid: 4dec278f5273dbe479e4964aadc6b838,
         type: 3}
@@ -5160,6 +5160,16 @@ PrefabInstance:
     - target: {fileID: 3382843288824935639, guid: 4dec278f5273dbe479e4964aadc6b838,
         type: 3}
       propertyPath: precreatedTowerType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382843288824935639, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: timeToDestroyByUnits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382843288824935639, guid: 4dec278f5273dbe479e4964aadc6b838,
+        type: 3}
+      propertyPath: firstUnitInvincibilityTime
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3382843288947136761, guid: 4dec278f5273dbe479e4964aadc6b838,

@@ -75,7 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateCondition: 0
   detectionRadius: 8
-  attackDistance: 3
+  attackDistance: 3.05
   unitAnimator: {fileID: 6484820403885492095}
 --- !u!1 &224989517944231383
 GameObject:
@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  health: 3
+  health: 4
   moveSpeed: 0.425
   stateMachine: {fileID: 6693494867258231143}
 --- !u!114 &6693494867258231143
@@ -629,13 +629,13 @@ MonoBehaviour:
           m_CallState: 2
   damages:
   - Type: 0
-    DamageToType: 1.5
+    DamageToType: 4
   - Type: 1
-    DamageToType: 1.5
+    DamageToType: 2
   - Type: 2
-    DamageToType: 1.5
+    DamageToType: 2
   - Type: 3
-    DamageToType: 1.5
+    DamageToType: 4
   - Type: 4
     DamageToType: 100
   weaponSettings:

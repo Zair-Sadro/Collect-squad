@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
-  timeToCheckTargets: 1
+  timeToCheckTargets: 0.5
   isMovingWhenAttack: 0
   weapon: {fileID: 685175367895951461}
   unitAnimator: {fileID: 2735594666397910445}
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
-  detectionRadius: 6
+  detectionRadius: 8
   attackDistance: 2
   unitAnimator: {fileID: 2735594666397910445}
 --- !u!1 &2131039788
@@ -377,17 +377,17 @@ MonoBehaviour:
           m_CallState: 2
   damages:
   - Type: 0
-    DamageToType: 1
+    DamageToType: 2
   - Type: 1
-    DamageToType: 1
+    DamageToType: 2
   - Type: 2
     DamageToType: 1
   - Type: 3
-    DamageToType: 2.1
+    DamageToType: 2
   - Type: 4
     DamageToType: 100
   weaponSettings:
-    TimeToAttack: 2
+    TimeToAttack: 1
     DamageTime: 0.2
     TimeToReload: 1
     SerenityTime: 0
@@ -1225,10 +1225,10 @@ GameObject:
   - component: {fileID: 4426242338286829952}
   - component: {fileID: 2735594666397910445}
   - component: {fileID: 2327103515865673614}
+  - component: {fileID: 293421593}
   - component: {fileID: 792888605296764082}
   - component: {fileID: 293421591}
   - component: {fileID: 293421592}
-  - component: {fileID: 293421593}
   - component: {fileID: -8954424198973063499}
   m_Layer: 0
   m_Name: SwordLv1
@@ -1288,6 +1288,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.0984046, z: 1.218607}
   m_Center: {x: 0, y: 1.1457976, z: -0.109303474}
+--- !u!114 &293421593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3902082482770664250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6d02096cdb04144a0463dd635045b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  health: 2
+  moveSpeed: 0.55
+  stateMachine: {fileID: 293421592}
 --- !u!54 &792888605296764082
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1347,22 +1363,6 @@ MonoBehaviour:
   - {fileID: 65533691696153135}
   navAgent: {fileID: 293421591}
   navObstacle: {fileID: -8954424198973063499}
---- !u!114 &293421593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3902082482770664250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6d02096cdb04144a0463dd635045b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
-  health: 2
-  moveSpeed: 0.7
-  stateMachine: {fileID: 293421592}
 --- !u!208 &-8954424198973063499
 NavMeshObstacle:
   m_ObjectHideFlags: 0

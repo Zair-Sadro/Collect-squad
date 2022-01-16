@@ -2651,13 +2651,13 @@ MonoBehaviour:
           m_CallState: 2
   damages:
   - Type: 0
-    DamageToType: 1
+    DamageToType: 2
   - Type: 1
     DamageToType: 1
   - Type: 2
     DamageToType: 1
   - Type: 3
-    DamageToType: 1
+    DamageToType: 2
   - Type: 4
     DamageToType: 100
   weaponSettings:

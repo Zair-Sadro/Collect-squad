@@ -328,7 +328,7 @@ MonoBehaviour:
   - Type: 1
     DamageToType: 2
   - Type: 2
-    DamageToType: 1
+    DamageToType: 2
   - Type: 3
     DamageToType: 1
   - Type: 4

@@ -216,13 +216,13 @@ MonoBehaviour:
           m_CallState: 2
   damages:
   - Type: 0
-    DamageToType: 1.5
+    DamageToType: 4
   - Type: 1
-    DamageToType: 3
+    DamageToType: 4
   - Type: 2
-    DamageToType: 1.5
+    DamageToType: 4
   - Type: 3
-    DamageToType: 3
+    DamageToType: 2
   - Type: 4
     DamageToType: 100
   weaponSettings:
@@ -689,7 +689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  health: 3
+  health: 4
   moveSpeed: 0.4
   stateMachine: {fileID: 4178793420080663730}
 --- !u!114 &4178793420080663730
@@ -1571,7 +1571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
-  timeToCheckTargets: 0.5
+  timeToCheckTargets: 0.39
   isMovingWhenAttack: 0
   weapon: {fileID: 943445507880044717}
   unitAnimator: {fileID: 4947678522817879389}

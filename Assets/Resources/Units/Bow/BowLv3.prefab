@@ -1015,13 +1015,13 @@ MonoBehaviour:
           m_CallState: 2
   damages:
   - Type: 0
-    DamageToType: 2
+    DamageToType: 8
   - Type: 1
-    DamageToType: 2
+    DamageToType: 4
   - Type: 2
-    DamageToType: 2
+    DamageToType: 4
   - Type: 3
-    DamageToType: 2
+    DamageToType: 8
   - Type: 4
     DamageToType: 100
   weaponSettings:
@@ -2137,7 +2137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateCondition: 0
   detectionRadius: 8
-  attackDistance: 3
+  attackDistance: 3.1
   unitAnimator: {fileID: 4405156995307731600}
 --- !u!1 &7274094237208686865
 GameObject:
