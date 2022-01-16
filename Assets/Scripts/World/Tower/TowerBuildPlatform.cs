@@ -231,7 +231,7 @@ public class TowerBuildPlatform : MonoBehaviour
             {
                 towerUI.ToggleCounter(false);
                 TryToUpgradeTower();
-                tileSetter.StopAllCoroutines();
+                tileSetter.StopRemovingTiles();
                 return;
             }
 

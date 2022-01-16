@@ -1145,7 +1145,7 @@ MonoBehaviour:
   - {fileID: 7120475631943721216}
   - {fileID: 537599541443037808}
   - {fileID: 6101239384680337203}
-  moveSpeed: 10
+  moveSpeed: 12
   animator: {fileID: 3633850738211526385}
   navAgent: {fileID: 4636531569541514763}
   botTileSetter: {fileID: 7314024398954670222}
@@ -1170,6 +1170,7 @@ MonoBehaviour:
   tilesSpawnerParent: {fileID: 0}
   setupPoint: {fileID: 1532945090005571986}
   tilesScale: {x: 75, y: 75, z: 75}
+  tileSetSpeed: 0
   zOffset: 0.36
   yOffset: 0.29
   tilesRow: 2
@@ -1231,17 +1232,6 @@ MonoBehaviour:
       - m_Target: {fileID: 3498828454383532775}
         m_MethodName: set_enabled
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4636531569541514763}
-        m_MethodName: ResetPath
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1937,8 +1927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
-  animClip: {fileID: -203655887218126122, guid: 2e699f66f1e685348aa27b16215d6011,
-    type: 3}
+  animClip: {fileID: 7400000, guid: 87d8edbb3cf65384f97f1d742fc8b510, type: 2}
 --- !u!1 &5872488496839146333
 GameObject:
   m_ObjectHideFlags: 0

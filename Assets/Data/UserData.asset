@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: UserData
   m_EditorClassIdentifier: 
   Rank: 0
-  Coins: 0
+  Coins: 400
   Cups: 0
-  WinsToNextRank: 0
-  CurrentLevel: 0
+  WinsToNextRank: 3
+  CurrentLevel: 4

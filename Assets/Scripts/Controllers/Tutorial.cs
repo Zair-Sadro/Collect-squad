@@ -33,6 +33,7 @@ public class Tutorial : MonoBehaviour
     private void OnBuildZoneEnter(TowerBuildPlatform tower)
     {
         _currentTower = tower;
+        _currentTower.DestroyByUnits.AddListener(OnDestroyTower);
         _currentTower.OnTowerBuild += OnTowerBuild;
         towerArrow.SetActive(false);
 
@@ -42,7 +43,7 @@ public class Tutorial : MonoBehaviour
 
     private void OnTowerBuild(TowerBuildPlatform obj)
     {
-        enemyTower.PrebuildTower(UnitType.Spear);
+       // enemyTower.PrebuildTower(UnitType.Spear);
         towerArrow.SetActive(false);
         _botController.enabled = true;
 
@@ -58,6 +59,17 @@ public class Tutorial : MonoBehaviour
             tapHand.SetActive(false);
             towerArrow.SetActive(false);
         }
+    }
+
+    private void OnDestroyTower()
+    {
+        _currentTower.OnTowerBuild -= OnTowerBuild;
+        _currentTower.DestroyByUnits.RemoveAllListeners();
+        playerTileSetter.OnTilesCountChanged -= OnPlayerTiles;
+        playerTileSetter.OnBuildZoneEnter -= OnBuildZoneEnter;
+        playerTileSetter.OnBuildZoneExit -= OnBuildZoneExit;
+        tapHand.SetActive(false);
+        towerArrow.SetActive(false);
     }
 
     private void OnBuildZoneExit()

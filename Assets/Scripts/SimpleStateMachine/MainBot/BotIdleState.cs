@@ -28,7 +28,11 @@ public class BotIdleState : AState
         _animator.Play(animClip.name);
 
         if (_navAgent.enabled)
+        {
+            _navAgent.isStopped = true;
             _navAgent.ResetPath();
+            _navAgent.enabled = false;
+        }
         
     }
     public override void Execute()

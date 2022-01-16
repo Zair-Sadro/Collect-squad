@@ -15,14 +15,18 @@ public class UnitTarget : MonoBehaviour
 
     private void Start()
     {
+        transform.localPosition = mainTower.transform.localPosition;
+
         mainTower.OnTowerBuild += OnTowerBuild;
         mainTower.OnClearPlatform += OnClearPlatform;
+        mainTower.DestroyByUnits.AddListener(OnClearPlatform);
     }
 
     private void OnDisable()
     {
         mainTower.OnTowerBuild -= OnTowerBuild;
         mainTower.OnClearPlatform -= OnClearPlatform;
+        mainTower.DestroyByUnits.RemoveAllListeners();
     }
 
     private void OnClearPlatform()
@@ -32,7 +36,6 @@ public class UnitTarget : MonoBehaviour
 
     private void OnTowerBuild(TowerBuildPlatform tower)
     {
-        if (tower.ActiveTower.CurrentLevel.LevelType > 0)
-            transform.localPosition = tower.transform.localPosition;
+         transform.localPosition = mainTower.transform.localPosition;
     }
 }

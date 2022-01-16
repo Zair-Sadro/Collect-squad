@@ -9,22 +9,30 @@ public class TowerButtonsController : MonoBehaviour
     [SerializeField] private DestroyTowerButton destroyTowerButton;
     [SerializeField] private List<TowerUI> towersUI = new List<TowerUI>();
 
+    private TowerBuildPlatform _bombTower;
 
     private void OnEnable()
     {
         playerTileSetter.OnBuildZoneEnter += BuildZoneEnter;
         playerTileSetter.OnBuildZoneExit += BuildZoneExit;
+
+        playerTileSetter.OnBombZoneEnter += BombZoneEnter;
+        playerTileSetter.OnBombZoneExit += BombZoneExit;
     }
+
+   
 
     private void OnDisable()
     {
         playerTileSetter.OnBuildZoneEnter -= BuildZoneEnter;
         playerTileSetter.OnBuildZoneExit -= BuildZoneExit;
+
+        playerTileSetter.OnBombZoneEnter -= BombZoneEnter;
+        playerTileSetter.OnBombZoneExit -= BombZoneExit;
     }
 
     private void BuildZoneExit()
     {
-        destroyTowerButton.gameObject.SetActive(false);
         foreach (var b in towersUI)
         {
             b.ButtonsUnsub();
@@ -37,11 +45,8 @@ public class TowerButtonsController : MonoBehaviour
         currentBuildPlatform.OnTowerBuild += OnTowerBuild;
 
         if (currentBuildPlatform.IsTowerBuild)
-        {
-            destroyTowerButton.gameObject.SetActive(true);
-            destroyTowerButton.Init(currentBuildPlatform);
             return;
-        }
+
 
         if(currentBuildPlatform.TilesToUpgrade == 0)
         {
@@ -51,6 +56,29 @@ public class TowerButtonsController : MonoBehaviour
                 b.InitButtons(currentBuildPlatform);
             }
         }
+    }
+
+    private void BombZoneExit()
+    {
+        destroyTowerButton.gameObject.SetActive(false);
+    }
+
+    private void BombZoneEnter(BombZone zone)
+    {
+        _bombTower = zone.MainTower;
+
+        if (_bombTower.IsTowerBuild)
+        {
+            _bombTower.OnClearPlatform += MainTower_OnClearPlatform;
+            destroyTowerButton.gameObject.SetActive(true);
+            destroyTowerButton.Init(_bombTower);
+        }
+    }
+
+    private void MainTower_OnClearPlatform()
+    {
+        destroyTowerButton.gameObject.SetActive(false);
+        _bombTower.OnClearPlatform -= MainTower_OnClearPlatform;
     }
 
     private void OnTowerBuild(TowerBuildPlatform currentBuildPlatform)

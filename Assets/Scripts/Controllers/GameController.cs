@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public enum GameState
 {
@@ -15,19 +16,25 @@ public class GameController : MonoBehaviour
     public static GameController Instance;
 
     [SerializeField] private UserData data;
+    [SerializeField] private GameObject winConfetti;
     [SerializeField] private GameState currentState;
     [SerializeField] private PlayerController player;
     [SerializeField] private TowerPlatformsMain playerMainTowersController;
     [SerializeField] private TowerPlatformsMain botMainTowersController;
     [SerializeField] private UIController uiController;
+    [SerializeField] private int defCoinsForWin;
+    [SerializeField] private int defCoinsForLose;
+
 
 
     private event Action<GameState> OnStateChange;
 
+    private int _sessionScore;
+
     #region Properties
 
     public static UserData Data { get => Instance.data;}
-
+    public static int SessionCoins => Instance._sessionScore;
     public PlayerController Player => player;
 
     public GameState CurrentState
@@ -51,7 +58,7 @@ public class GameController : MonoBehaviour
         else
             Destroy(Instance.gameObject);
 
-        DontDestroyOnLoad(this);
+       // DontDestroyOnLoad(this);
 
         #endregion
 
@@ -60,7 +67,7 @@ public class GameController : MonoBehaviour
 
     private void InitUI()
     {
-        uiController.Init(this);
+        uiController.Init(this, data);
     }
 
     private void OnEnable()
@@ -103,26 +110,45 @@ public class GameController : MonoBehaviour
 
     private void OnMenuState()
     {
-        
+        uiController.ToggleMenu(MenuType.Menu);
     }
 
     private void OnCoreState()
     {
-
+        uiController.ToggleMenu(MenuType.Core);
     }
 
     private void OnWinState()
     {
+        var winPanel = (WinMenu)uiController.Menus.Where(m => m.Type == MenuType.Win).FirstOrDefault();
+
         uiController.ToggleMenu(MenuType.Win);
         playerMainTowersController.StopTowerActivity();
         botMainTowersController.StopTowerActivity();
+        winConfetti.SetActive(true);
+
+        _sessionScore += defCoinsForWin;
+        data.Coins += _sessionScore;
+        data.CurrentLevel++;
+        data.WinsToNextRank++;
+
+        winPanel.SetSessionScore(_sessionScore);
+        SaveController.SaveData();
     }
 
     private void OnLoseState()
     {
+        var losePanel = (LoseMenu)uiController.Menus.Where(m => m.Type == MenuType.Lose).FirstOrDefault();
+
         uiController.ToggleMenu(MenuType.Lose);
         playerMainTowersController.StopTowerActivity();
         botMainTowersController.StopTowerActivity();
+
+        _sessionScore += defCoinsForLose;
+        data.Coins += _sessionScore;
+
+        losePanel.SetSessionScore(_sessionScore);
+        SaveController.SaveData();
     }
 
     #endregion
@@ -135,5 +161,15 @@ public class GameController : MonoBehaviour
     public void OnLevelLoad(int index)
     {
         SceneManager.LoadScene(index);
+    }
+
+    public static void AddSessionCoins(int value)
+    {
+        Instance._sessionScore += value;
+    }
+
+    public static int GetSessionScore()
+    {
+        return Instance._sessionScore;
     }
 }

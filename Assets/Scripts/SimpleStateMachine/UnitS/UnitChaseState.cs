@@ -39,8 +39,6 @@ public class UnitChaseState : AState
 
         _navAgent.enabled = true;
         _navObstacle.enabled = true;
-
-        unitAnimator.SetBool("Run", true);
     }
 
     public override void Execute()
@@ -78,7 +76,10 @@ public class UnitChaseState : AState
     private void SetTarget(Vector3 target)
     {
         if (_navAgent.enabled)
+        {
             _navAgent.destination = target;
+            unitAnimator.SetBool("Run", true);
+        }
     }
 
 

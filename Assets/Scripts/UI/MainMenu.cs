@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MainMenu : ABaseUI
 {
-    public override void Init(GameController gameController)
+    [SerializeField] private TMP_Text coinsText;
+
+    private void Start()
     {
-        _controller = gameController;
+        coinsText.text = _data.Coins.ToString();
     }
+
+   
 }

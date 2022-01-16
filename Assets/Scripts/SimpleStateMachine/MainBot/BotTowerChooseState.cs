@@ -9,7 +9,6 @@ public class BotTowerChooseState : AState
     [SerializeField, Min(0)] private float timeInBuildZone;
     [SerializeField] private float runToTowerTime;
     [SerializeField] private List<Transform> botTowers = new List<Transform>();
-    [SerializeField] private float distance;
 
     private TileSetter _tileSetter;
     private Animator _animator;
@@ -31,7 +30,7 @@ public class BotTowerChooseState : AState
         stateCondition = StateCondition.Executing;
         LocalInit();
         _target = TowerToGo();
-        StartCoroutine(WalkToTower(runToTowerTime));
+        StartCoroutine(WalkToTower());
     }
 
     private void LocalInit()
@@ -65,7 +64,7 @@ public class BotTowerChooseState : AState
             _navAgent.destination = target;
     }
 
-    private IEnumerator WalkToTower(float time)
+    private IEnumerator WalkToTower()
     {
         while(Vector3.Distance(transform.parent.position, _target) > 3)
         {
@@ -92,11 +91,13 @@ public class BotTowerChooseState : AState
 
             if (_playerBuildPlatforms[i].ActiveTower.CurrentLevel.LevelType > 0)
             {
+                var desiredTower = _playerBuildPlatforms[i].OppositeTower;
+
                 if (_navAgent.enabled)
                     _navAgent.ResetPath();
 
-                target = _playerBuildPlatforms[i].OppositeTower.transform.position;
-                _tileSetter.SetDiseredBuild(_playerBuildPlatforms[i].OppositeTower);
+                target = desiredTower.transform.position;
+                _tileSetter.SetDiseredBuild(desiredTower);
             }
             else
             {

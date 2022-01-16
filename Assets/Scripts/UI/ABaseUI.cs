@@ -10,9 +10,15 @@ public abstract class ABaseUI : MonoBehaviour
 {
     [SerializeField] protected MenuType type;
 
-    protected GameController _controller;
+    protected UIController _controller;
+    protected UserData _data;
 
     public MenuType Type => type;
-    public abstract void Init(GameController gameController);
+    public virtual void Init(UIController Controller, UserData data)
+    {
+        _controller = Controller;
+        _data = data;
+    }
+
 
 }

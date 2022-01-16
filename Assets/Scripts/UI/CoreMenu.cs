@@ -9,17 +9,22 @@ public class CoreMenu : ABaseUI
 
     private TileSetter _playerTileSetter;
 
-    public override void Init(GameController gameController)
+    public override void Init(UIController Controller, UserData data)
     {
-        _controller = gameController;
+        base.Init(Controller, data);
 
-        _playerTileSetter = _controller.Player.GetComponent<TileSetter>();
-        _playerTileSetter.OnTilesCountChanged += PlayerTilesCount;
+        if(_controller.GameController.Player != null)
+        {
+            _playerTileSetter = _controller.GameController.Player.GetComponent<TileSetter>();
+            _playerTileSetter.OnTilesCountChanged += PlayerTilesCount;
+        }
+       
     }
 
     private void OnDisable()
     {
-        _playerTileSetter.OnTilesCountChanged -= PlayerTilesCount;
+        if (_controller.GameController.Player != null)
+            _playerTileSetter.OnTilesCountChanged -= PlayerTilesCount;
     }
 
     private void PlayerTilesCount(int value)

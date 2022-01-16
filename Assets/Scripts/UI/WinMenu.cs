@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WinMenu : ABaseUI
 {
-    public override void Init(GameController gameController)
+    [SerializeField] private Text sessionCoinsText;
+
+    public void SetSessionScore(int value)
     {
-        _controller = gameController;
+        sessionCoinsText.text = value.ToString();
     }
 }

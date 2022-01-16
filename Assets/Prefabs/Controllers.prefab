@@ -92,11 +92,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 092003ed74e07404dadd4de62daba451, type: 2}
+  winConfetti: {fileID: 0}
   currentState: 0
   player: {fileID: 0}
   playerMainTowersController: {fileID: 1176060548069918999}
   botMainTowersController: {fileID: 1176060546841677718}
   uiController: {fileID: 0}
+  defCoinsForWin: 100
+  defCoinsForLose: 50
 --- !u!1 &1176060547272577203
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,13 +7,18 @@ public class UIController : MonoBehaviour
     [SerializeField] private List<ABaseUI> menus = new List<ABaseUI>();
 
     private GameController _gameController;
+    private UserData _data;
 
-    public void Init(GameController controller)
+    public List<ABaseUI> Menus => menus;
+    public GameController GameController => _gameController;
+
+    public void Init(GameController controller, UserData data)
     {
         _gameController = controller;
+        _data = data;
 
         foreach (var menu in menus)
-            menu.Init(_gameController);
+            menu.Init(this, _data);
     }
 
     public void ToggleMenu(MenuType type)

@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ground
-  m_Shader: {fileID: 4800000, guid: fb270c1e5be780e46b05d4a023cd7e73, type: 3}
+  m_Name: GroundShadows
+  m_Shader: {fileID: 4800000, guid: 4609c28b77ae6c04689a8ba2b2fccba7, type: 3}
   m_ShaderKeywords: TCP2_MOBILE TCP2_REFLECTIONS_FRESNEL TCP2_RIM_LIGHTING_LIGHTMASK
     TCP2_UV_NORMALS_FULL
   m_LightmapFlags: 4
@@ -170,7 +170,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.2784826, g: 0.7264151, b: 0.17475079, a: 1}
     - _BorderColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.4478335, g: 0.5566038, b: 0.17590779, a: 1}
+    - _Color: {r: 0.67058825, g: 0.8196079, b: 0.24313727, a: 1}
     - _DistTiling: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HColor: {r: 0.8034853, g: 0.8113208, b: 0.7845319, a: 1}

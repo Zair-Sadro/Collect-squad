@@ -35,6 +35,9 @@ public class TileSetter : MonoBehaviour
     public event Action<int> OnTilesCountChanged;
     public event Action<TowerBuildPlatform> OnBuildZoneEnter;
     public event Action OnBuildZoneExit;
+    public event Action<BombZone> OnBombZoneEnter;
+    public event Action OnBombZoneExit;
+
 
 
     public bool IsThisBot => isThisBot;
@@ -62,7 +65,8 @@ public class TileSetter : MonoBehaviour
         _tiles.Add(tile);
         OnTilesCountChanged?.Invoke(_tiles.Count);
 
-       // Vibration.Vibrate(1);
+        if(!isThisBot)
+            Vibration.Vibrate(1);
     }
 
     public void RemoveTiles(Action towerTileIncrease, TowerBuildPlatform tower)
@@ -98,7 +102,9 @@ public class TileSetter : MonoBehaviour
             _tiles.Remove(_tiles[i]);
             towerTileIncrease();
             OnTilesCountChanged?.Invoke(_tiles.Count);
-            // Vibration.Vibrate(1);
+
+            if (!isThisBot)
+                Vibration.Vibrate(1);
         }
         _isGivingTiles = false;
     }
@@ -118,6 +124,12 @@ public class TileSetter : MonoBehaviour
         StopAllCoroutines();
     }
 
+    private void OnTowerSelfDestroy()
+    {
+        StopRemovingTiles();
+        _currentTowerPlatform.DestroyEvent.RemoveAllListeners();
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.collider.TryGetComponent(out Tile tile) && _tiles.Count < maxTiles)
@@ -130,6 +142,7 @@ public class TileSetter : MonoBehaviour
         {
             _currentTowerPlatform = t;
             _currentTowerPlatform.OnTowerBuild += OnBuild;
+            _currentTowerPlatform.DestroyEvent.AddListener(OnTowerSelfDestroy);
         }
     }
 
@@ -150,6 +163,9 @@ public class TileSetter : MonoBehaviour
             OnBuildZoneEnter?.Invoke(t);
             _isInBuildZone = true;
         }
+
+        if (other.TryGetComponent(out BombZone bombZone))
+            OnBombZoneEnter?.Invoke(bombZone);
     }
 
     private void OnTriggerExit(Collider other)
@@ -164,8 +180,13 @@ public class TileSetter : MonoBehaviour
         if (_currentTowerPlatform != null)
         {
             _currentTowerPlatform.OnTowerBuild -= OnBuild;
+            _currentTowerPlatform.DestroyEvent.RemoveAllListeners();
+
             _currentTowerPlatform = null;
         }
+
+        if (other.TryGetComponent(out BombZone bombZone))
+            OnBombZoneExit?.Invoke();
     }
 
     public TowerBuildPlatform SetDiseredBuild(TowerBuildPlatform platform)

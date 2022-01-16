@@ -1571,7 +1571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
-  timeToCheckTargets: 0.39
+  timeToCheckTargets: 1
   isMovingWhenAttack: 0
   weapon: {fileID: 943445507880044717}
   unitAnimator: {fileID: 4947678522817879389}

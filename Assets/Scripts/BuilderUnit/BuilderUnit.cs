@@ -41,6 +41,9 @@ public class BuilderUnit : MonoBehaviour, IBattleUnit, ITeamChangeable, IDamagea
 
     public void TakeDamage(float amount)
     {
+        if (_currentHealth < 0)
+            return;
+
         _currentHealth -= amount;
         if (_currentHealth <= 0)
         {

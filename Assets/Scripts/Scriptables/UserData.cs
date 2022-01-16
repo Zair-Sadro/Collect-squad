@@ -13,7 +13,7 @@ public class UserData : ScriptableObject
     [ContextMenu("Clear Data")]
     private void ClearData()
     {
-        Rank = LeagueRank.Bronze;
+        Rank = LeagueRank.Rank1;
         Coins = 0;
         Cups = 0;
         WinsToNextRank = 0;

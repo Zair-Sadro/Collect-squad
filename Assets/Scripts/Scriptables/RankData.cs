@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum LeagueRank
 {
-    Bronze, Silver, Golden, Platinum
+    Rank1, Rank2, Rank3, Rank4, Rank5, Rank6, Rank7, Rank8
 }
 
 [CreateAssetMenu(menuName ="Data/RankData")]

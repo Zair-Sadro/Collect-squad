@@ -100,6 +100,11 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
 
     private void DestroyTower()
     {
+        var player = GameController.Instance.Player.GetComponent<BuilderUnit>();
+        if (player.MyTeam != _currentTeam)
+            GameController.AddSessionCoins(10);
+
+        Vibration.Vibrate(1);
         _wasDestroyed = true;
         OnCurrentTowerDestroy?.Invoke(this);
         _currentBuildPlatform.DestroyTower(_currentBuildPlatform.TimeToDestroyByUnits, _currentBuildPlatform.DestroyByUnits);

@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class BotStateController : ASimpleStateController
 {
-    [SerializeField,Range(0.1f,10)] private float moveSpeed;
+    [SerializeField,Range(0.1f,20)] private float moveSpeed;
 
     [SerializeField] private Animator animator;
     [SerializeField] private NavMeshAgent navAgent;
