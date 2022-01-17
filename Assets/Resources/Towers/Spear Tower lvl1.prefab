@@ -149,6 +149,7 @@ MonoBehaviour:
   firstUnitSpawnTime: 5
   spawnTime: 5
   maxUnitsAlive: 10
+  spawnRotation: {x: 0, y: 0, z: 0}
   spawnPoint: {fileID: 0}
 --- !u!208 &6667587726412576022
 NavMeshObstacle:
