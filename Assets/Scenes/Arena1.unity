@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: af8943736f9864d4690a2a272f2e0974,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -344,33 +344,53 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 18ec5123ab1b37446998bf1b1228a0c0, type: 2}
     - target: {fileID: 7721516151248924512, guid: 55152aeb512b1dc458cf06cbf4ef3e0e,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.9193333
+      objectReference: {fileID: 0}
+    - target: {fileID: 7721516151248924512, guid: 55152aeb512b1dc458cf06cbf4ef3e0e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.9193333
+      objectReference: {fileID: 0}
+    - target: {fileID: 7721516151248924512, guid: 55152aeb512b1dc458cf06cbf4ef3e0e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7721516151248924512, guid: 55152aeb512b1dc458cf06cbf4ef3e0e,
+        type: 3}
       propertyPath: m_LocalPosition.y
-      value: 109.3
+      value: 67.28483
+      objectReference: {fileID: 0}
+    - target: {fileID: 7721516151248924512, guid: 55152aeb512b1dc458cf06cbf4ef3e0e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -37.727684
       objectReference: {fileID: 0}
     - target: {fileID: 7721516151248924512, guid: 55152aeb512b1dc458cf06cbf4ef3e0e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.3606377
+      value: 0.6644212
       objectReference: {fileID: 0}
     - target: {fileID: 7721516151248924512, guid: 55152aeb512b1dc458cf06cbf4ef3e0e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.000000010582712
+      value: 0.000000016609098
       objectReference: {fileID: 0}
     - target: {fileID: 7721516151248924512, guid: 55152aeb512b1dc458cf06cbf4ef3e0e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.932706
+      value: -0.7473584
       objectReference: {fileID: 0}
     - target: {fileID: 7721516151248924512, guid: 55152aeb512b1dc458cf06cbf4ef3e0e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000019122714
+      value: 0.000000014206009
       objectReference: {fileID: 0}
     - target: {fileID: 7721516151248924512, guid: 55152aeb512b1dc458cf06cbf4ef3e0e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -137.72101
+      value: -96.72401
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55152aeb512b1dc458cf06cbf4ef3e0e, type: 3}
@@ -2421,10 +2441,10 @@ MonoBehaviour:
   surfaceFoamBlend: 1
   surfaceFoamColor1: {r: 1, g: 1, b: 1, a: 0.6666667}
   surfaceFoamColor2: {r: 1, g: 1, b: 1, a: 0.7294118}
-  surfaceFoamMovement: {x: 0.811, y: 0.25, z: 0.411, w: 0.17}
-  surfaceFoamDirection1: 0.811
+  surfaceFoamMovement: {x: 0.452, y: 0.08, z: 0.411, w: 0.17}
+  surfaceFoamDirection1: 0.452
   surfaceFoamDirection2: 0.411
-  surfaceFoamSpeed1: 0.25
+  surfaceFoamSpeed1: 0.08
   surfaceFoamSpeed2: 0.17
   surfaceFoamTilingAndOffset: {x: -1, y: -1, z: 0.35, w: 0}
   surfaceFoamOffsetX: -1
@@ -2541,8 +2561,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466850007}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.1, z: -4.66}
-  m_LocalScale: {x: 100, y: 1, z: 100}
+  m_LocalPosition: {x: 0, y: -1.1, z: -4.7}
+  m_LocalScale: {x: 17.941696, y: 1.0000001, z: 18.322968}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -4235,7 +4255,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-383306
+  m_Name: pb_Mesh-2952
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7619,7 +7639,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-383290
+  m_Name: pb_Mesh-2710
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

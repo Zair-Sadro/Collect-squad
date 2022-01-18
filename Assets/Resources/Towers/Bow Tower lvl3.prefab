@@ -59,7 +59,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 9ac5d81c92dea4b428005de708c99fd5, type: 2}
-  - {fileID: -876546973899608171, guid: 918c074a462f61b4cabd205d39d5b0db, type: 3}
+  - {fileID: 2100000, guid: e66cbff2227d00b478025844da7fb130, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -241,6 +241,7 @@ MonoBehaviour:
   firstUnitSpawnTime: 5
   spawnTime: 5
   maxUnitsAlive: 5
+  spawnRotation: {x: 0, y: 0, z: 0}
   spawnPoint: {fileID: 0}
 --- !u!208 &6902569875947315412
 NavMeshObstacle:
