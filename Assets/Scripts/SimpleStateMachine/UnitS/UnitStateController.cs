@@ -24,6 +24,8 @@ public class UnitStateController : ASimpleStateController
         _currentUnit = unit;
         _chaseTarget = _currentUnit.TowerTarget;
         navAgent.speed = _currentUnit.MoveSpeed;
+
+        navAgent.enabled = false;
     }
 
     public void FinishInit(Transform finishTarget, float speed)

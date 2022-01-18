@@ -26,6 +26,7 @@ public class UnitChaseState : AState
     public override void StartState()
     {
         stateCondition = StateCondition.Executing;
+        _target = _stateController.UnitController.ChaseTarget;
         LocalInit();
 
     }
@@ -34,7 +35,6 @@ public class UnitChaseState : AState
     {
         _navAgent = _stateController.UnitController.NavAgent;
         _navObstacle = _stateController.UnitController.NavObstacle;
-        _target = _stateController.UnitController.ChaseTarget;
         _thisUnitTeam = _stateController.UnitController.CurrentUnit.MyTeam;
 
         _navAgent.enabled = true;

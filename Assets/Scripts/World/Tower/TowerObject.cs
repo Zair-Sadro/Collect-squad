@@ -71,6 +71,9 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
 
     private void StartSpawn(float time)
     {
+        if (_currentUnitsAmount < 0)
+            _currentUnitsAmount = 0;
+;
         if (_currentUnitsAmount > maxUnitsAlive)
             return;
 
