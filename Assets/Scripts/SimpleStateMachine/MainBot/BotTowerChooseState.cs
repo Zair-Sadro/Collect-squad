@@ -88,11 +88,11 @@ public class BotTowerChooseState : AState
 
         for (int i = 0; i < _playerBuildPlatforms.Count; i++)
         {
+            var desiredTower = _playerBuildPlatforms[i].OppositeTower;
 
-            if (_playerBuildPlatforms[i].ActiveTower.CurrentLevel.LevelType > 0)
+            if (_playerBuildPlatforms[i].ActiveTower.CurrentLevel.LevelType > 0 &&
+                desiredTower.ActiveTower.CurrentLevel.LevelType == TowerLevelType.None)
             {
-                var desiredTower = _playerBuildPlatforms[i].OppositeTower;
-
                 if (_navAgent.enabled)
                     _navAgent.ResetPath();
 
