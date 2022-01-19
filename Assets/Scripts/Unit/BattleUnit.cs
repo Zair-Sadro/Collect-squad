@@ -76,6 +76,7 @@ public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUn
     public void Die()
     {
         _tower.CurrentUnitsAmount--;
+        _tower.TryRespawnNextUnit();
         stateMachine.ChangeState(StateType.Die);
     }
 

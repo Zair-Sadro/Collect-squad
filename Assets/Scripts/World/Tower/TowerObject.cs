@@ -8,7 +8,7 @@ using DG.Tweening;
 public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUnit
 {
     [Header("Tower settings")]
-    [SerializeField, Range(1,1000)] private float maxHp;
+    [SerializeField, Range(1, 1000)] private float maxHp;
     [SerializeField] private ATowerObject nextLevelTower;
     [Header("Units Settings")]
     [SerializeField, Min(0)] private float firstUnitSpawnTime;
@@ -18,6 +18,7 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
     [SerializeField] private Transform spawnPoint;
 
     private bool _wasDestroyed;
+    private bool _isRespawningUnit;
     private int _currentUnitsAmount;
     private float _firstUnitInvinciblityTime;
     private float _currentHp;
@@ -71,18 +72,13 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
 
     private void StartSpawn(float time)
     {
-        if (_currentUnitsAmount < 0)
-            _currentUnitsAmount = 0;
-;
-        if (_currentUnitsAmount > maxUnitsAlive)
-            return;
-
         _towerUI.StartSpawnTimer(spawnTime);
         StartCoroutine(UnitSpawning(time));
     }
 
     private IEnumerator UnitSpawning(float time)
     {
+        _isRespawningUnit = true;
         yield return new WaitForSeconds(time);
         BattleUnit newUnit = Instantiate(CurrentLevel.UnitPrefab, this.transform);
         _currentUnitsAmount++;
@@ -90,7 +86,17 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
         newUnit.transform.localRotation = Quaternion.Euler(spawnRotation);
         newUnit.transform.parent = null;
         newUnit.Init(_currentBuildPlatform.EnemyTower, _currentTeam, this);
-        StartSpawn(spawnTime);
+        _isRespawningUnit = false;
+        TryRespawnNextUnit();
+    }
+
+    public void TryRespawnNextUnit()
+    {
+       if(_currentUnitsAmount < maxUnitsAlive && !_isRespawningUnit)
+       {
+            _towerUI.StartSpawnTimer(spawnTime);
+            StartCoroutine(UnitSpawning(spawnTime));
+       }
     }
 
     public void TakeDamage(float amount)
@@ -110,7 +116,7 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
         if (player.MyTeam != _currentTeam)
             GameController.AddSessionCoins(10);
 
-        Vibration.Vibrate(1);
+        Vibration.Vibrate(25);
         _wasDestroyed = true;
         OnCurrentTowerDestroy?.Invoke(this);
         _currentBuildPlatform.DestroyTower(_currentBuildPlatform.TimeToDestroyByUnits, _currentBuildPlatform.DestroyByUnits);

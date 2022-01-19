@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 186905756}
   - component: {fileID: 186905755}
   - component: {fileID: 1076427774197338105}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 660109779}
   - component: {fileID: 660109778}
   - component: {fileID: 2804988835607878431}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 771199521}
   - component: {fileID: 771199523}
   - component: {fileID: 771199522}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TowerButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 970562156}
   - component: {fileID: 970562158}
   - component: {fileID: 970562157}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,7 +456,7 @@ GameObject:
   - component: {fileID: 1803694711}
   - component: {fileID: 1803694713}
   - component: {fileID: 1803694712}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,7 +532,7 @@ GameObject:
   - component: {fileID: 2011368264}
   - component: {fileID: 2011368263}
   - component: {fileID: 3125595979306809597}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Spear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,7 +664,7 @@ GameObject:
   - component: {fileID: 2093795937}
   - component: {fileID: 2093795939}
   - component: {fileID: 2093795938}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -845,7 +845,7 @@ GameObject:
   - component: {fileID: 7470406676390732298}
   - component: {fileID: 2245133997405628782}
   - component: {fileID: 3644413563254391609}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HpBarBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -917,7 +917,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1376269981664131678}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HPBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5893,7 +5893,7 @@ GameObject:
   - component: {fileID: 3382843288559341698}
   - component: {fileID: 3382843288559341696}
   - component: {fileID: 3382843288559341697}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TilesCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6226,7 +6226,7 @@ GameObject:
   - component: {fileID: 3382843288947136762}
   - component: {fileID: 3382843288947136763}
   - component: {fileID: 3382843288947136772}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TowerUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6274,8 +6274,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -274197203
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &3382843288947136762
 MonoBehaviour:
@@ -20787,7 +20787,7 @@ GameObject:
   - component: {fileID: 236776272624194419}
   - component: {fileID: 6337386130965858546}
   - component: {fileID: 5829190397767818908}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HpBarFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20874,7 +20874,7 @@ GameObject:
   - component: {fileID: 660395355597968912}
   - component: {fileID: 2720016657589873179}
   - component: {fileID: 8802354720249326392}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RespawnTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

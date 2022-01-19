@@ -72,6 +72,7 @@ public class GameController : MonoBehaviour
 
     private void OnEnable()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         OnStateChange += ChangeState;
     }
 

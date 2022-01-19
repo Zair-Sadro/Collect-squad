@@ -26,7 +26,7 @@ TagManager:
   - Player
   - EnemyTile
   - PlayerTile
-  - 
+  - TowerUI
   - 
   - 
   - 
@@ -49,4 +49,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Joystick
+    uniqueID: 2634465115
+    locked: 0
+  - name: WorldUI
+    uniqueID: 4020770093
     locked: 0
