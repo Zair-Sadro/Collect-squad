@@ -69,7 +69,7 @@ Material:
     - _FoamShadowDepth: 10
     - _FoamShadowStrength: 0.45
     - _IntersectionFoamBlend: 1
-    - _IntersectionFoamDepth: 0.85
+    - _IntersectionFoamDepth: 0.36
     - _IntersectionFoamScale: 0.19
     - _IntersectionFoamShadowProjection: 4.6
     - _IntersectionWaterBlend: 0
@@ -113,4 +113,4 @@ Material:
     - _WaterColorUnderwater: {r: 0.20389047, g: 0.30977106, b: 0.517647, a: 0}
     - _WaveColor: {r: 0, g: 0, b: 0, a: 0}
     - _WaveDirections: {r: 0, g: 0.64, b: 1, a: 0.33}
-    - _WaveVisuals: {r: 0.132, g: 7.9, b: 1.38, a: 0}
+    - _WaveVisuals: {r: 0, g: 7.9, b: 0, a: 0}

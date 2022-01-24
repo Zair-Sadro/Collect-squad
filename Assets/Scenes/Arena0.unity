@@ -438,7 +438,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-575632
+  m_Name: pb_Mesh-264210
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1547,17 +1547,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1618984103}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 2048265704}
         m_MethodName: ChangeState
         m_Mode: 3
@@ -2525,7 +2514,7 @@ MonoBehaviour:
   surfaceFoamShadowProjection: 2.51
   intersectionFoamShadowProjection: 4.6
   foamMovement: 0
-  intersectionFoamDepth: 0.85
+  intersectionFoamDepth: 0.36
   intersectionFoamTexture: {fileID: 2800000, guid: 772031b03d9d46e4ab03e15c8e17718c,
     type: 3}
   intersectionFoamColor: {r: 1, g: 1, b: 1, a: 1}
@@ -2555,10 +2544,10 @@ MonoBehaviour:
   normalsScale: 0.36
   normalsSpeed: 0.04
   refractionStrength: 0.022
-  waveVisuals: {x: 0.132, y: 7.9, z: 1.38}
-  waveSteepness: 0.132
+  waveVisuals: {x: 0, y: 7.9, z: 0}
+  waveSteepness: 0
   waveLength: 7.9
-  waveSpeed: 1.38
+  waveSpeed: 0
   waveDirections: {x: 0, y: 0.64, z: 1, w: 0.33}
   waveDirection1: 0
   waveDirection2: 0.64
@@ -3030,7 +3019,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-575626
+  m_Name: pb_Mesh-264326
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5859,7 +5848,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-575636
+  m_Name: pb_Mesh-264154
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6750,6 +6739,34 @@ PrefabInstance:
       propertyPath: overTrigger
       value: 
       objectReference: {fileID: 413301791}
+    - target: {fileID: 2048265703, guid: e18814c4217b0914baf469276f3c4b29, type: 3}
+      propertyPath: OnDieEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2048265703, guid: e18814c4217b0914baf469276f3c4b29, type: 3}
+      propertyPath: OnDieEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2048265703, guid: e18814c4217b0914baf469276f3c4b29, type: 3}
+      propertyPath: OnDieEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Target
+      value: 
+      objectReference: {fileID: 1618984103}
+    - target: {fileID: 2048265703, guid: e18814c4217b0914baf469276f3c4b29, type: 3}
+      propertyPath: OnDieEvent.m_PersistentCalls.m_Calls.Array.data[5].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2048265703, guid: e18814c4217b0914baf469276f3c4b29, type: 3}
+      propertyPath: OnDieEvent.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 2048265703, guid: e18814c4217b0914baf469276f3c4b29, type: 3}
+      propertyPath: OnDieEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2048265703, guid: e18814c4217b0914baf469276f3c4b29, type: 3}
+      propertyPath: OnDieEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 537599541443037808, guid: e18814c4217b0914baf469276f3c4b29,
         type: 3}
       propertyPath: timeInBuildZone
@@ -7356,51 +7373,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1285904451, guid: df86d03248164654c81a36da6c58109b, type: 3}
-      propertyPath: m_Radius
-      value: 0.74131155
-      objectReference: {fileID: 0}
-    - target: {fileID: 1285904451, guid: df86d03248164654c81a36da6c58109b, type: 3}
-      propertyPath: m_Center.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1285904452, guid: df86d03248164654c81a36da6c58109b, type: 3}
       propertyPath: overTrigger
       value: 
       objectReference: {fileID: 2064570648}
-    - target: {fileID: 1285904452, guid: df86d03248164654c81a36da6c58109b, type: 3}
-      propertyPath: OnDieEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1285904452, guid: df86d03248164654c81a36da6c58109b, type: 3}
-      propertyPath: OnDieEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1285904452, guid: df86d03248164654c81a36da6c58109b, type: 3}
-      propertyPath: OnDieEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Target
-      value: 
-      objectReference: {fileID: 8331174995489996593}
-    - target: {fileID: 1285904452, guid: df86d03248164654c81a36da6c58109b, type: 3}
-      propertyPath: OnDieEvent.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1285904452, guid: df86d03248164654c81a36da6c58109b, type: 3}
-      propertyPath: OnDieEvent.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
-      value: set_enabled
-      objectReference: {fileID: 0}
-    - target: {fileID: 1285904452, guid: df86d03248164654c81a36da6c58109b, type: 3}
-      propertyPath: OnDieEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_BoolArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1285904452, guid: df86d03248164654c81a36da6c58109b, type: 3}
-      propertyPath: OnDieEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7295823596109247666, guid: df86d03248164654c81a36da6c58109b,
-        type: 3}
-      propertyPath: m_CastShadows
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8331174995693761529, guid: df86d03248164654c81a36da6c58109b,
         type: 3}
       propertyPath: m_Name
@@ -7473,12 +7449,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df86d03248164654c81a36da6c58109b, type: 3}
---- !u!136 &8331174995489996593 stripped
-CapsuleCollider:
-  m_CorrespondingSourceObject: {fileID: 1285904451, guid: df86d03248164654c81a36da6c58109b,
-    type: 3}
-  m_PrefabInstance: {fileID: 8331174995489996592}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8526563636140467114
 PrefabInstance:
   m_ObjectHideFlags: 0

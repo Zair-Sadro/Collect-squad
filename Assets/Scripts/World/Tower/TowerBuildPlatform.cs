@@ -17,6 +17,7 @@ public class TowerBuildPlatform : MonoBehaviour
     [SerializeField] private UnitType precreatedTowerType;
 
     [Header("Build Settings")]
+    [SerializeField] private bool isThisBotTower;
     [SerializeField] private Collider coll;
     [SerializeField] private float firstUnitInvincibilityTime;
     [SerializeField, Min(0)] private float resetTime;
@@ -184,7 +185,7 @@ public class TowerBuildPlatform : MonoBehaviour
     private void ResetTilesCounter(TowerLevel towerLevel)
     {
         _currentTiles = 0;
-        _tilesToUpgrade = towerLevel.TilesToUpgrade;
+        _tilesToUpgrade = GetTilesToUpgrade(towerLevel);
         towerUI.SetTilesCounter(_tilesToUpgrade, towerLevel.IsMaxLevel);
     }
 
@@ -263,6 +264,11 @@ public class TowerBuildPlatform : MonoBehaviour
     {
         chaseTarget.parent = playerEnemyTarget;
         chaseTarget.transform.localPosition = Vector3.zero;
+    }
+
+    private int GetTilesToUpgrade(TowerLevel level)
+    {
+        return isThisBotTower ? level.TilesToUpgradeForBot : level.TilesToUpgrade;
     }
 
     public void StopTowersActivity()

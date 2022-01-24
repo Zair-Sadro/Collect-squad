@@ -7,6 +7,7 @@ public class UserData : ScriptableObject
     public LeagueRank Rank;
     public int Coins;
     public int Cups;
+    public int MaxTiles;
     public int WinsToNextRank;
     public int CurrentLevel;
 
@@ -16,6 +17,7 @@ public class UserData : ScriptableObject
         Rank = LeagueRank.Rank1;
         Coins = 0;
         Cups = 0;
+        MaxTiles = 5;
         WinsToNextRank = 0;
         CurrentLevel = 0;
         PlayerPrefs.DeleteAll();

@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
     private int _sessionScore;
 
     #region Properties
-
+    public UIController UIController => uiController;
     public static UserData Data { get => Instance.data;}
     public static int SessionCoins => Instance._sessionScore;
     public PlayerController Player => player;
@@ -147,6 +147,9 @@ public class GameController : MonoBehaviour
 
         _sessionScore += defCoinsForLose;
         data.Coins += _sessionScore;
+
+        if (data.WinsToNextRank > 0)
+            data.WinsToNextRank--;
 
         losePanel.SetSessionScore(_sessionScore);
         SaveController.SaveData();

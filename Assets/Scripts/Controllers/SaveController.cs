@@ -43,6 +43,7 @@ public class SaveController : MonoBehaviour
         data.Rank = (LeagueRank)PlayerPrefs.GetInt("Rank", 0);
         data.WinsToNextRank = PlayerPrefs.GetInt("Wins");
         data.CurrentLevel = PlayerPrefs.GetInt("Level", 1);
+        data.MaxTiles = PlayerPrefs.GetInt("Tiles", 5);
 
         Debug.Log("<color=yellow> Data Loaded.. </color>");
 
@@ -59,6 +60,7 @@ public class SaveController : MonoBehaviour
         PlayerPrefs.SetInt("Rank", (int)Instance.data.Rank);
         PlayerPrefs.SetInt("Wins", Instance.data.WinsToNextRank);
         PlayerPrefs.SetInt("Level", Instance.data.CurrentLevel);
+        PlayerPrefs.SetInt("Tiles", Instance.data.MaxTiles);
 
         Debug.Log("<color=cyan> Data Saved. </color>");
 

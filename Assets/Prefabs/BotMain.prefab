@@ -1174,9 +1174,9 @@ MonoBehaviour:
   zOffset: 0.36
   yOffset: 0.29
   tilesRow: 2
-  maxTiles: 100
   timeToRemoveTile: 0.1
   isThisBot: 1
+  maxTiles: 100
   desiredTowerToBuild: {fileID: 0}
 --- !u!195 &4636531569541514763
 NavMeshAgent:

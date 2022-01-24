@@ -9,8 +9,12 @@ public class MainMenu : ABaseUI
 
     private void Start()
     {
+        UpdateCoins();
+    }
+
+    public void UpdateCoins()
+    {
         coinsText.text = _data.Coins.ToString();
     }
 
-   
 }

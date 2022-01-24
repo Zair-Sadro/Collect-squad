@@ -38,7 +38,7 @@ public class TileSpawner : ASpawner
         float randomZ = Random.Range(minZ, maxZ);
 
         var newPos = new Vector3(randomX, 0f, randomZ);
-        newPos.y = 1;
+        newPos.y = 0.5f;
         return newPos;
     }
 

@@ -15,18 +15,19 @@ public class TileSetter : MonoBehaviour
     [SerializeField, Range(0, 100)] private float zOffset;
     [SerializeField, Range(0, 100)] private float yOffset = 0;
     [SerializeField] private int tilesRow = 2;
-    [SerializeField] private int maxTiles;
     [Space]
     [SerializeField] private float timeToRemoveTile;
 
     [Header("Bot Settings")]
     [SerializeField] private bool isThisBot = false;
+    [SerializeField] private int maxTiles;
     [SerializeField] private TowerBuildPlatform desiredTowerToBuild;
 
     private float _currentRemovingTime;
     private bool _isInBuildZone;
     private bool _isGivingTiles;
 
+    private UserData _playerData;
     private Tile _lastSetTile;
     private TowerBuildPlatform _currentTowerPlatform;
 
@@ -48,6 +49,12 @@ public class TileSetter : MonoBehaviour
     private void Start()
     {
         _currentRemovingTime = timeToRemoveTile;
+        _playerData = GameController.Data;
+    }
+
+    private int GetMaxTiles()
+    {
+        return isThisBot ? maxTiles : _playerData.MaxTiles;
     }
 
     private void AddTile(Tile tile)
@@ -129,19 +136,17 @@ public class TileSetter : MonoBehaviour
         _currentTowerPlatform.DestroyEvent.RemoveAllListeners();
     }
 
-    private void OnCollisionEnter(Collision other)
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.collider.TryGetComponent(out Tile tile) && _tiles.Count < maxTiles)
+        if (other.TryGetComponent(out Tile tile) && _tiles.Count < GetMaxTiles())
         {
             if (!isThisBot)
                 Vibration.Vibrate(25);
 
             AddTile(tile);
         }
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
         if (other.TryGetComponent(out TowerBuildPlatform t))
         {
             _currentTowerPlatform = t;

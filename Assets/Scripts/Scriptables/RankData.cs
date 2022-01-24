@@ -17,6 +17,7 @@ public class RankData : ScriptableObject
 public class Rank
 {
     public LeagueRank CurrentRank;
+    public int CurrentId;
     public Sprite Icon;
     public int WinsToOpen;
 }

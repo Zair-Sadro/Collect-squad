@@ -15,5 +15,8 @@ MonoBehaviour:
   type: 0
   towerLevels:
   - levelType: 0
+    isUpgradeable: 0
+    isMaxLevel: 0
     tilesToUpgrade: 10
+    tilesToUpgradeForBot: 7
     unitPrefab: {fileID: 0}
