@@ -14,6 +14,8 @@ public class RankController : MonoBehaviour
     [SerializeField] private RankData rankData;
     [Header("UI")]
     [SerializeField] private TMP_Text maxRankText;
+    [SerializeField] private TMP_Text currentRankId;
+    [SerializeField] private TMP_Text nextRankId;
     [SerializeField] private Image currentRankImage;
     [SerializeField] private Image nextRankImage;
     [SerializeField] private Sprite winGameSkinBar;
@@ -46,8 +48,6 @@ public class RankController : MonoBehaviour
 
             return;
         }
-           
-
         SetPlayerRank();
         SetRankIcons();
     }
@@ -57,6 +57,10 @@ public class RankController : MonoBehaviour
         _nextRank = rankData.Ranks.Where(r => r.CurrentRank == data.Rank + 1).FirstOrDefault();
         if (_nextRank == null)
             return;
+
+        var curRank = rankData.Ranks.Where(r => r.CurrentRank == data.Rank).FirstOrDefault();
+        currentRankId.SetText(curRank.CurrentId.ToString());
+        nextRankId.SetText(_nextRank.CurrentId.ToString());
 
         if (data.WinsToNextRank >= _nextRank.WinsToOpen)
         {
