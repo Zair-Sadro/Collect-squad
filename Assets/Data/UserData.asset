@@ -15,5 +15,6 @@ MonoBehaviour:
   Rank: 0
   Coins: 0
   Cups: 0
+  MaxTiles: 5
   WinsToNextRank: 0
   CurrentLevel: 0
