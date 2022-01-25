@@ -29,8 +29,8 @@ Transform:
   m_Children:
   - {fileID: 950919290703160741}
   - {fileID: 608221228275696137}
-  - {fileID: 1419439780008781188}
   - {fileID: 2141306258754144318}
+  - {fileID: 1419439780008781188}
   m_Father: {fileID: 4426242338286829952}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -261,7 +261,7 @@ MonoBehaviour:
     DamageToType: 100
   weaponSettings:
     TimeToAttack: 1
-    DamageTime: 0.2
+    DamageTime: 1
     TimeToReload: 1
     SerenityTime: 0
   damageColl: {fileID: 9000742329034134056}
@@ -326,8 +326,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1033514521336547133}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.242, y: 0, z: 1.128}
-  m_LocalScale: {x: 1, y: 1, z: 0.57512}
+  m_LocalPosition: {x: 0.473, y: 0.2991, z: 1.6808}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1471036491099490838}
   m_RootOrder: 1
@@ -390,8 +390,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.25, y: 0.17880559, z: 1.8462124}
+  m_Center: {x: 0, y: -0.0022684336, z: -0.08061886}
 --- !u!114 &9000742329034134056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,7 +690,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6064996765865282750}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2387058689986892557
 MonoBehaviour:
@@ -1319,8 +1319,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.0984046, z: 1.1229801}
-  m_Center: {x: 0, y: 1.1457976, z: -0.06149006}
+  m_Size: {x: 1, y: 2.0984046, z: 1.2367535}
+  m_Center: {x: 0, y: 1.1457976, z: -0.11837673}
 --- !u!54 &792888605296764082
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2047,7 +2047,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6064996765865282750}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1807358262721553507
 MonoBehaviour:
@@ -2855,7 +2855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateCondition: 0
   detectionRadius: 8
-  attackDistance: 2
+  attackDistance: 2.5
   unitAnimator: {fileID: 2735594666397910445}
 --- !u!1 &8092033909964541633
 GameObject:

@@ -6080,6 +6080,7 @@ MonoBehaviour:
   towerUI: {fileID: 3382843288947136772}
   isPrecreateTower: 0
   precreatedTowerType: 0
+  isThisBotTower: 0
   coll: {fileID: 3382843288824935632}
   firstUnitInvincibilityTime: 3
   resetTime: 2
@@ -21023,7 +21024,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b7c6e4845f8ebfe4b8461da98aa707e2, type: 2}
+      objectReference: {fileID: 2100000, guid: d77e2cd63580d574fa09b07866ab1726, type: 2}
     - target: {fileID: -7511558181221131132, guid: 772e297c913b6634cbdc7f0fb5e34b6b,
         type: 3}
       propertyPath: m_Materials.Array.data[1]

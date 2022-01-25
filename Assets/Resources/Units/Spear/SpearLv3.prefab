@@ -891,7 +891,7 @@ Transform:
   m_GameObject: {fileID: 2250487324712425557}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.473, y: 0.191, z: 2.39}
-  m_LocalScale: {x: 0.9999998, y: 1, z: 1.4577938}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3474080355835147166}
   m_RootOrder: 1
@@ -954,8 +954,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.25, y: 0.22570062, z: 1.8654385}
+  m_Center: {x: 0, y: 0.02117908, z: -0.6900854}
 --- !u!114 &7386952048317283100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1507,9 +1507,9 @@ MonoBehaviour:
   - Type: 4
     DamageToType: 100
   weaponSettings:
-    TimeToAttack: 0.35
-    DamageTime: 0.2
-    TimeToReload: 0.35
+    TimeToAttack: 1
+    DamageTime: 1
+    TimeToReload: 1
     SerenityTime: 0
   damageColl: {fileID: 7386952048317283100}
 --- !u!1 &3728863345218019788
