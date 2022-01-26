@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 7706052309847734704}
   - component: {fileID: -6150090774577336790}
   m_Layer: 0
-  m_Name: SpearLv3
+  m_Name: SpearLv4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1215,7 +1215,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3d8505a721f429b41b157adebc99f592, type: 2}
+  - {fileID: 2100000, guid: 9ac5d81c92dea4b428005de708c99fd5, type: 2}
   - {fileID: 2100000, guid: 3d8505a721f429b41b157adebc99f592, type: 2}
   - {fileID: 2100000, guid: d5eea43c8d867894db4f65818fdcf39b, type: 2}
   - {fileID: 2100000, guid: d5eea43c8d867894db4f65818fdcf39b, type: 2}

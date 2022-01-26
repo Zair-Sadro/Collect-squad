@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 7893855092083285310}
   - component: {fileID: 3942665198077705202}
   m_Layer: 0
-  m_Name: BowLv3
+  m_Name: BowLv4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1418,9 +1418,9 @@ SkinnedMeshRenderer:
   - {fileID: 2100000, guid: d5eea43c8d867894db4f65818fdcf39b, type: 2}
   - {fileID: 2100000, guid: 2677ede241e2f8944808414cdd521c44, type: 2}
   - {fileID: 2100000, guid: 3d8505a721f429b41b157adebc99f592, type: 2}
-  - {fileID: 2100000, guid: c1dcb924300fbca4181195092914483a, type: 2}
+  - {fileID: 2100000, guid: d5eea43c8d867894db4f65818fdcf39b, type: 2}
   - {fileID: 2100000, guid: 9ac5d81c92dea4b428005de708c99fd5, type: 2}
-  - {fileID: 2100000, guid: 3d8505a721f429b41b157adebc99f592, type: 2}
+  - {fileID: 2100000, guid: 617b74f368ac7d748bc9463478866d10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3032,7 +3032,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: f9daf41ee441145289fca40ce1878964, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e66cbff2227d00b478025844da7fb130, type: 2}
+      objectReference: {fileID: 2100000, guid: 617b74f368ac7d748bc9463478866d10, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9daf41ee441145289fca40ce1878964, type: 3}
 --- !u!4 &7693439558247287984 stripped
