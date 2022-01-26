@@ -16,6 +16,7 @@ public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUn
     [SerializeField,Range(0.1f,10)] private float moveSpeed;
     [SerializeField] private UnitStateController stateMachine;
 
+    private Collider _coll;
     private UnitTeam _team;
     private Transform _attackTarget;
     private TowerObject _tower;
@@ -47,6 +48,7 @@ public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUn
         _currentHealth = health;
         stateMachine.Init(this);
         _invinciblityTime = _tower.InvincibilityTime;
+        _coll = GetComponent<Collider>();
 
         StartCoroutine(SpawnInvincibility(_invinciblityTime));
     }
@@ -59,9 +61,11 @@ public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUn
 
     private IEnumerator SpawnInvincibility(float time)
     {
+        _coll.enabled = false;
         _canBeDamaged = false;
         yield return new WaitForSeconds(time);
         _canBeDamaged = true;
+        _coll.enabled = true;
     }
 
 

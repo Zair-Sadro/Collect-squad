@@ -28,6 +28,20 @@ MonoBehaviour:
     unitPrefab: {fileID: 1947128600206898454, guid: c79170907b1836042ad4f3ed60d3ec63,
       type: 3}
   - levelType: 3
+    isUpgradeable: 1
+    isMaxLevel: 0
+    tilesToUpgrade: 30
+    tilesToUpgradeForBot: 30
+    unitPrefab: {fileID: 4138240632278112201, guid: b90bc6d4398a07544a053cf976ad9ac3,
+      type: 3}
+  - levelType: 4
+    isUpgradeable: 1
+    isMaxLevel: 0
+    tilesToUpgrade: 40
+    tilesToUpgradeForBot: 40
+    unitPrefab: {fileID: 4138240632278112201, guid: b90bc6d4398a07544a053cf976ad9ac3,
+      type: 3}
+  - levelType: 5
     isUpgradeable: 0
     isMaxLevel: 1
     tilesToUpgrade: 1000
