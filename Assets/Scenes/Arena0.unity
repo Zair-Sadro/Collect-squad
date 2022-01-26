@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 230568696}
-  m_IndirectSpecularColor: {r: 0.2979758, g: 0.51716465, b: 0.5898477, a: 1}
+  m_IndirectSpecularColor: {r: 0.29297245, g: 0.51765144, b: 0.58697355, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6439,6 +6439,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 537599541443037808, guid: e18814c4217b0914baf469276f3c4b29,
         type: 3}
+      propertyPath: chanceToDestroyTower
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 537599541443037808, guid: e18814c4217b0914baf469276f3c4b29,
+        type: 3}
       propertyPath: botTowers.Array.data[0]
       value: 
       objectReference: {fileID: 875950827}
@@ -7121,6 +7126,11 @@ PrefabInstance:
       propertyPath: playerEnemyTarget
       value: 
       objectReference: {fileID: 876432590}
+    - target: {fileID: 6713697310297545501, guid: d061c6b0e03f9d544a48547946714ffb,
+        type: 3}
+      propertyPath: precreatedTowerType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6713697310297545501, guid: d061c6b0e03f9d544a48547946714ffb,
         type: 3}
       propertyPath: firstUnitInvincibilityTime

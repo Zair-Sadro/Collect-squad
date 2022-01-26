@@ -261,7 +261,7 @@ MonoBehaviour:
     DamageToType: 100
   weaponSettings:
     TimeToAttack: 1
-    DamageTime: 1
+    DamageTime: 0.2
     TimeToReload: 1
     SerenityTime: 0
   damageColl: {fileID: 9000742329034134056}
@@ -326,8 +326,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1033514521336547133}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.473, y: 0.2991, z: 1.6808}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.473, y: 0.2991, z: 2.0015}
+  m_LocalScale: {x: 0.6847372, y: 0.8258581, z: 1.2268239}
   m_Children: []
   m_Father: {fileID: 1471036491099490838}
   m_RootOrder: 1
@@ -390,8 +390,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.17880559, z: 1.8462124}
-  m_Center: {x: 0, y: -0.0022684336, z: -0.08061886}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &9000742329034134056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2855,7 +2855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateCondition: 0
   detectionRadius: 8
-  attackDistance: 2.5
+  attackDistance: 2
   unitAnimator: {fileID: 2735594666397910445}
 --- !u!1 &8092033909964541633
 GameObject:

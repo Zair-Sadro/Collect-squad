@@ -93,7 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateCondition: 0
   detectionRadius: 8
-  attackDistance: 2.5
+  attackDistance: 2
   unitAnimator: {fileID: 2735594666397910445}
 --- !u!1 &2131039788
 GameObject:
@@ -388,7 +388,7 @@ MonoBehaviour:
     DamageToType: 100
   weaponSettings:
     TimeToAttack: 1
-    DamageTime: 1
+    DamageTime: 0.2
     TimeToReload: 1
     SerenityTime: 0
   damageColl: {fileID: 5654641846343502624}
@@ -2726,8 +2726,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7880637430957903133}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.473, y: 0.2991, z: 1.6808}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.473, y: 0.2991, z: 2.0015}
+  m_LocalScale: {x: 0.6847372, y: 0.8258581, z: 1.2268239}
   m_Children: []
   m_Father: {fileID: 3112387989939298068}
   m_RootOrder: 1
@@ -2790,8 +2790,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.22570062, z: 1.8797092}
-  m_Center: {x: 0, y: 0.02117908, z: -0.19785786}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5654641846343502624
 MonoBehaviour:
   m_ObjectHideFlags: 0

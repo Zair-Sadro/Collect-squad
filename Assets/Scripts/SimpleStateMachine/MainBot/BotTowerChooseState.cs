@@ -82,7 +82,10 @@ public class BotTowerChooseState : AState
     {
         _animator.SetBool("Run", false);
         CheckTower(_botStateControls.TowerToBuild);
-        TryBuildTower(_botStateControls.TowerToBuild, _botStateControls.TowerToBuild.ActiveTower);
+
+        if(_botStateControls.TowerToBuild != null)
+            TryBuildTower(_botStateControls.TowerToBuild, _botStateControls.TowerToBuild.ActiveTower);
+
         yield return new WaitForSeconds(time);
         _stateController.ChangeState(StateType.BotFindTile);
     }
