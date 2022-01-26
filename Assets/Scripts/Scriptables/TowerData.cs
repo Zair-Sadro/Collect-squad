@@ -37,12 +37,31 @@ public class TowerLevel
     [SerializeField] private bool isMaxLevel;
     [SerializeField] private int tilesToUpgrade;
     [SerializeField] private int tilesToUpgradeForBot;
-    [SerializeField] private BattleUnit unitPrefab;
+    [SerializeField] private List<UnitByTeam> units = new List<UnitByTeam>();
+
+    #region Properties
 
     public TowerLevelType LevelType => levelType;
     public int TilesToUpgrade => tilesToUpgrade;
     public int TilesToUpgradeForBot => tilesToUpgradeForBot;
-    public BattleUnit UnitPrefab => unitPrefab;
     public bool IsMaxLevel => isMaxLevel;
     public bool IsUpgradeable => isUpgradeable;
+
+    #endregion
+
+    public BattleUnit GetUnitByTeam(UnitTeam team)
+    {
+        return units.Where(u => u.Team == team).FirstOrDefault().UnitBrefab;
+    }
+}
+
+[System.Serializable]
+public  class UnitByTeam
+{
+    [SerializeField] private string name;
+    [SerializeField] private UnitTeam team;
+    [SerializeField] private BattleUnit unitPrefab;
+
+    public UnitTeam Team => team;
+    public BattleUnit UnitBrefab => unitPrefab;
 }

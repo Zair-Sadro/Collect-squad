@@ -19,33 +19,68 @@ MonoBehaviour:
     isMaxLevel: 0
     tilesToUpgrade: 15
     tilesToUpgradeForBot: 15
-    unitPrefab: {fileID: 5586038852656232383, guid: 4b6f8579464083e45a4c7035a05ac2a6,
-      type: 3}
+    units:
+    - name: T1
+      team: 0
+      unitPrefab: {fileID: 5586038852656232383, guid: 4b6f8579464083e45a4c7035a05ac2a6,
+        type: 3}
+    - name: T2
+      team: 1
+      unitPrefab: {fileID: 3559255006119095449, guid: efbb56a6232dd9b4383bac3abe80b820,
+        type: 3}
   - levelType: 2
     isUpgradeable: 1
     isMaxLevel: 0
     tilesToUpgrade: 20
     tilesToUpgradeForBot: 20
-    unitPrefab: {fileID: 3164933995780442657, guid: 0676b82e406d49346b73a25282ba1bde,
-      type: 3}
+    units:
+    - name: T1
+      team: 0
+      unitPrefab: {fileID: 5586038852656232383, guid: 91e1fc73ce07a824ab4d180229973f7a,
+        type: 3}
+    - name: T2
+      team: 1
+      unitPrefab: {fileID: 5210410888667945196, guid: f28aa3bfc8576d64b9d2fa711de2f9ae,
+        type: 3}
   - levelType: 3
     isUpgradeable: 1
     isMaxLevel: 0
     tilesToUpgrade: 30
     tilesToUpgradeForBot: 30
-    unitPrefab: {fileID: 5706321919283115982, guid: 6d01a83f94e39e945810f89bda919c9a,
-      type: 3}
+    units:
+    - name: T1
+      team: 0
+      unitPrefab: {fileID: 3164933995780442657, guid: 6d01a83f94e39e945810f89bda919c9a,
+        type: 3}
+    - name: T2
+      team: 1
+      unitPrefab: {fileID: 3195321245452865374, guid: c1f4686ee1f82ed4f8ce32075d5a6a58,
+        type: 3}
   - levelType: 4
     isUpgradeable: 1
     isMaxLevel: 0
     tilesToUpgrade: 40
     tilesToUpgradeForBot: 40
-    unitPrefab: {fileID: 5706321919283115982, guid: 6d01a83f94e39e945810f89bda919c9a,
-      type: 3}
+    units:
+    - name: T1
+      team: 0
+      unitPrefab: {fileID: 3164933995780442657, guid: 0b2b473f24301f846a876e0ac9bdc9ab,
+        type: 3}
+    - name: T2
+      team: 1
+      unitPrefab: {fileID: 6339195572825160744, guid: 5e362428f3aacd743beb91dcbb1e6d9f,
+        type: 3}
   - levelType: 5
     isUpgradeable: 0
     isMaxLevel: 1
     tilesToUpgrade: 1000
     tilesToUpgradeForBot: 1000
-    unitPrefab: {fileID: 5706321919283115982, guid: 6d01a83f94e39e945810f89bda919c9a,
-      type: 3}
+    units:
+    - name: T1
+      team: 0
+      unitPrefab: {fileID: 5706321919283115982, guid: 47a8010b365613d4e9c808bd65889f1e,
+        type: 3}
+    - name: T2
+      team: 1
+      unitPrefab: {fileID: 725778630944672207, guid: 66d3e4421ebbbf544b2e103401d109b9,
+        type: 3}

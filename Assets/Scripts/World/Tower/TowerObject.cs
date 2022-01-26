@@ -80,7 +80,7 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
     {
         _isRespawningUnit = true;
         yield return new WaitForSeconds(time);
-        BattleUnit newUnit = Instantiate(CurrentLevel.UnitPrefab, this.transform);
+        BattleUnit newUnit = Instantiate(CurrentLevel.GetUnitByTeam(_currentTeam), this.transform);
         _currentUnitsAmount++;
         newUnit.transform.localPosition = spawnPoint.localPosition;
         newUnit.transform.localRotation = Quaternion.Euler(spawnRotation);
