@@ -377,13 +377,13 @@ MonoBehaviour:
           m_CallState: 2
   damages:
   - Type: 0
-    DamageToType: 2
+    DamageToType: 4
   - Type: 1
-    DamageToType: 2
+    DamageToType: 4
   - Type: 2
-    DamageToType: 1
-  - Type: 3
     DamageToType: 2
+  - Type: 3
+    DamageToType: 4
   - Type: 4
     DamageToType: 100
   weaponSettings:
@@ -1301,8 +1301,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  health: 2
-  moveSpeed: 0.55
+  health: 4
+  moveSpeed: 0.4
   stateMachine: {fileID: 293421592}
 --- !u!54 &792888605296764082
 Rigidbody:
@@ -1771,7 +1771,7 @@ SkinnedMeshRenderer:
   - {fileID: 2100000, guid: c85aac10a20366c4ab7444b634a788d3, type: 2}
   - {fileID: 2100000, guid: 3d8505a721f429b41b157adebc99f592, type: 2}
   - {fileID: 2100000, guid: 9ac5d81c92dea4b428005de708c99fd5, type: 2}
-  - {fileID: 2100000, guid: 3d8505a721f429b41b157adebc99f592, type: 2}
+  - {fileID: 2100000, guid: 2677ede241e2f8944808414cdd521c44, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

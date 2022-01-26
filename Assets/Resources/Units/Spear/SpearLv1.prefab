@@ -324,7 +324,7 @@ MonoBehaviour:
           m_CallState: 2
   damages:
   - Type: 0
-    DamageToType: 1
+    DamageToType: 2
   - Type: 1
     DamageToType: 2
   - Type: 2
@@ -690,7 +690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   health: 2
-  moveSpeed: 0.35
+  moveSpeed: 0.4
   stateMachine: {fileID: 668223887570475633}
 --- !u!114 &668223887570475633
 MonoBehaviour:
