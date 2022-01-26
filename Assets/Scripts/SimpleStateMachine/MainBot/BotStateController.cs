@@ -13,6 +13,13 @@ public class BotStateController : ASimpleStateController
     [SerializeField] private List<TowerBuildPlatform> playerPlatforms = new List<TowerBuildPlatform>();
     [SerializeField] private TileSpawner tileSpawner;
 
+    private bool _inBuildZone;
+    private TowerBuildPlatform _towerToBuild;
+
+    #region Properties
+
+    public bool InBuildZone => _inBuildZone;
+    public TowerBuildPlatform TowerToBuild => _towerToBuild;
     public Animator Animator => animator;
     public float MoveSpeed => moveSpeed;
     public override BotStateController BotController => this;
@@ -21,10 +28,32 @@ public class BotStateController : ASimpleStateController
     public List<TowerBuildPlatform> PlayerPlatforms => playerPlatforms;
     public TileSpawner TileSpawner => tileSpawner;
 
+    #endregion
+
     public void SetSpeed(float speed)
     {
         moveSpeed = speed;
     }
-    
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out TowerBuildPlatform tower))
+        {
+            _towerToBuild = tower;
+            _inBuildZone = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out TowerBuildPlatform tower))
+        {
+            _towerToBuild = null;
+            _inBuildZone = false;
+        }
+    }
+
+
 
 }

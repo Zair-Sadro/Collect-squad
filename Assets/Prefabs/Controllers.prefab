@@ -196,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: -4704730134260047500, guid: 30ee78b2ddc2eca4886549e3f15df653, type: 3}
   spawnerParams:
-    spawnTime: 1.5
+    spawnTime: 1
     autoExpandable: 0
     quantityInScene: 100
     minX: -24.97

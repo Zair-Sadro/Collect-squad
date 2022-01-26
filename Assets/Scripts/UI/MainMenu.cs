@@ -17,4 +17,10 @@ public class MainMenu : ABaseUI
         coinsText.text = _data.Coins.ToString();
     }
 
+    public void ToggleHaptics()
+    {
+        Vibration.EnableHaptics = !Vibration.EnableHaptics;
+        Debug.Log(Vibration.EnableHaptics);
+        Vibration.Vibrate(50);
+    }
 }

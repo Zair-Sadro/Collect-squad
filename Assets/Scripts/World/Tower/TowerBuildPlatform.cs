@@ -56,6 +56,7 @@ public class TowerBuildPlatform : MonoBehaviour
 
     #region Properties
 
+    public List<ATowerObject> Towers => towers;
     public float FirstUnitInvincibilityTime => firstUnitInvincibilityTime;
     public UnityEvent DestroyEvent => OnDestroyEvent;
     public UnityEvent DestroyByUnits => OnDestroyByUnitsEvent;
@@ -69,7 +70,7 @@ public class TowerBuildPlatform : MonoBehaviour
     public Transform EnemyTower => chaseTarget;
     public int CurrentTiles => _currentTiles;
     public int TilesToUpgrade => _tilesToUpgrade;
-    public bool IsTowerBuild => _isTowerBuild;
+    public bool IsTowerBuild { get => _isTowerBuild; set => _isTowerBuild = value; }
 
     #endregion
 
@@ -225,9 +226,6 @@ public class TowerBuildPlatform : MonoBehaviour
         if(other.TryGetComponent(out TileSetter tileSetter))
         {
 
-            if (tileSetter.IsThisBot)
-                TryBuildRandomTower();
-
             if (_tilesToUpgrade <= 0)
             {
                 towerUI.ToggleCounter(false);
@@ -237,19 +235,6 @@ public class TowerBuildPlatform : MonoBehaviour
             }
 
             tileSetter.RemoveTiles(IncreaseTilesAmount, this);
-        }
-    }
-
-    private void TryBuildRandomTower()
-    {
-        if (_activeTower.CurrentLevel.LevelType > 0 && _activeTower != null)
-            return;
-
-        if(_tilesToUpgrade == 0 && _activeTower.CurrentLevel.LevelType == 0)
-        {
-            var randTower = towers.Where(t => t.CurrentLevel.LevelType == TowerLevelType.level1).ToList();
-            BuiltTower(randTower[Random.Range(0, randTower.Count)]);
-            _isTowerBuild = true;
         }
     }
 
@@ -293,4 +278,5 @@ public class TowerBuildPlatform : MonoBehaviour
         }
     }
 
+   
 }

@@ -1317,8 +1317,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
+  chanceToDestroyTower: 50
   timeInBuildZone: 1
-  runToTowerTime: 3
   botTowers:
   - {fileID: 0}
   - {fileID: 0}

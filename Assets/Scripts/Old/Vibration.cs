@@ -14,8 +14,13 @@ public static class Vibration
     public static AndroidJavaObject vibrator;
 #endif
 
+    public static bool EnableHaptics = true;
+
     public static void Vibrate()
     {
+        if (!EnableHaptics)
+            return;
+
         if (isAndroid())
             vibrator.Call("vibrate");
         else
@@ -25,6 +30,9 @@ public static class Vibration
 
     public static void Vibrate(long milliseconds)
     {
+        if (!EnableHaptics)
+            return;
+
         if (isAndroid())
             vibrator.Call("vibrate", milliseconds);
         else
@@ -33,6 +41,9 @@ public static class Vibration
 
     public static void Vibrate(long[] pattern, int repeat)
     {
+        if (!EnableHaptics)
+            return;
+
         if (isAndroid())
             vibrator.Call("vibrate", pattern, repeat);
         else
