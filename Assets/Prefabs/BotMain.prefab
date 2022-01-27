@@ -1594,7 +1594,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4516950103276847800}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 2e699f66f1e685348aa27b16215d6011, type: 3}
   m_Controller: {fileID: 9100000, guid: efee027f3d39d614ea0558cc15486e23, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -1926,7 +1926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
-  animClip: {fileID: 7400000, guid: 87d8edbb3cf65384f97f1d742fc8b510, type: 2}
+  animClip: {fileID: 7400000, guid: 8a14f431ba80f844da4e0eac2a526719, type: 2}
 --- !u!1 &5872488496839146333
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,62 +3,61 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem; //ВАЖНО: использует new input system для определения с чего производится ввод!!!
+using TMPro;
+using UnityEngine.UI;
 
 public class SaveData
 {
-    // Размер массива для сохранения состаяния продуктов в магазе
-    public int[] priceProduct = new int[27];
-    public StateProduct[] stateProduct = new StateProduct[27];
+    public int[] priceProduct = new int[9];
+    public StateProduct[] stateProduct = new StateProduct[9];
 }
 
 
 public class MarketManager : MonoBehaviour
 {
+    [SerializeField] private UserData data;
 
     private RaycastHit hit;
     private Ray MyRay;
-    private GameObject currentObjectInUse;  // текущий обьект продукта
-   // [SerializeField]
-    private int ID;             // текущий ID обьекта продукта
-    // [SerializeField]
-    // private int LoadID;
+    private Vector3 cameraPos;
+    private GameObject currentObjectInUse;  
+    private int ID;             
 
     [SerializeField]
-    private Transform cameraPosition;   //Камера
+    private Transform cameraPosition;   
     [SerializeField]
-    private TMPro.TextMeshProUGUI textAllPoints;         
+    private TextMeshProUGUI textAllPoints;         
 
-   // [SerializeField]
-    private int AllPoints;  // Игровая валюта
 
     [Header("Array Bars")]
     [SerializeField]
-    private GameObject[] Bars;           //массив 3d кнопок плашек
+    private GameObject[] Bars;          
 
     [Header("Array Sprites Background")]
     [SerializeField]
-    private Sprite[] backGround;         // массив фона текста
+    private Sprite[] backGround;
 
-    [SerializeField] private UnityEngine.UI.Button closeButton;
+
+    private void Awake()
+    {
+        for (int i = 0; i < Bars.Length; i++)
+            Bars[i].GetComponent<SettingObject>().Init(this);
+    }
 
     void Start()
     {
-        closeButton.onClick.AddListener(() => ReturnScene(0));
-
         LoadData();
 
         if (cameraPosition != null) cameraPos = new Vector3(-7.0f, cameraPosition.position.y, cameraPosition.position.z);
 
-        //находим продукт InUse 
         foreach (GameObject gObject in Bars)
         {
-
+            
 
             if (GetStateProduct(gObject) == StateProduct.InUse)
             {
-                currentObjectInUse = gObject;           // устан текущий обьект InUse
-                ID = GetIDObject(currentObjectInUse); // установим ID текущего InUse
+                currentObjectInUse = gObject;         
+                ID = GetIDObject(currentObjectInUse);
 
                break;
             }
@@ -69,7 +68,7 @@ public class MarketManager : MonoBehaviour
 
         foreach (GameObject gObject in Bars)
         {
-            if (gObject.GetComponent<SettingObject>().priceProduct > PlayerPrefs.GetInt("AllPoint"))
+            if (gObject.GetComponent<SettingObject>().priceProduct > data.Coins)
             {
                 PlayerPrefs.SetInt("NewTargetPrice", gObject.GetComponent<SettingObject>().priceProduct);
                 break;
@@ -79,55 +78,21 @@ public class MarketManager : MonoBehaviour
 
     void Update()
     {
-        UpdateMouse();                    // проверяем мышь
-        UpdateSpritesBackGround(Bars, backGround);         // обновление подложки текста
+        UpdateSpritesBackGround(Bars, backGround);       
         UpdateTextAllPoints();
 
         if (cameraPosition != null) cameraPosition.position = Vector3.Lerp(cameraPosition.position, cameraPos, 0.05f);
     }
 
-    /// <summary>
-    /// сохранение и возврат со сцены
-    /// </summary>
-    private void ReturnScene(int indexScene)
+  
+    public void ReturnScene(int indexScene)
     {
         SaveData();
-        SceneManager.LoadScene(indexScene);    // загрузка пред сцены
+        SceneManager.LoadScene(indexScene);  
     }
+    
 
-    /// <summary>
-    /// Возвращает обьект по нажатию кнопки под мышей
-    /// </summary>
-    /// <returns></returns>
-    private GameObject GetChoiceOBject()
-    {
-        GameObject result = null;
-
-#if UNITY_EDITOR
-       // MyRay = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-
-#else
-        MyRay = Camera.main.ScreenPointToRay(Touchscreen.current.position.ReadValue());
-#endif
-        // Debug.DrawRay(MyRay.origin, MyRay.direction * 10, Color.yellow);
-
-        if (Physics.Raycast(MyRay, out hit, 200))
-        {
-            MeshFilter filter = hit.collider.GetComponent(typeof(MeshFilter)) as MeshFilter;
-            if (filter)
-            {
-                result = filter.gameObject;                // обьект по которому щелкнули мышей               
-            }
-        }
-        Debug.Log(result);
-        return result;
-    }
-
-    /// <summary>
-    /// Возврат  ID планки
-    /// </summary>
-    /// <param name="gameObject"></param>
-    /// <returns></returns>
+ 
     private int GetIDObject(GameObject _gameObject)
     {
         int result = 0;
@@ -136,11 +101,8 @@ public class MarketManager : MonoBehaviour
         return result;
     }
 
-    /// <summary>
-    /// Смена продукта в магазе
-    /// </summary>
-    /// <param name="Object"></param>
-    private void ChangeProduct(GameObject gObject)
+  
+    public void ChangeProduct(GameObject gObject)
     {
         StateProduct stateProduct = GetStateProduct(gObject);
 
@@ -155,9 +117,9 @@ public class MarketManager : MonoBehaviour
         {
             int currentPriceObject = gObject.GetComponent<SettingObject>().priceProduct;
 
-            if (AllPoints >= currentPriceObject)
+            if (data.Coins >= currentPriceObject)
             {
-                AllPoints -= currentPriceObject;
+                data.Coins -= currentPriceObject;
                 //gObject.GetComponent<SettingObject>().stateProduct = StateProduct.Use;
 
                 SetStateProduct(gObject, StateProduct.Use);
@@ -246,14 +208,6 @@ public class MarketManager : MonoBehaviour
         }
 
         key = "AllPoint";
-        if (PlayerPrefs.HasKey(key))
-        {
-            AllPoints = PlayerPrefs.GetInt("AllPoint");
-            // LoadID = PlayerPrefs.GetInt("SavedID");
-            Debug.Log("Data loaded!");
-        }
-        else
-            Debug.LogError("There is no save data!");
     }
 
     /// <summary>
@@ -267,7 +221,6 @@ public class MarketManager : MonoBehaviour
 
         for (int index = 0; index < Bars.Length; index++)
         {
-            Debug.Log(index);
             data.stateProduct[index] = Bars[index].GetComponent<SettingObject>().stateProduct;
             data.priceProduct[index] = Bars[index].GetComponent<SettingObject>().priceProduct;
         }
@@ -276,106 +229,24 @@ public class MarketManager : MonoBehaviour
         PlayerPrefs.SetString(key, value);
 
         key = "AllPoint";
-        PlayerPrefs.SetInt("AllPoint", AllPoints);
         PlayerPrefs.SetInt("SavedID", ID);
         PlayerPrefs.Save();
+        SaveController.SaveData();
         Debug.Log("Data saved!");
     }
 
-    /// <summary>
-    /// Удаление всех данных
-    /// </summary>
+    
     void DeleteAllData()
     {
         PlayerPrefs.DeleteAll();
-        AllPoints = 0;
         Debug.Log("Data reset complete");
     }
 
 
-    /// <summary>
-    /// Обработка мыши
-    /// </summary>
-    void UpdateMouse()
-    {
-#if UNITY_EDITOR
-        if (Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            GameObject currentObject = GetChoiceOBject();
-
-            if (currentObject != null)
-            {
-                string nameObject = currentObject.name;
-
-                if (cameraPosition != null)
-                {
-                    if (nameObject == "ButtonReturn")
-                    {
-                     //   ReturnScene(0);    // 
-                    }
-
-                    if (nameObject == "ButtonSection(1)")       //перемещаем камеру слево
-                    {
-                        cameraPos = new Vector3(-7.0f, cameraPosition.position.y, cameraPosition.position.z);
-                    }
-
-                    if (nameObject == "ButtonSection(2)")       //перемещаем камеру  середина
-                    {
-                        cameraPos = new Vector3(0.0f, cameraPosition.position.y, cameraPosition.position.z);
-                    }
-                }
-
-                if (currentObject.GetComponent<SettingObject>())
-                {
-                    ChangeProduct(currentObject);
-
-                    //Debug.Log("ID " + GetIDObject(currentObject));
-                }
-            }
-        }
-#else
-        if (Touchscreen.current.IsPressed())
-        {
-            GameObject currentObject = GetChoiceOBject();
-
-            if (currentObject != null)
-            {
-                string nameObject = currentObject.name;
-
-                if (cameraPosition != null)
-                {
-                    if (nameObject == "ButtonReturn")
-                    {
-                      //  ReturnScene(0);    // 
-                    }
-
-                    if (nameObject == "ButtonSection(1)")       //перемещаем камеру слево
-                    {
-                        cameraPos = new Vector3(-7.0f, cameraPosition.position.y, cameraPosition.position.z);
-                    }
-
-                    if (nameObject == "ButtonSection(2)")       //перемещаем камеру  середина
-                    {
-                        cameraPos = new Vector3(0.0f, cameraPosition.position.y, cameraPosition.position.z);
-                    }
-                }
-
-                if (currentObject.GetComponent<SettingObject>())
-                {
-                    ChangeProduct(currentObject);
-
-                    //Debug.Log("ID " + GetIDObject(currentObject));
-                }
-            }
-        }
-#endif
-    }
-
-    private Vector3 cameraPos;
 
     void UpdateTextAllPoints()
     {
-        textAllPoints.text = AllPoints.ToString();
+        textAllPoints.text = data.Coins.ToString();
     }
 
 }

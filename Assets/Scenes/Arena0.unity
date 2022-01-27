@@ -2006,7 +2006,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!114 &737970096
 MonoBehaviour:
@@ -6141,7 +6141,7 @@ PrefabInstance:
         type: 3}
       propertyPath: towerPlatforms.Array.data[0]
       value: 
-      objectReference: {fileID: 5597177492679258771}
+      objectReference: {fileID: 875950828}
     - target: {fileID: 1176060546841677718, guid: 01453f45fdb1f1e45ae3aa707ddcb33b,
         type: 3}
       propertyPath: towerPlatforms.Array.data[1]

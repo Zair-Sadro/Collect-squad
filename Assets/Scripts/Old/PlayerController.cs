@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ParticleSystem dustParticle;
     [SerializeField] private TileSetter tileSetter;
 
+    [Header("Skins")]
+    [SerializeField] private List<Animator> skins = new List<Animator>();
+    private int _skinAnimatorID;
 
     #region Properties
 
@@ -24,7 +28,12 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    private void OnEnable()
+    {
+        CheckSkin();
+    }
 
+    
     private void FixedUpdate()
     {
         Move();
@@ -39,20 +48,36 @@ public class PlayerController : MonoBehaviour
             if(body.velocity != Vector3.zero)
                 transform.rotation = Quaternion.LookRotation(-body.velocity);
 
-            playerAnimator.SetBool("Run", true);
+            CurrentAnimator(_skinAnimatorID).SetBool("Run", true);
             dustParticle.gameObject.SetActive(true);
         }
         else
         {
-            playerAnimator.SetBool("Run", false);
+            CurrentAnimator(_skinAnimatorID).SetBool("Run", false);
             dustParticle.gameObject.SetActive(false);
         }
     }
 
+    private void CheckSkin()
+    {
+        if (!PlayerPrefs.HasKey("BodySkin_ID"))
+            PlayerPrefs.SetInt("BodySkin_ID", 1);
+        else
+        {
+            for (int i = 1; i < skins.Count; i++)
+                if (i == PlayerPrefs.GetInt("BodySkin_ID"))
+                    skins[i].gameObject.SetActive(true);
+                else
+                    skins[i].gameObject.SetActive(false);
+        }
+        _skinAnimatorID = PlayerPrefs.GetInt("BodySkin_ID");
+    }
+
+
     public void Stop()
     {
         body.velocity = Vector3.zero;
-        playerAnimator.SetBool("Run", false);
+        CurrentAnimator(_skinAnimatorID).SetBool("Run", false);
     }
 
     public void SetSpeed(float speed)
@@ -60,5 +85,8 @@ public class PlayerController : MonoBehaviour
         this.speed = speed;
     }
 
-   
+   private Animator CurrentAnimator(int id)
+    {
+        return skins[id];
+    }
 }

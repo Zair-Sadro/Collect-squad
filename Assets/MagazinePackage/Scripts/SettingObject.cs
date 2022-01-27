@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public enum StateProduct
 {
     Locked,
@@ -21,11 +22,19 @@ public class SettingObject : MonoBehaviour
     [Header("PriceProduct")]
     public int priceProduct;
 
+    [SerializeField] private GameObject particle;
+    [SerializeField] public bool skin = true;
+
     private Vector3 vectorRotateObject = new Vector3(0.0f, 10.0f, 0.0f);
     private Transform pointObjectProduct;
     private TextMesh textMesh;
+    private MarketManager _market;
 
-    [SerializeField] public bool skin = true;
+
+    public void Init(MarketManager market)
+    {
+        _market = market;
+    }
 
     void Start()
     {
@@ -36,6 +45,9 @@ public class SettingObject : MonoBehaviour
         {
             objectProduct.transform.position = pointObjectProduct.transform.position;
         }
+
+       // if (objectID == 1)
+       //     _market.ChangeProduct(this.gameObject);
     }
 
     void Update()
@@ -44,7 +56,6 @@ public class SettingObject : MonoBehaviour
         UpdateText();
     }
 
-    [SerializeField] private GameObject particle;
     public void SetNewInUseObj()
     {
         particle.SetActive(true);
@@ -90,5 +101,11 @@ public class SettingObject : MonoBehaviour
         }
     }
 
-   
+
+    private void OnMouseDown()
+    {
+        if (_market)
+            _market.ChangeProduct(this.gameObject);
+    }
+
 }
