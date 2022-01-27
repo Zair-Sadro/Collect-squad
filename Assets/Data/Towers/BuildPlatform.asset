@@ -18,5 +18,5 @@ MonoBehaviour:
     isUpgradeable: 0
     isMaxLevel: 0
     tilesToUpgrade: 10
-    tilesToUpgradeForBot: 7
-    unitPrefab: {fileID: 0}
+    tilesToUpgradeForBot: 5
+    units: []
