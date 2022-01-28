@@ -17,6 +17,6 @@ MonoBehaviour:
   - levelType: 0
     isUpgradeable: 0
     isMaxLevel: 0
-    tilesToUpgrade: 10
-    tilesToUpgradeForBot: 5
+    tilesToUpgrade: 5
+    tilesToUpgradeForBot: 4
     units: []
