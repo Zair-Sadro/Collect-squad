@@ -76,6 +76,8 @@ public class GameController : MonoBehaviour
         OnStateChange += ChangeState;
     }
 
+    
+
     private void OnDestroy()
     {
         OnStateChange -= ChangeState;
@@ -128,10 +130,15 @@ public class GameController : MonoBehaviour
         botMainTowersController.StopTowerActivity();
         winConfetti.SetActive(true);
 
+        if (data.CurrentLevel == 1)
+            PlayerPrefs.SetInt("Tutorial", 1);
+
+        SetNextArena();
         _sessionScore += defCoinsForWin;
         data.Coins += _sessionScore;
         data.CurrentLevel++;
         data.WinsToNextRank++;
+
 
         winPanel.SetSessionScore(_sessionScore);
         SaveController.SaveData();
@@ -176,4 +183,12 @@ public class GameController : MonoBehaviour
     {
         return Instance._sessionScore;
     }
+
+    private void SetNextArena()
+    {
+        bool isLastArena = SceneManager.GetActiveScene().buildIndex == 6;
+        var nextlevel = isLastArena ? 2 : SceneManager.GetActiveScene().buildIndex + 1;
+        PlayerPrefs.SetInt("CurrentArena", nextlevel);
+    }
+
 }

@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: af8943736f9864d4690a2a272f2e0974,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6092,7 +6092,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.1
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 7bf98e6a616fea64ba18660a866bb1b3, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 011e8fcc2d625a64cbfb938db6f5712f, type: 2}
 --- !u!4 &1453453025
 Transform:
   m_ObjectHideFlags: 0
@@ -16688,7 +16688,7 @@ PrefabInstance:
     - target: {fileID: 8526563637879552500, guid: ae1cc329c58918644ab53826242af44c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8526563635897509048, guid: ae1cc329c58918644ab53826242af44c, type: 3}

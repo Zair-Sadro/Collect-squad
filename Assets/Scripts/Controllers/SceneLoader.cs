@@ -5,8 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public void LoadLevel(int index)
+    public void LoadLevel()
+    {
+        var index = PlayerPrefs.GetInt("CurrentArena", 1);
+        SceneManager.LoadScene(index);
+    }
+
+    public void LoadShop(int index)
     {
         SceneManager.LoadScene(index);
+
     }
 }

@@ -12,7 +12,6 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private GameObject towerArrow;
     [SerializeField] private GameObject tapHand;
 
-
     private int _tileCount;
     private TowerBuildPlatform _currentTower;
 
