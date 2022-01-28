@@ -10,7 +10,12 @@ PrefabInstance:
     - target: {fileID: 475302558993247698, guid: 4df8f19eb3bbc2647ba2af3c03b935f1,
         type: 3}
       propertyPath: m_Name
-      value: stickman_4
+      value: stickman_4 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 475302558993247699, guid: 4df8f19eb3bbc2647ba2af3c03b935f1,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 996225172565407592, guid: 4df8f19eb3bbc2647ba2af3c03b935f1,
         type: 3}
@@ -82,5 +87,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8898082200111703033, guid: 4df8f19eb3bbc2647ba2af3c03b935f1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2677ede241e2f8944808414cdd521c44, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4df8f19eb3bbc2647ba2af3c03b935f1, type: 3}
