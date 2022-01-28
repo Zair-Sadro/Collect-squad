@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 230568696}
-  m_IndirectSpecularColor: {r: 0.2979758, g: 0.51716465, b: 0.5898477, a: 1}
+  m_IndirectSpecularColor: {r: 0.29297245, g: 0.51765144, b: 0.58697355, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1759,7 +1759,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!114 &518450420
 MonoBehaviour:
@@ -6330,7 +6330,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.1
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 390037ff8822e8d4e9031868b16d4ec8, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 7211629031051804fbeff440557d0820, type: 2}
 --- !u!4 &1507992047
 Transform:
   m_ObjectHideFlags: 0
@@ -10693,6 +10693,16 @@ PrefabInstance:
       propertyPath: towersUI.Array.data[3]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1176060547903051508, guid: 01453f45fdb1f1e45ae3aa707ddcb33b,
+        type: 3}
+      propertyPath: spawnerParams.maxZ
+      value: 41.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176060547903051511, guid: 01453f45fdb1f1e45ae3aa707ddcb33b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1176060548069918999, guid: 01453f45fdb1f1e45ae3aa707ddcb33b,
         type: 3}
       propertyPath: towerPlatforms.Array.size
@@ -10777,6 +10787,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Controllers
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176060548537996794, guid: 01453f45fdb1f1e45ae3aa707ddcb33b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176060548537996795, guid: 01453f45fdb1f1e45ae3aa707ddcb33b,
+        type: 3}
+      propertyPath: spawnerParams.minZ
+      value: -42.73
       objectReference: {fileID: 0}
     - target: {fileID: 1176060548537996795, guid: 01453f45fdb1f1e45ae3aa707ddcb33b,
         type: 3}

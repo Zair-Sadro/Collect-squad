@@ -98,7 +98,10 @@ public class TileSetter : MonoBehaviour
         for (int i = _tiles.Count - 1; i >= 0; i--)
         {
             _lastSetTile = _tiles[i];
-            _lastSetTile.transform.DOMove(_currentTowerPlatform.transform.position, tileSetSpeed);
+
+            if(_lastSetTile != null)
+                _lastSetTile.transform.DOMove(_currentTowerPlatform.transform.position, tileSetSpeed);
+
 
             yield return new WaitForSeconds(timeToRemoveTile);
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 230568696}
-  m_IndirectSpecularColor: {r: 0.2979758, g: 0.51716465, b: 0.5898477, a: 1}
+  m_IndirectSpecularColor: {r: 0.29297245, g: 0.51765144, b: 0.58697355, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1169,7 +1169,7 @@ PrefabInstance:
     - target: {fileID: 698754548471423280, guid: afef0e4e77b60354d84e48e652561c90,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -36.73
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 698754548471423280, guid: afef0e4e77b60354d84e48e652561c90,
         type: 3}
@@ -2415,7 +2415,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-3918420
+  m_Name: pb_Mesh-138010
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6353,7 +6353,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-3918382
+  m_Name: pb_Mesh-137970
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7441,6 +7441,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 3126781319142142061, guid: c35520a017cf9f345bebfed1ec730e12,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126781319144160181, guid: c35520a017cf9f345bebfed1ec730e12,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3126781319144160181, guid: c35520a017cf9f345bebfed1ec730e12,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7833,6 +7843,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3126781319977269175, guid: c35520a017cf9f345bebfed1ec730e12,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126781319977269175, guid: c35520a017cf9f345bebfed1ec730e12,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -7840,6 +7855,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126781319979416687, guid: c35520a017cf9f345bebfed1ec730e12,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3126781319985481573, guid: c35520a017cf9f345bebfed1ec730e12,
         type: 3}
@@ -7941,6 +7961,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 3126781320227966549, guid: c35520a017cf9f345bebfed1ec730e12,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126781320229979533, guid: c35520a017cf9f345bebfed1ec730e12,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3126781320229979533, guid: c35520a017cf9f345bebfed1ec730e12,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7998,8 +8028,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3126781320330200077, guid: c35520a017cf9f345bebfed1ec730e12,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126781320330200077, guid: c35520a017cf9f345bebfed1ec730e12,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126781320332218325, guid: c35520a017cf9f345bebfed1ec730e12,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3126781320334011810, guid: c35520a017cf9f345bebfed1ec730e12,
         type: 3}
@@ -8015,6 +8055,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126781320367384136, guid: c35520a017cf9f345bebfed1ec730e12,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126781320369434000, guid: c35520a017cf9f345bebfed1ec730e12,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3126781320369434000, guid: c35520a017cf9f345bebfed1ec730e12,
         type: 3}
@@ -10977,7 +11027,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.1
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 6967589f118f7e04d8f6c59913844b56, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: b5a759a6c2cc1e442b6e74b4bfeb75ce, type: 2}
 --- !u!4 &1507992047
 Transform:
   m_ObjectHideFlags: 0
@@ -12055,7 +12105,7 @@ PrefabInstance:
     - target: {fileID: 698754548471423280, guid: afef0e4e77b60354d84e48e652561c90,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -38.02
+      value: -31.29
       objectReference: {fileID: 0}
     - target: {fileID: 698754548471423280, guid: afef0e4e77b60354d84e48e652561c90,
         type: 3}
@@ -13046,7 +13096,7 @@ PrefabInstance:
     - target: {fileID: 698754548471423280, guid: afef0e4e77b60354d84e48e652561c90,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -36.69
+      value: -29.96
       objectReference: {fileID: 0}
     - target: {fileID: 698754548471423280, guid: afef0e4e77b60354d84e48e652561c90,
         type: 3}
@@ -13897,7 +13947,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-3918514
+  m_Name: pb_Mesh-138104
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14141,6 +14191,16 @@ PrefabInstance:
       propertyPath: towersUI.Array.data[3]
       value: 
       objectReference: {fileID: 1849155065}
+    - target: {fileID: 1176060547903051508, guid: 01453f45fdb1f1e45ae3aa707ddcb33b,
+        type: 3}
+      propertyPath: spawnerParams.maxZ
+      value: 36.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176060547903051511, guid: 01453f45fdb1f1e45ae3aa707ddcb33b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1176060548069918999, guid: 01453f45fdb1f1e45ae3aa707ddcb33b,
         type: 3}
       propertyPath: towerPlatforms.Array.size
@@ -14225,6 +14285,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Controllers
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176060548537996794, guid: 01453f45fdb1f1e45ae3aa707ddcb33b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176060548537996795, guid: 01453f45fdb1f1e45ae3aa707ddcb33b,
+        type: 3}
+      propertyPath: spawnerParams.maxZ
+      value: -36.09
       objectReference: {fileID: 0}
     - target: {fileID: 1176060548537996795, guid: 01453f45fdb1f1e45ae3aa707ddcb33b,
         type: 3}
@@ -14384,7 +14454,7 @@ PrefabInstance:
     - target: {fileID: 3633850737924445340, guid: e18814c4217b0914baf469276f3c4b29,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -46.986423
+      value: -37.23
       objectReference: {fileID: 0}
     - target: {fileID: 3633850737924445340, guid: e18814c4217b0914baf469276f3c4b29,
         type: 3}
@@ -14425,7 +14495,7 @@ PrefabInstance:
         type: 3}
       propertyPath: animClip
       value: 
-      objectReference: {fileID: 7400000, guid: 87d8edbb3cf65384f97f1d742fc8b510, type: 2}
+      objectReference: {fileID: 7400000, guid: 8a14f431ba80f844da4e0eac2a526719, type: 2}
     - target: {fileID: 7314024398954670222, guid: e18814c4217b0914baf469276f3c4b29,
         type: 3}
       propertyPath: tileSetSpeed

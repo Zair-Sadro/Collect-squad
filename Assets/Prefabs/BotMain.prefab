@@ -1318,6 +1318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateCondition: 0
   chanceToDestroyTower: 50
+  chanceToBuildStrongerTower: 85
   timeInBuildZone: 1
   botTowers:
   - {fileID: 0}

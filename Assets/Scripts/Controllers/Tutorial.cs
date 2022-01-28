@@ -88,7 +88,7 @@ public class Tutorial : MonoBehaviour
         if (_tileCount > 0)
             tileArrow.SetActive(false);
 
-        if(_tileCount >= 10)
+        if(_tileCount >= 5)
         {
             tileArrow.SetActive(false);
             towerArrow.SetActive(true);

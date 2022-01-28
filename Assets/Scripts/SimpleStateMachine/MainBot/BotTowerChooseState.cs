@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class BotTowerChooseState : AState
 {
     [SerializeField, Range(0, 101)] private int chanceToDestroyTower;
+    [SerializeField, Range(0, 101)] private int chanceToBuildStrongerTower;
     [SerializeField, Min(0)] private float timeInBuildZone;
     [SerializeField] private List<Transform> botTowers = new List<Transform>();
 
@@ -149,18 +150,24 @@ public class BotTowerChooseState : AState
         if (towerToBuild.TilesToUpgrade == 0 && activeTower.CurrentLevel.LevelType == 0)
         {
             bool isOppositeTowerBuild = towerToBuild.OppositeTower.ActiveTower.CurrentLevel.LevelType > 0;
-
             if (isOppositeTowerBuild)
-                towerToBuild.BuiltTower(TowerByType(towerToBuild.OppositeTower.ActiveTower.Data.Type));
-            else
-            {
-                var randTower = towerToBuild.Towers.Where(t => t.CurrentLevel.LevelType == TowerLevelType.level1).ToList();
-                towerToBuild.BuiltTower(randTower[Random.Range(0, randTower.Count)]);
-                towerToBuild.IsTowerBuild = true;
-            }
+                TryBuildStrongerTower(towerToBuild);
         }
     }
 
+
+    private void TryBuildStrongerTower(TowerBuildPlatform towerToBuild)
+    {
+        var randomChance = Random.Range(0, 101);
+        if(randomChance <= chanceToBuildStrongerTower)
+            towerToBuild.BuiltTower(TowerByType(towerToBuild.OppositeTower.ActiveTower.Data.Type));
+        else
+        {
+            var randTower = towerToBuild.Towers.Where(t => t.CurrentLevel.LevelType == TowerLevelType.level1).ToList();
+            towerToBuild.BuiltTower(randTower[Random.Range(0, randTower.Count)]);
+            towerToBuild.IsTowerBuild = true;
+        }
+    }
 
     private UnitType TowerByType(UnitType type)
     {

@@ -86,7 +86,12 @@ public class PlayerController : MonoBehaviour
     }
 
    private Animator CurrentAnimator(int id)
-    {
+   {
         return skins[id];
+   }
+
+    public void DieAnimation()
+    {
+        CurrentAnimator(_skinAnimatorID).SetTrigger("Die");
     }
 }

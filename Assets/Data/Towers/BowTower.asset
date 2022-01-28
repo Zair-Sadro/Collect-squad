@@ -18,7 +18,7 @@ MonoBehaviour:
     isUpgradeable: 1
     isMaxLevel: 0
     tilesToUpgrade: 10
-    tilesToUpgradeForBot: 5
+    tilesToUpgradeForBot: 10
     units:
     - name: T1
       team: 0
