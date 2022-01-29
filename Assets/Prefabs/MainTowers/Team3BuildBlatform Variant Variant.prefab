@@ -85,7 +85,7 @@ PrefabInstance:
     - target: {fileID: 6713697310297545496, guid: d061c6b0e03f9d544a48547946714ffb,
         type: 3}
       propertyPath: m_Name
-      value: Team3BuildBlatform Variant
+      value: Team3BuildBlatform Variant Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6713697310297545499, guid: d061c6b0e03f9d544a48547946714ffb,
         type: 3}
@@ -175,7 +175,7 @@ PrefabInstance:
     - target: {fileID: 8347877304946010031, guid: d061c6b0e03f9d544a48547946714ffb,
         type: 3}
       propertyPath: spawnTime
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8347877304946010031, guid: d061c6b0e03f9d544a48547946714ffb,
         type: 3}
@@ -185,7 +185,7 @@ PrefabInstance:
     - target: {fileID: 8347877305047611582, guid: d061c6b0e03f9d544a48547946714ffb,
         type: 3}
       propertyPath: spawnTime
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8347877305047611582, guid: d061c6b0e03f9d544a48547946714ffb,
         type: 3}
@@ -245,7 +245,7 @@ PrefabInstance:
     - target: {fileID: 8347877306832098419, guid: d061c6b0e03f9d544a48547946714ffb,
         type: 3}
       propertyPath: spawnTime
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8347877306832098419, guid: d061c6b0e03f9d544a48547946714ffb,
         type: 3}
