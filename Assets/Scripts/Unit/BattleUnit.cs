@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public enum UnitTeam
 {
-    Team1, Team2
+    Team1, Team2, Team3
 }
 
 public class BattleUnit : MonoBehaviour, IDamageable, ITeamChangeable, IBattleUnit
