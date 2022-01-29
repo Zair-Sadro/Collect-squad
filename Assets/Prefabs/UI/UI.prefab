@@ -1395,6 +1395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   coinsText: {fileID: 4309712807491729034}
+  offHapticsImage: {fileID: 0}
 --- !u!1 &1868254901
 GameObject:
   m_ObjectHideFlags: 0

@@ -152,6 +152,12 @@ public class BotTowerChooseState : AState
             bool isOppositeTowerBuild = towerToBuild.OppositeTower.ActiveTower.CurrentLevel.LevelType > 0;
             if (isOppositeTowerBuild)
                 TryBuildStrongerTower(towerToBuild);
+            else
+            {
+                var randTower = towerToBuild.Towers.Where(t => t.CurrentLevel.LevelType == TowerLevelType.level1).ToList();
+                towerToBuild.BuiltTower(randTower[Random.Range(0, randTower.Count)]);
+                towerToBuild.IsTowerBuild = true;
+            }
         }
     }
 
@@ -161,12 +167,6 @@ public class BotTowerChooseState : AState
         var randomChance = Random.Range(0, 101);
         if(randomChance <= chanceToBuildStrongerTower)
             towerToBuild.BuiltTower(TowerByType(towerToBuild.OppositeTower.ActiveTower.Data.Type));
-        else
-        {
-            var randTower = towerToBuild.Towers.Where(t => t.CurrentLevel.LevelType == TowerLevelType.level1).ToList();
-            towerToBuild.BuiltTower(randTower[Random.Range(0, randTower.Count)]);
-            towerToBuild.IsTowerBuild = true;
-        }
     }
 
     private UnitType TowerByType(UnitType type)

@@ -461,7 +461,7 @@ MonoBehaviour:
   coll: {fileID: 1333436679446469148}
   firstUnitInvincibilityTime: 3
   resetTime: 2
-  timeToDestroy: 1
+  timeToDestroy: 0.6
   timeToDestroyByUnits: 0
   OnBuildEvent:
     m_PersistentCalls:

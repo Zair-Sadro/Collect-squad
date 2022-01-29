@@ -99,7 +99,7 @@ public class TileSetter : MonoBehaviour
         {
             _lastSetTile = _tiles[i];
 
-            if(_lastSetTile != null)
+            if(_lastSetTile != null && _currentTowerPlatform != null)
                 _lastSetTile.transform.DOMove(_currentTowerPlatform.transform.position, tileSetSpeed);
 
 
