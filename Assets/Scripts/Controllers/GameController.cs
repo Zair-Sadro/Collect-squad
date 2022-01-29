@@ -123,6 +123,7 @@ public class GameController : MonoBehaviour
 
     private void OnWinState()
     {
+        SaveController.SaveData();
         var winPanel = (WinMenu)uiController.Menus.Where(m => m.Type == MenuType.Win).FirstOrDefault();
 
         uiController.ToggleMenu(MenuType.Win);
@@ -141,11 +142,11 @@ public class GameController : MonoBehaviour
 
 
         winPanel.SetSessionScore(_sessionScore);
-        SaveController.SaveData();
     }
 
     private void OnLoseState()
     {
+        SaveController.SaveData();
         var losePanel = (LoseMenu)uiController.Menus.Where(m => m.Type == MenuType.Lose).FirstOrDefault();
 
         uiController.ToggleMenu(MenuType.Lose);
@@ -159,7 +160,6 @@ public class GameController : MonoBehaviour
             data.WinsToNextRank--;
 
         losePanel.SetSessionScore(_sessionScore);
-        SaveController.SaveData();
     }
 
     #endregion
@@ -186,7 +186,7 @@ public class GameController : MonoBehaviour
 
     private void SetNextArena()
     {
-        bool isLastArena = SceneManager.GetActiveScene().buildIndex == 6;
+        bool isLastArena = SceneManager.GetActiveScene().buildIndex == 8;
         var nextlevel = isLastArena ? 2 : SceneManager.GetActiveScene().buildIndex + 1;
         PlayerPrefs.SetInt("CurrentArena", nextlevel);
     }
