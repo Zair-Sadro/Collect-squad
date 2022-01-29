@@ -50,11 +50,20 @@ public class TowerButtonsController : MonoBehaviour
 
         if(currentBuildPlatform.TilesToUpgrade == 0)
         {
-            foreach (var b in towersUI)
+            for (int i = 0; i < towersUI.Count; i++)
             {
-                b.ToogleButtons(true);
-                b.InitButtons(currentBuildPlatform);
+                if(currentBuildPlatform.TowerUI == towersUI[i])
+                {
+                    towersUI[i].ToogleButtons(true);
+                    towersUI[i].InitButtons(currentBuildPlatform);
+                }
             }
+
+           // foreach (var b in towersUI)
+           // {
+           //     b.ToogleButtons(true);
+           //     b.InitButtons(currentBuildPlatform);
+           // }
         }
     }
 

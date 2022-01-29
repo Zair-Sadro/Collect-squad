@@ -123,8 +123,12 @@ public class GameController : MonoBehaviour
 
     private void OnWinState()
     {
+        _sessionScore += defCoinsForWin;
+        data.Coins += _sessionScore;
+        data.CurrentLevel++;
+        data.WinsToNextRank++;
         SaveController.SaveData();
-        var winPanel = (WinMenu)uiController.Menus.Where(m => m.Type == MenuType.Win).FirstOrDefault();
+
 
         uiController.ToggleMenu(MenuType.Win);
         playerMainTowersController.StopTowerActivity();
@@ -135,30 +139,24 @@ public class GameController : MonoBehaviour
             PlayerPrefs.SetInt("Tutorial", 1);
 
         SetNextArena();
-        _sessionScore += defCoinsForWin;
-        data.Coins += _sessionScore;
-        data.CurrentLevel++;
-        data.WinsToNextRank++;
-
-
+        var winPanel = (WinMenu)uiController.Menus.Where(m => m.Type == MenuType.Win).FirstOrDefault();
         winPanel.SetSessionScore(_sessionScore);
     }
 
     private void OnLoseState()
     {
+        _sessionScore += defCoinsForLose;
+        data.Coins += _sessionScore;
+        if (data.WinsToNextRank > 0)
+            data.WinsToNextRank--;
+
         SaveController.SaveData();
-        var losePanel = (LoseMenu)uiController.Menus.Where(m => m.Type == MenuType.Lose).FirstOrDefault();
 
         uiController.ToggleMenu(MenuType.Lose);
         playerMainTowersController.StopTowerActivity();
         botMainTowersController.StopTowerActivity();
 
-        _sessionScore += defCoinsForLose;
-        data.Coins += _sessionScore;
-
-        if (data.WinsToNextRank > 0)
-            data.WinsToNextRank--;
-
+        var losePanel = (LoseMenu)uiController.Menus.Where(m => m.Type == MenuType.Lose).FirstOrDefault();
         losePanel.SetSessionScore(_sessionScore);
     }
 
@@ -186,7 +184,7 @@ public class GameController : MonoBehaviour
 
     private void SetNextArena()
     {
-        bool isLastArena = SceneManager.GetActiveScene().buildIndex == 8;
+        bool isLastArena = SceneManager.GetActiveScene().buildIndex == 9;
         var nextlevel = isLastArena ? 2 : SceneManager.GetActiveScene().buildIndex + 1;
         PlayerPrefs.SetInt("CurrentArena", nextlevel);
     }

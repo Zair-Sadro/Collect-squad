@@ -33,7 +33,7 @@ public class RankController : MonoBehaviour
             Destroy(Instance.gameObject);
     }
 
-    private void Start()
+    private void OnEnable()
     {
         CheckRank();
     }
@@ -58,15 +58,22 @@ public class RankController : MonoBehaviour
         if (_nextRank == null)
             return;
 
-        var curRank = rankData.Ranks.Where(r => r.CurrentRank == data.Rank).FirstOrDefault();
-        currentRankId.SetText(curRank.CurrentId.ToString());
-        nextRankId.SetText(_nextRank.CurrentId.ToString());
-
         if (data.WinsToNextRank >= _nextRank.WinsToOpen)
         {
             data.Rank = _nextRank.CurrentRank;
             data.WinsToNextRank = 0;
         }
+    }
+
+    private void SetRankID()
+    {
+        var curRank = rankData.Ranks.Where(r => r.CurrentRank == data.Rank).FirstOrDefault();
+        var nextRank = rankData.Ranks.Where(r => r.CurrentRank == data.Rank + 1).FirstOrDefault();
+
+        currentRankId.SetText(curRank.CurrentId.ToString());
+
+        if(nextRank != null)
+            nextRankId.SetText(nextRank.CurrentId.ToString());
     }
 
     private void SetRankIcons()
@@ -94,6 +101,8 @@ public class RankController : MonoBehaviour
             for (int j = 0; j < data.WinsToNextRank; j++)
                 gameBarsImg[j].sprite = winGameSkinBar;
         }
+
+        SetRankID();
     }
     
 }

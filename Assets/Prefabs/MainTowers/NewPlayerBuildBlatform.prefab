@@ -21102,6 +21102,11 @@ PrefabInstance:
       objectReference: {fileID: 4355851190417213850}
     - target: {fileID: 3382843288222352597, guid: eb07ef87e2cff704c8d7885f5b74d6ce,
         type: 3}
+      propertyPath: maxUnitsAlive
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382843288222352597, guid: eb07ef87e2cff704c8d7885f5b74d6ce,
+        type: 3}
       propertyPath: nextLevelTower
       value: 
       objectReference: {fileID: 4355851189184211293}
@@ -21448,6 +21453,11 @@ PrefabInstance:
       objectReference: {fileID: 4355851190417213850}
     - target: {fileID: 3382843289225299596, guid: ca677961d05ddd44b91f432fe595f865,
         type: 3}
+      propertyPath: maxUnitsAlive
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382843289225299596, guid: ca677961d05ddd44b91f432fe595f865,
+        type: 3}
       propertyPath: nextLevelTower
       value: 
       objectReference: {fileID: 4355851189979406462}
@@ -21553,6 +21563,11 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 4355851190417213850}
+    - target: {fileID: 3382843288170742421, guid: d4fae35a8a02e5e4d9f408cc326e4890,
+        type: 3}
+      propertyPath: maxUnitsAlive
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3382843288170742421, guid: d4fae35a8a02e5e4d9f408cc326e4890,
         type: 3}
       propertyPath: nextLevelTower
@@ -21675,6 +21690,11 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 4355851190417213850}
+    - target: {fileID: 3382843287942384248, guid: 9715db15644640f4d877d9cb504ba24e,
+        type: 3}
+      propertyPath: maxUnitsAlive
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3382843287942384248, guid: 9715db15644640f4d877d9cb504ba24e,
         type: 3}
       propertyPath: nextLevelTower
@@ -21891,6 +21911,11 @@ PrefabInstance:
       objectReference: {fileID: 4355851190417213850}
     - target: {fileID: 3382843289292223774, guid: 55b121cf394cc01479d0f129a16fb016,
         type: 3}
+      propertyPath: maxUnitsAlive
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382843289292223774, guid: 55b121cf394cc01479d0f129a16fb016,
+        type: 3}
       propertyPath: nextLevelTower
       value: 
       objectReference: {fileID: 7372344873224964771}
@@ -22011,6 +22036,11 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 4355851190417213850}
+    - target: {fileID: 3382843288617963346, guid: 28da665919180f248a017275a15b3e61,
+        type: 3}
+      propertyPath: maxUnitsAlive
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3382843288617963346, guid: 28da665919180f248a017275a15b3e61,
         type: 3}
       propertyPath: nextLevelTower
@@ -22254,6 +22284,11 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 4355851190417213850}
+    - target: {fileID: 3382843288170742421, guid: d4fae35a8a02e5e4d9f408cc326e4890,
+        type: 3}
+      propertyPath: maxUnitsAlive
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5141275496287934019, guid: d4fae35a8a02e5e4d9f408cc326e4890,
         type: 3}
       propertyPath: m_RootOrder
@@ -22789,6 +22824,11 @@ PrefabInstance:
       objectReference: {fileID: 4355851190417213850}
     - target: {fileID: 3382843288170742421, guid: d4fae35a8a02e5e4d9f408cc326e4890,
         type: 3}
+      propertyPath: maxUnitsAlive
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382843288170742421, guid: d4fae35a8a02e5e4d9f408cc326e4890,
+        type: 3}
       propertyPath: nextLevelTower
       value: 
       objectReference: {fileID: 3556042312375240228}
@@ -22914,6 +22954,11 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 4355851190417213850}
+    - target: {fileID: 3382843289292223774, guid: 55b121cf394cc01479d0f129a16fb016,
+        type: 3}
+      propertyPath: maxUnitsAlive
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3382843289292223774, guid: 55b121cf394cc01479d0f129a16fb016,
         type: 3}
       propertyPath: nextLevelTower
@@ -23051,6 +23096,11 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 4355851190417213850}
+    - target: {fileID: 3382843289292223774, guid: 55b121cf394cc01479d0f129a16fb016,
+        type: 3}
+      propertyPath: maxUnitsAlive
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5141275496287934019, guid: 55b121cf394cc01479d0f129a16fb016,
         type: 3}
       propertyPath: m_RootOrder
