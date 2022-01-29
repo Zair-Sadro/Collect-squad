@@ -28,6 +28,10 @@ MonoBehaviour:
       team: 1
       unitPrefab: {fileID: 5253550748963226219, guid: 493dd1dd699548a4b857e3747daa3fcb,
         type: 3}
+    - name: T3
+      team: 2
+      unitPrefab: {fileID: 327002888630174690, guid: e6a7731b4b855c749ab7ab39606b6142,
+        type: 3}
   - levelType: 2
     isUpgradeable: 1
     isMaxLevel: 0
@@ -41,6 +45,10 @@ MonoBehaviour:
     - name: T2
       team: 1
       unitPrefab: {fileID: 1117710624379995948, guid: a4deaa3caaaf921429df4c9746b5a64d,
+        type: 3}
+    - name: T3
+      team: 2
+      unitPrefab: {fileID: 5113506471217168655, guid: c9929f733df0cfa4185f4d8cff21c776,
         type: 3}
   - levelType: 3
     isUpgradeable: 1
@@ -56,6 +64,10 @@ MonoBehaviour:
       team: 1
       unitPrefab: {fileID: 200445887520132169, guid: b583d130087c9db45804e375e2f34e8f,
         type: 3}
+    - name: T3
+      team: 2
+      unitPrefab: {fileID: 6106154810871642333, guid: 7765b2501b6c44d419f124e4e7290b20,
+        type: 3}
   - levelType: 4
     isUpgradeable: 1
     isMaxLevel: 0
@@ -70,6 +82,10 @@ MonoBehaviour:
       team: 1
       unitPrefab: {fileID: 7571446840354518704, guid: 93c6ac6b2d2566e448b217f44ccf2247,
         type: 3}
+    - name: T3
+      team: 2
+      unitPrefab: {fileID: 5096027737295035411, guid: 32af668fcbe212e4e9b91cbe7184a76f,
+        type: 3}
   - levelType: 5
     isUpgradeable: 0
     isMaxLevel: 1
@@ -83,4 +99,8 @@ MonoBehaviour:
     - name: T2
       team: 1
       unitPrefab: {fileID: 7073643527567038208, guid: 37590402572072f48a76ca1830e8624c,
+        type: 3}
+    - name: T3
+      team: 2
+      unitPrefab: {fileID: 1413164230834631233, guid: c02a6c735f11e6a49b6a8d146ffcd6d1,
         type: 3}
