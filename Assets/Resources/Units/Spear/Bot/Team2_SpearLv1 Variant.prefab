@@ -65,7 +65,37 @@ PrefabInstance:
     - target: {fileID: 1832667991176781122, guid: 384c088b61065614b9550ba5c04bfc5f,
         type: 3}
       propertyPath: m_Name
-      value: Team2_SpearLv1
+      value: Team2_SpearLv1 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250691673096869372, guid: 384c088b61065614b9550ba5c04bfc5f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.005358058
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250691673096869372, guid: 384c088b61065614b9550ba5c04bfc5f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0053580776
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250691673096869372, guid: 384c088b61065614b9550ba5c04bfc5f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0053580427
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250691673096869372, guid: 384c088b61065614b9550ba5c04bfc5f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00107
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250691673096869372, guid: 384c088b61065614b9550ba5c04bfc5f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00375
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250691673096869372, guid: 384c088b61065614b9550ba5c04bfc5f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00217
       objectReference: {fileID: 0}
     - target: {fileID: 8858521199047850858, guid: 384c088b61065614b9550ba5c04bfc5f,
         type: 3}
