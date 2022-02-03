@@ -3,7 +3,7 @@
 
 public enum MenuType
 {
-    Menu, Core, Win, Lose
+    Menu, Core, Win, Lose, Pause
 }
 
 public abstract class ABaseUI : MonoBehaviour

@@ -21,7 +21,7 @@ public class CoreMenu : ABaseUI
        
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         if (_controller.GameController.Player != null)
             _playerTileSetter.OnTilesCountChanged -= PlayerTilesCount;
@@ -30,5 +30,10 @@ public class CoreMenu : ABaseUI
     private void PlayerTilesCount(int value)
     {
         playerTileCounterText.SetText(value.ToString());
+    }
+
+    public void OnPauseClick()
+    {
+        _controller.GameController.CurrentState = GameState.Pause;
     }
 }

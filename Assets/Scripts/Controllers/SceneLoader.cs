@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    private void OnEnable()
+    {
+        Time.timeScale = 1;
+    }
+
     public void LoadLevel()
     {
         var index = PlayerPrefs.GetInt("CurrentArena", 1);
