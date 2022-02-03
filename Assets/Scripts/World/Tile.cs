@@ -24,6 +24,10 @@ public class Tile : ASpawnedObject
         coll.enabled = true;
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PlayerBlocker"))
+            this.gameObject.SetActive(false);
+    }
 
 }

@@ -8,7 +8,7 @@ using System.Linq;
 
 public enum GameState
 {
-   None, Menu, Core, Win, Lose
+   None, Menu, Core, Win, Lose, Pause
 }
 
 public class GameController : MonoBehaviour
@@ -103,6 +103,10 @@ public class GameController : MonoBehaviour
                 OnLoseState();
                 break;
 
+            case GameState.Pause:
+                OnPauseState();
+                break;
+
             case GameState.None:
                 Debug.LogError($"GameState is none");
                 break;
@@ -113,11 +117,13 @@ public class GameController : MonoBehaviour
 
     private void OnMenuState()
     {
+        Time.timeScale = 1;
         uiController.ToggleMenu(MenuType.Menu);
     }
 
     private void OnCoreState()
     {
+        Time.timeScale = 1;
         uiController.ToggleMenu(MenuType.Core);
     }
 
@@ -127,8 +133,9 @@ public class GameController : MonoBehaviour
         data.Coins += _sessionScore;
         data.CurrentLevel++;
         data.WinsToNextRank++;
-        SaveController.SaveData();
 
+        SaveController.SaveData();
+        Time.timeScale = 1;
 
         uiController.ToggleMenu(MenuType.Win);
         playerMainTowersController.StopTowerActivity();
@@ -151,6 +158,7 @@ public class GameController : MonoBehaviour
             data.WinsToNextRank--;
 
         SaveController.SaveData();
+        Time.timeScale = 1;
 
         uiController.ToggleMenu(MenuType.Lose);
         playerMainTowersController.StopTowerActivity();
@@ -159,6 +167,13 @@ public class GameController : MonoBehaviour
         var losePanel = (LoseMenu)uiController.Menus.Where(m => m.Type == MenuType.Lose).FirstOrDefault();
         losePanel.SetSessionScore(_sessionScore);
     }
+
+    private void OnPauseState()
+    {
+        uiController.ToggleMenu(MenuType.Pause);
+        Time.timeScale = 0;
+    }
+   
 
     #endregion
 
