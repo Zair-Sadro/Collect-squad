@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombZone : MonoBehaviour
+public class SwapZone : MonoBehaviour
 {
     [SerializeField] private TowerBuildPlatform mainTower;
 

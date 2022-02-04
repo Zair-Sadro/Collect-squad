@@ -7,16 +7,17 @@ public class TowerButtonsController : MonoBehaviour
     [SerializeField] private TileSetter playerTileSetter;
     [SerializeField] private GameObject buttonsLayout;
     [SerializeField] private DestroyTowerButton destroyTowerButton;
+    [SerializeField] private TowerSwapContent swapContent;
     [SerializeField] private List<TowerUI> towersUI = new List<TowerUI>();
 
-    private TowerBuildPlatform _bombTower;
+    private TowerBuildPlatform _towerToSwap;
 
     private void OnEnable()
     {
         playerTileSetter.OnBuildZoneEnter += BuildZoneEnter;
         playerTileSetter.OnBuildZoneExit += BuildZoneExit;
 
-        playerTileSetter.OnBombZoneEnter += BombZoneEnter;
+        playerTileSetter.OnBombZoneEnter += SwapZoneEnter;
         playerTileSetter.OnBombZoneExit += BombZoneExit;
     }
 
@@ -27,7 +28,7 @@ public class TowerButtonsController : MonoBehaviour
         playerTileSetter.OnBuildZoneEnter -= BuildZoneEnter;
         playerTileSetter.OnBuildZoneExit -= BuildZoneExit;
 
-        playerTileSetter.OnBombZoneEnter -= BombZoneEnter;
+        playerTileSetter.OnBombZoneEnter -= SwapZoneEnter;
         playerTileSetter.OnBombZoneExit -= BombZoneExit;
     }
 
@@ -69,25 +70,30 @@ public class TowerButtonsController : MonoBehaviour
 
     private void BombZoneExit()
     {
-        destroyTowerButton.gameObject.SetActive(false);
+        swapContent.gameObject.SetActive(false);
+       // destroyTowerButton.gameObject.SetActive(false);
     }
 
-    private void BombZoneEnter(BombZone zone)
+    private void SwapZoneEnter(SwapZone zone)
     {
-        _bombTower = zone.MainTower;
+        _towerToSwap = zone.MainTower;
 
-        if (_bombTower.IsTowerBuild)
+        if (_towerToSwap.IsTowerBuild)
         {
-            _bombTower.OnClearPlatform += MainTower_OnClearPlatform;
-            destroyTowerButton.gameObject.SetActive(true);
-            destroyTowerButton.Init(_bombTower);
+            _towerToSwap.OnClearPlatform += MainTower_OnClearPlatform;
+            swapContent.Init(_towerToSwap, playerTileSetter);
+            swapContent.gameObject.SetActive(true);
+           // destroyTowerButton.gameObject.SetActive(true);
+           // destroyTowerButton.Init(_bombTower);
         }
     }
 
     private void MainTower_OnClearPlatform()
     {
-        destroyTowerButton.gameObject.SetActive(false);
-        _bombTower.OnClearPlatform -= MainTower_OnClearPlatform;
+
+        swapContent.gameObject.SetActive(false);
+        _towerToSwap.OnClearPlatform -= MainTower_OnClearPlatform;
+        //  destroyTowerButton.gameObject.SetActive(false);
     }
 
     private void OnTowerBuild(TowerBuildPlatform currentBuildPlatform)

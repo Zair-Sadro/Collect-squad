@@ -118,7 +118,7 @@ public class TowerBuildPlatform : MonoBehaviour
         _tilesToUpgrade--;
 
         towerUI.SetTilesCounter(_tilesToUpgrade, _activeTower.CurrentLevel.IsMaxLevel);
-        OnTilesIncrease?.Invoke(_currentTiles);
+      //  OnTilesIncrease?.Invoke(_currentTiles);
     }
 
     private void TryToUpgradeTower()
@@ -141,11 +141,11 @@ public class TowerBuildPlatform : MonoBehaviour
 
     public void BuiltTower(UnitType type)
     {
-        if (_currentTiles < _tilesToUpgrade)
-        {
-            OnNotEnoughTiles?.Invoke();
-            return;
-        }
+      // if (_currentTiles < _tilesToUpgrade)
+      // {
+      //     OnNotEnoughTiles?.Invoke();
+      //     return;
+      // }
         DisablePreviousTower(_activeTower);
         CreateNewTower(type);
         StartCoroutine(ResetTilesGet(resetTime));
@@ -156,11 +156,12 @@ public class TowerBuildPlatform : MonoBehaviour
 
     public void BuiltTower(ATowerObject tower)
     {
-        if (_currentTiles < _tilesToUpgrade)
-        {
-            OnNotEnoughTiles?.Invoke();
-            return;
-        }
+       // if (_currentTiles < _tilesToUpgrade)
+       // {
+       //     OnNotEnoughTiles?.Invoke();
+       //     return;
+       // }
+
         DisablePreviousTower(_activeTower);
         CreateNewTower(tower);
         StartCoroutine(ResetTilesGet(resetTime));

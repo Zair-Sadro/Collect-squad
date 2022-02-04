@@ -36,7 +36,7 @@ public class TileSetter : MonoBehaviour
     public event Action<int> OnTilesCountChanged;
     public event Action<TowerBuildPlatform> OnBuildZoneEnter;
     public event Action OnBuildZoneExit;
-    public event Action<BombZone> OnBombZoneEnter;
+    public event Action<SwapZone> OnBombZoneEnter;
     public event Action OnBombZoneExit;
 
 
@@ -133,6 +133,25 @@ public class TileSetter : MonoBehaviour
         StopAllCoroutines();
     }
 
+    public void RemoveTilesAtCount(int count)
+    {
+        if (_tiles.Count <= 0 || count > _tiles.Count)
+            return;
+
+        for (int i = 0; i < count; i++)// dont like this
+        {
+            for (int j = 0; j < _tiles.Count; j++)
+            {
+                _tiles[j].gameObject.SetActive(false);
+                _tiles[j].OnGround();
+                _tiles[j].transform.SetParent(tilesSpawnerParent);
+                _tiles.Remove(_tiles[j]);
+                OnTilesCountChanged?.Invoke(_tiles.Count);
+            }
+        }
+
+    }
+
     private void OnTowerSelfDestroy()
     {
         StopRemovingTiles();
@@ -176,8 +195,8 @@ public class TileSetter : MonoBehaviour
             _isInBuildZone = true;
         }
 
-        if (other.TryGetComponent(out BombZone bombZone))
-            OnBombZoneEnter?.Invoke(bombZone);
+        if (other.TryGetComponent(out SwapZone swapZone))
+            OnBombZoneEnter?.Invoke(swapZone);
     }
 
     private void OnTriggerExit(Collider other)
@@ -197,7 +216,7 @@ public class TileSetter : MonoBehaviour
             _currentTowerPlatform = null;
         }
 
-        if (other.TryGetComponent(out BombZone bombZone))
+        if (other.TryGetComponent(out SwapZone swapZone))
             OnBombZoneExit?.Invoke();
     }
 
