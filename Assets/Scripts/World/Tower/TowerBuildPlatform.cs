@@ -23,6 +23,7 @@ public class TowerBuildPlatform : MonoBehaviour
     [SerializeField, Min(0)] private float resetTime;
     [SerializeField] private float timeToDestroy;
     [SerializeField] private float timeToDestroyByUnits;
+    [SerializeField] private ParticleSystem weakTowerParticle;
     [SerializeField] private UnityEvent OnBuildEvent;
     [SerializeField] private UnityEvent OnDestroyEvent;
     [SerializeField] private UnityEvent OnDestroyByUnitsEvent;
@@ -79,6 +80,11 @@ public class TowerBuildPlatform : MonoBehaviour
         InitTowers();
     }
 
+    private void OnDisable()
+    {
+        UnSubscribeToOppositeTower();
+    }
+
     private void InitTowers()
     {
         for (int i = 0; i < towers.Count; i++)
@@ -88,6 +94,37 @@ public class TowerBuildPlatform : MonoBehaviour
     private void Start()
     {
         CreateBuildPlatform();
+        SubscribeToOppositeTowerBuild();
+    }
+
+    private void SubscribeToOppositeTowerBuild()
+    {
+        if (oppositeTower == null)
+            return;
+
+        oppositeTower.OnTowerBuild += OppositeTower_OnTowerBuild;
+    }
+
+    private void UnSubscribeToOppositeTower()
+    {
+        if (oppositeTower == null)
+            return;
+
+        oppositeTower.OnTowerBuild -= OppositeTower_OnTowerBuild;
+    }
+
+    private void OppositeTower_OnTowerBuild(TowerBuildPlatform tower)
+    {
+        if(_activeTower && _activeTower.CurrentLevel.LevelType > 0)
+        {
+            var currentTowerType = _activeTower.Data.Type;
+            if (currentTowerType != GetStrongerTower(tower.ActiveTower.Data.Type) &&
+                currentTowerType != tower.ActiveTower.Data.Type &&
+                tower.ActiveTower.CurrentLevel.LevelType > 0)
+                weakTowerParticle.gameObject.SetActive(true);
+            else
+                weakTowerParticle.gameObject.SetActive(false);
+        }
     }
 
     private  void CreateBuildPlatform()
@@ -118,7 +155,6 @@ public class TowerBuildPlatform : MonoBehaviour
         _tilesToUpgrade--;
 
         towerUI.SetTilesCounter(_tilesToUpgrade, _activeTower.CurrentLevel.IsMaxLevel);
-      //  OnTilesIncrease?.Invoke(_currentTiles);
     }
 
     private void TryToUpgradeTower()
@@ -152,6 +188,7 @@ public class TowerBuildPlatform : MonoBehaviour
         _isTowerBuild = true;
         OnTowerBuild?.Invoke(this);
         OnBuildEvent?.Invoke();
+        OppositeTower_OnTowerBuild(oppositeTower);
     }
 
     public void BuiltTower(ATowerObject tower)
@@ -167,6 +204,7 @@ public class TowerBuildPlatform : MonoBehaviour
         StartCoroutine(ResetTilesGet(resetTime));
         OnTowerBuild?.Invoke(this);
         OnBuildEvent?.Invoke();
+        OppositeTower_OnTowerBuild(oppositeTower);
     }
 
     private void CreateNewTower(UnitType type)
@@ -259,8 +297,32 @@ public class TowerBuildPlatform : MonoBehaviour
 
     public void StopTowersActivity()
     {
+
+
         foreach (var t in towers)
             t.StopAllCoroutines();
+    }
+
+    private UnitType GetStrongerTower(UnitType type)
+    {
+        UnitType strongerType = UnitType.None;
+
+        switch (type)
+        {
+            case UnitType.Sword:
+                strongerType = UnitType.Spear;
+
+                break;
+            case UnitType.Spear:
+                strongerType = UnitType.Bow;
+
+                break;
+            case UnitType.Bow:
+                strongerType = UnitType.Sword;
+                break;
+        }
+
+        return strongerType;
     }
 
     private void OnDrawGizmosSelected()

@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class BotTowerChooseState : AState
 {
-    [SerializeField, Range(0, 101)] private int chanceToDestroyTower;
+    [SerializeField, Range(0, 101)] private int chanceToSwapTower;
     [SerializeField, Range(0, 101)] private int chanceToBuildStrongerTower;
     [SerializeField, Min(0)] private float timeInBuildZone;
     [SerializeField] private List<Transform> botTowers = new List<Transform>();
@@ -94,18 +94,12 @@ public class BotTowerChooseState : AState
     private void CheckTower(TowerBuildPlatform towerToBuild)
     {
         var randomChance = Random.Range(0, 101);
-        if(randomChance <= chanceToDestroyTower)
+        if(randomChance <= chanceToSwapTower)
         {
             if(towerToBuild != null && towerToBuild.ActiveTower.CurrentLevel.LevelType > 0)
             {
-                var time = _botStateControls.TowerToBuild.TimeToDestroy;
-                var destroyEvent = _botStateControls.TowerToBuild.DestroyEvent;
-
-                if(towerToBuild.ActiveTower.Data.Type != TowerByType(towerToBuild.OppositeTower.ActiveTower.Data.Type))
-                {
-                    Debug.Log("<color=red> Bot destroyed Tower </color>");
-                    _botStateControls.TowerToBuild.DestroyTower(time, destroyEvent);
-                }
+                if(towerToBuild.ActiveTower.Data.Type != GetStrongerTower(towerToBuild.OppositeTower.ActiveTower.Data.Type))
+                    TryBuildStrongerTower(towerToBuild);
             }
         }
     }
@@ -166,10 +160,17 @@ public class BotTowerChooseState : AState
     {
         var randomChance = Random.Range(0, 101);
         if(randomChance <= chanceToBuildStrongerTower)
-            towerToBuild.BuiltTower(TowerByType(towerToBuild.OppositeTower.ActiveTower.Data.Type));
+        {
+            for (int i = 0; i < towerToBuild.Towers.Count; i++)
+            {
+                if (towerToBuild.Towers[i].CurrentLevel.LevelType == _botStateControls.TowerToBuild.ActiveTower.CurrentLevel.LevelType &&
+                    towerToBuild.Towers[i].Data.Type == GetStrongerTower(towerToBuild.OppositeTower.ActiveTower.Data.Type))
+                    towerToBuild.BuiltTower(towerToBuild.Towers[i]);
+            }
+        }
     }
 
-    private UnitType TowerByType(UnitType type)
+    private UnitType GetStrongerTower(UnitType type)
     {
         UnitType strongerType = UnitType.None;
 

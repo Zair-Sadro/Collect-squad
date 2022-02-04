@@ -1176,7 +1176,7 @@ MonoBehaviour:
   tilesRow: 2
   timeToRemoveTile: 0.1
   isThisBot: 1
-  maxTiles: 100
+  maxTiles: 30
   desiredTowerToBuild: {fileID: 0}
 --- !u!195 &4636531569541514763
 NavMeshAgent:
@@ -2556,8 +2556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
-  minTileToGrab: 3
-  maxTileToGrab: 8
+  minTilePercentage: 25
   checkRadius: 40
   timeToGrabTile: 3
   whatIsTile:

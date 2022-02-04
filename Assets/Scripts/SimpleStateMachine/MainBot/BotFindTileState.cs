@@ -5,15 +5,15 @@ using UnityEngine.AI;
 
 public class BotFindTileState : AState
 {
-    [SerializeField] private int minTileToGrab;
-    [SerializeField] private int maxTileToGrab;
+    [SerializeField, Range(1, 101)] private int minTilePercentage; 
     [SerializeField] private float checkRadius;
     [SerializeField] private float timeToGrabTile;
     [SerializeField] private LayerMask whatIsTile;
 
 
     private int _randomTilesToGrab;
-    private float _currentGrabTime;
+    private int _minTileToGrab;
+    private int _maxTileToGrab;
 
     private BotStateController _botController;
     private Animator _animator;
@@ -37,15 +37,20 @@ public class BotFindTileState : AState
         _animator = _botController.Animator;
         _navAgent.speed = _botController.MoveSpeed;
         _allActiveTiles = _botController.TileSpawner.ObjectPooler.GetPool();
+        SetMinMaxTiles();
     }
 
+    private void SetMinMaxTiles()
+    {
+        _maxTileToGrab = GameController.Data.MaxTiles;
+        _minTileToGrab = Mathf.RoundToInt((_maxTileToGrab * minTilePercentage) / 100);
+    }
 
     public override void StartState()
     {
         stateCondition = StateCondition.Executing;
         LocalInit();
         ChooseTilesToCollect();
-        _currentGrabTime = maxTileToGrab;
     }
 
 
@@ -79,7 +84,7 @@ public class BotFindTileState : AState
     }
     private int GetRandomTileAmountToGrab()
     {
-        _randomTilesToGrab = Random.Range(minTileToGrab, maxTileToGrab);
+        _randomTilesToGrab = Random.Range(_minTileToGrab, _maxTileToGrab);
         return _randomTilesToGrab;
     }
 

@@ -130,8 +130,24 @@ public class TileSetter : MonoBehaviour
         }
 
         _isGivingTiles = false;
+       // RebuildTiles();
         StopAllCoroutines();
     }
+
+    private void RebuildTiles()
+    {
+        for (int i = 0; i < _tiles.Count; i++)
+        {
+            if(_tiles.Count % tilesRow == 0)
+            {
+                var evenTile = _tiles[i];
+            }
+            else
+            {
+                var notEvenTile = _tiles[i];
+            }
+        }
+    }    
 
     public void RemoveTilesAtCount(int count)
     {
