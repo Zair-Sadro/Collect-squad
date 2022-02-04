@@ -169,6 +169,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1795082398, guid: ae1cc329c58918644ab53826242af44c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1795082400, guid: ae1cc329c58918644ab53826242af44c, type: 3}
       propertyPath: offHapticsImage
       value: 
@@ -177,6 +181,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RaycastTarget
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919409080342246038, guid: ae1cc329c58918644ab53826242af44c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919409080342246038, guid: ae1cc329c58918644ab53826242af44c,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919409080342246038, guid: ae1cc329c58918644ab53826242af44c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 919409080342246038, guid: ae1cc329c58918644ab53826242af44c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -136.7074
       objectReference: {fileID: 0}
     - target: {fileID: 2572152865957402227, guid: ae1cc329c58918644ab53826242af44c,
         type: 3}
@@ -197,6 +221,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698076707750699866, guid: ae1cc329c58918644ab53826242af44c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7328780744591275849, guid: ae1cc329c58918644ab53826242af44c,
         type: 3}
@@ -223,6 +252,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7867047331448259875, guid: ae1cc329c58918644ab53826242af44c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867047331448259875, guid: ae1cc329c58918644ab53826242af44c,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867047331448259875, guid: ae1cc329c58918644ab53826242af44c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867047331448259875, guid: ae1cc329c58918644ab53826242af44c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -391.8022
+      objectReference: {fileID: 0}
     - target: {fileID: 8321781789045802066, guid: ae1cc329c58918644ab53826242af44c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -241,6 +290,11 @@ PrefabInstance:
     - target: {fileID: 8321781789045802066, guid: ae1cc329c58918644ab53826242af44c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8526563637782529657, guid: ae1cc329c58918644ab53826242af44c,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8526563637785621764, guid: ae1cc329c58918644ab53826242af44c,
@@ -353,6 +407,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8526563637785621787, guid: ae1cc329c58918644ab53826242af44c,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8694994634168155380, guid: ae1cc329c58918644ab53826242af44c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -443,7 +502,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-854946
+  m_Name: pb_Mesh-2001944
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -774,7 +833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePerUpgrade: 1
-  maxTiles: 30
+  maxTiles: 5
   priceForTiles: 100
   priceText: {fileID: 535831286}
   currentTilesText: {fileID: 281832943}
@@ -1029,7 +1088,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-855078
+  m_Name: pb_Mesh-2002076
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3468,7 +3527,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-854984
+  m_Name: pb_Mesh-2001982
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public enum StateProduct
 {
@@ -22,12 +23,13 @@ public class SettingObject : MonoBehaviour
     [Header("PriceProduct")]
     public int priceProduct;
 
+
+    [SerializeField] private StorePriceObject priceObj;
     [SerializeField] private GameObject particle;
     [SerializeField] public bool skin = true;
 
     private Vector3 vectorRotateObject = new Vector3(0.0f, 10.0f, 0.0f);
     private Transform pointObjectProduct;
-    private TextMesh textMesh;
     private MarketManager _market;
 
 
@@ -38,7 +40,6 @@ public class SettingObject : MonoBehaviour
 
     void Start()
     {
-        textMesh = GetComponentInChildren<TextMesh>();
         pointObjectProduct = transform.Find("PointObject");
 
         if (objectProduct != null)
@@ -81,13 +82,15 @@ public class SettingObject : MonoBehaviour
 
         if (stateProduct == StateProduct.Price)
         {
+            priceObj.ToggleCoinImg(true);
             currentStateProduct = priceProduct.ToString();
         }
         else
         {
+            priceObj.ToggleCoinImg(false);
             currentStateProduct = stateProduct.ToString();
         }
-        textMesh.text = currentStateProduct;
+        priceObj.SetStatusText(currentStateProduct);
     }
 
     /// <summary>

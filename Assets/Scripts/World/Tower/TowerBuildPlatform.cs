@@ -24,6 +24,8 @@ public class TowerBuildPlatform : MonoBehaviour
     [SerializeField] private float timeToDestroy;
     [SerializeField] private float timeToDestroyByUnits;
     [SerializeField] private ParticleSystem weakTowerParticle;
+    [SerializeField] private ParticleSystem strongTowerParticle;
+
     [SerializeField] private UnityEvent OnBuildEvent;
     [SerializeField] private UnityEvent OnDestroyEvent;
     [SerializeField] private UnityEvent OnDestroyByUnitsEvent;
@@ -35,6 +37,8 @@ public class TowerBuildPlatform : MonoBehaviour
     [SerializeField] private Transform chaseTarget;
     [SerializeField] private Transform playerEnemyTarget;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource swapSound;
 
     [SerializeField] private List<ATowerObject> towers = new List<ATowerObject>();
 
@@ -121,9 +125,23 @@ public class TowerBuildPlatform : MonoBehaviour
             if (currentTowerType != GetStrongerTower(tower.ActiveTower.Data.Type) &&
                 currentTowerType != tower.ActiveTower.Data.Type &&
                 tower.ActiveTower.CurrentLevel.LevelType > 0)
+            {
                 weakTowerParticle.gameObject.SetActive(true);
+                strongTowerParticle.gameObject.SetActive(false);
+            }
+            else if(currentTowerType == GetStrongerTower(tower.ActiveTower.Data.Type) &&
+                    currentTowerType != tower.ActiveTower.Data.Type &&
+                    tower.ActiveTower.CurrentLevel.LevelType > 0)
+            {
+                    strongTowerParticle.gameObject.SetActive(true);
+                    weakTowerParticle.gameObject.SetActive(false);
+            }
             else
+            {
+                strongTowerParticle.gameObject.SetActive(false);
                 weakTowerParticle.gameObject.SetActive(false);
+            }
+           
         }
     }
 
@@ -323,6 +341,11 @@ public class TowerBuildPlatform : MonoBehaviour
         }
 
         return strongerType;
+    }
+
+    public void PlaySwapSound()
+    {
+        swapSound.Play();
     }
 
     private void OnDrawGizmosSelected()

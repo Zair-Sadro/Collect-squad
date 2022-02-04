@@ -78,7 +78,6 @@ public class MarketManager : MonoBehaviour
 
     void Update()
     {
-        UpdateSpritesBackGround(Bars, backGround);       
         UpdateTextAllPoints();
 
         if (cameraPosition != null) cameraPosition.position = Vector3.Lerp(cameraPosition.position, cameraPos, 0.05f);
@@ -177,13 +176,13 @@ public class MarketManager : MonoBehaviour
     /// <param name="arraySprites"></param>
     void UpdateSpritesBackGround(GameObject[] arrayObjects, Sprite[] arraySprites)
     {
-        foreach (GameObject gameObject in arrayObjects)
-        {
-            int indexArraySprites = (int)gameObject.GetComponent<SettingObject>().stateProduct;
-
-            gameObject.GetComponentInChildren<SpriteRenderer>().sprite = arraySprites[indexArraySprites];
-
-        }
+       // foreach (GameObject gameObject in arrayObjects)
+       // {
+       //     int indexArraySprites = (int)gameObject.GetComponent<SettingObject>().stateProduct;
+       //
+       //     gameObject.GetComponentInChildren<SpriteRenderer>().sprite = arraySprites[indexArraySprites];
+       //
+       // }
 
     }
 

@@ -137,6 +137,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewEnemyBuildBlatform Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2219048239367818950, guid: 105eb340c3727c74fa23c2307f311864,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2568518262358739765, guid: 105eb340c3727c74fa23c2307f311864,
         type: 3}
       propertyPath: m_Materials.Array.data[1]

@@ -36,6 +36,7 @@ public class TowerSwapButton : MonoBehaviour
         if(_playerTileSetter.Tiles.Count >= _swapContent.TilesToSwap)
         {
             _buildPlatform.BuiltTower(GetSwapTower(type));
+            _buildPlatform.PlaySwapSound();
             _playerTileSetter.RemoveTilesAtCount(_swapContent.TilesToSwap);
         }
 

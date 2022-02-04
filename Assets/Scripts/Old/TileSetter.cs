@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public class TileSetter : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class TileSetter : MonoBehaviour
 
     private List<Tile> _tiles = new List<Tile>();
 
+    public UnityEvent OnTilePickUp;
+    public UnityEvent OnTileRemove;
     public event Action<int> OnTilesCountChanged;
     public event Action<TowerBuildPlatform> OnBuildZoneEnter;
     public event Action OnBuildZoneExit;
@@ -69,6 +72,7 @@ public class TileSetter : MonoBehaviour
 
         tile.transform.localRotation = Quaternion.Euler(Vector3.zero);
         tile.transform.localScale = tilesScale;
+        OnTilePickUp?.Invoke();
         _tiles.Add(tile);
         OnTilesCountChanged?.Invoke(_tiles.Count);
 
@@ -109,6 +113,7 @@ public class TileSetter : MonoBehaviour
             _tiles[i].OnGround();
             _tiles[i].transform.SetParent(tilesSpawnerParent);
             _tiles.Remove(_tiles[i]);
+            OnTileRemove?.Invoke();
             towerTileIncrease();
             OnTilesCountChanged?.Invoke(_tiles.Count);
 

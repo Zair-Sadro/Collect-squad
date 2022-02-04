@@ -1317,7 +1317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
-  chanceToDestroyTower: 50
+  chanceToSwapTower: 50
   chanceToBuildStrongerTower: 85
   timeInBuildZone: 1
   botTowers:

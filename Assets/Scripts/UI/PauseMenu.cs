@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PauseMenu : ABaseUI
 {
     [SerializeField] private Image offHapticsImage;
+    [SerializeField] private Image offSoundImage;
 
 
     public void OnMenuClick()
@@ -22,7 +23,13 @@ public class PauseMenu : ABaseUI
     {
         Vibration.EnableHaptics = !Vibration.EnableHaptics;
         offHapticsImage.gameObject.SetActive(!Vibration.EnableHaptics);
-        Debug.Log(Vibration.EnableHaptics);
         Vibration.Vibrate(50);
+    }
+
+    public void ToggleSound()
+    {
+        AudioListener.pause = !AudioListener.pause;
+        offSoundImage.gameObject.SetActive(AudioListener.pause);
+
     }
 }

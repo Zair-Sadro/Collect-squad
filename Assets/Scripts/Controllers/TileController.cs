@@ -11,6 +11,7 @@ public class TileController : MonoBehaviour
     [SerializeField] private TMP_Text priceText;
     [SerializeField] private TMP_Text currentTilesText;
 
+
     private UserData _data;
     private MainMenu _mainMenu;
 
@@ -39,6 +40,7 @@ public class TileController : MonoBehaviour
 
         if(_data.MaxTiles > maxTiles)
         {
+            priceText.text = "MAX";
             currentTilesText.transform.DOShakePosition(1, 5);
             currentTilesText.DOColor(Color.red, 1).From(Color.white).OnComplete(() => currentTilesText.color = Color.white);
             return;

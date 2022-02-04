@@ -160,14 +160,7 @@ public class BotTowerChooseState : AState
     {
         var randomChance = Random.Range(0, 101);
         if(randomChance <= chanceToBuildStrongerTower)
-        {
-            for (int i = 0; i < towerToBuild.Towers.Count; i++)
-            {
-                if (towerToBuild.Towers[i].CurrentLevel.LevelType == _botStateControls.TowerToBuild.ActiveTower.CurrentLevel.LevelType &&
-                    towerToBuild.Towers[i].Data.Type == GetStrongerTower(towerToBuild.OppositeTower.ActiveTower.Data.Type))
-                    towerToBuild.BuiltTower(towerToBuild.Towers[i]);
-            }
-        }
+            towerToBuild.BuiltTower(GetStrongerTower(towerToBuild.OppositeTower.ActiveTower.Data.Type));
     }
 
     private UnitType GetStrongerTower(UnitType type)

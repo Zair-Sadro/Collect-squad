@@ -32,8 +32,9 @@ public class CoreMenu : ABaseUI
         playerTileCounterText.SetText(value.ToString());
     }
 
-    public void OnPauseClick()
+    public void TogglePause()
     {
-        _controller.GameController.CurrentState = GameState.Pause;
+        var pauseState = _controller.GameController.CurrentState == GameState.Pause;
+        _controller.GameController.CurrentState = pauseState ? GameState.Core : GameState.Pause;
     }
 }
