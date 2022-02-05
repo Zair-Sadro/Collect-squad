@@ -46,7 +46,7 @@ public class TowerBuildPlatform : MonoBehaviour
     public event Action<TowerBuildPlatform> OnTowerBuild;
     public event Action OnClearPlatform;
 
-    public event Action<int> OnTilesIncrease;
+    public event Action<int> OnUpgradeTilesChange;
     public event Action OnNotEnoughTiles;
     public event Action OnMaxLevelTowerReach;
 
@@ -171,7 +171,7 @@ public class TowerBuildPlatform : MonoBehaviour
         }
 
         _tilesToUpgrade--;
-
+        OnUpgradeTilesChange?.Invoke(_tilesToUpgrade);
         towerUI.SetTilesCounter(_tilesToUpgrade, _activeTower.CurrentLevel.IsMaxLevel);
     }
 
@@ -244,6 +244,7 @@ public class TowerBuildPlatform : MonoBehaviour
     {
         _currentTiles = 0;
         _tilesToUpgrade = GetTilesToUpgrade(towerLevel);
+        OnUpgradeTilesChange?.Invoke(_tilesToUpgrade);
         towerUI.SetTilesCounter(_tilesToUpgrade, towerLevel.IsMaxLevel);
     }
 

@@ -1176,8 +1176,14 @@ MonoBehaviour:
   tilesRow: 2
   timeToRemoveTile: 0.1
   isThisBot: 1
-  maxTiles: 30
+  maxTiles: 45
   desiredTowerToBuild: {fileID: 0}
+  OnTilePickUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTileRemove:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!195 &4636531569541514763
 NavMeshAgent:
   m_ObjectHideFlags: 0

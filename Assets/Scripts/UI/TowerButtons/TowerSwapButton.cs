@@ -13,17 +13,21 @@ public class TowerSwapButton : MonoBehaviour
     private TowerSwapContent _swapContent;
     private TileSetter _playerTileSetter;
 
+
     public UnitType Type => type;
 
     public void Init(TowerBuildPlatform tower, TowerSwapContent content, TileSetter tileSetter)
     {
         _buildPlatform = tower;
-        _swapContent = content;
 
-        if(_playerTileSetter == null)
+        if(_swapContent == null)
+            _swapContent = content;
+
+        if (_playerTileSetter == null)
             _playerTileSetter = tileSetter;
 
-        swapButton.onClick.AddListener(SwapTower);
+        Debug.Log("Tiles to swap" + _swapContent.TilesToSwap);
+
     }
 
     private void OnDisable()
@@ -31,15 +35,14 @@ public class TowerSwapButton : MonoBehaviour
         swapButton.onClick.RemoveAllListeners();
     }
 
-    private void SwapTower()
+    public void SwapTower()
     {
         if(_playerTileSetter.Tiles.Count >= _swapContent.TilesToSwap)
         {
-            _buildPlatform.BuiltTower(GetSwapTower(type));
-            _buildPlatform.PlaySwapSound();
             _playerTileSetter.RemoveTilesAtCount(_swapContent.TilesToSwap);
+            _buildPlatform.PlaySwapSound();
+            _buildPlatform.BuiltTower(GetSwapTower(type));
         }
-
     }
     
 

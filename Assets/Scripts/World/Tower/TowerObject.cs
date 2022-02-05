@@ -92,6 +92,9 @@ public class TowerObject : ATowerObject, IDamageable, ITeamChangeable, IBattleUn
 
     public void TryRespawnNextUnit()
     {
+        if (!this.gameObject.activeInHierarchy)
+            return;
+
        if(_currentUnitsAmount < maxUnitsAlive && !_isRespawningUnit)
        {
             _towerUI.StartSpawnTimer(spawnTime);

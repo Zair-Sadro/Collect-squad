@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -42,8 +43,15 @@ public class TowerSwapContent : MonoBehaviour
             _data = GameController.Data;
         
         InitSwapButtons(tower);
-        tilesToSwapText.SetText(TilesToSwap.ToString());
+        UpdateSwapTilesText();
+        _tower.OnUpgradeTilesChange += OnTilesChange;
     }
+
+    private void OnDisable()
+    {
+        _tower.OnUpgradeTilesChange -= OnTilesChange;
+    }
+
 
     private void InitSwapButtons(TowerBuildPlatform tower)
     {
@@ -59,7 +67,15 @@ public class TowerSwapContent : MonoBehaviour
         }
     }
 
-   
-   
+    private void OnTilesChange(int obj)
+    {
+        UpdateSwapTilesText();
+    }
+
+    private void UpdateSwapTilesText()
+    {
+        tilesToSwapText.SetText(TilesToSwap.ToString());
+    }
+
 
 }

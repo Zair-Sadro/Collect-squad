@@ -82,7 +82,7 @@ public class BotTowerChooseState : AState
     private IEnumerator WaitForTime(float time)
     {
         _animator.SetBool("Run", false);
-        CheckTower(_botStateControls.TowerToBuild);
+      //  CheckTower(_botStateControls.TowerToBuild);
 
         if(_botStateControls.TowerToBuild != null)
             TryBuildTower(_botStateControls.TowerToBuild, _botStateControls.TowerToBuild.ActiveTower);

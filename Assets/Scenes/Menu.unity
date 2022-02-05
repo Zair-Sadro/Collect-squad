@@ -833,7 +833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePerUpgrade: 1
-  maxTiles: 5
+  maxTiles: 45
   priceForTiles: 100
   priceText: {fileID: 535831286}
   currentTilesText: {fileID: 281832943}

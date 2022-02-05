@@ -17,8 +17,8 @@ public class TowerButtonsController : MonoBehaviour
         playerTileSetter.OnBuildZoneEnter += BuildZoneEnter;
         playerTileSetter.OnBuildZoneExit += BuildZoneExit;
 
-        playerTileSetter.OnBombZoneEnter += SwapZoneEnter;
-        playerTileSetter.OnBombZoneExit += BombZoneExit;
+        playerTileSetter.OnSwapZoneEnter += SwapZoneEnter;
+        playerTileSetter.OnSwapZoneExit += SwapZoneExit;
     }
 
    
@@ -28,8 +28,8 @@ public class TowerButtonsController : MonoBehaviour
         playerTileSetter.OnBuildZoneEnter -= BuildZoneEnter;
         playerTileSetter.OnBuildZoneExit -= BuildZoneExit;
 
-        playerTileSetter.OnBombZoneEnter -= SwapZoneEnter;
-        playerTileSetter.OnBombZoneExit -= BombZoneExit;
+        playerTileSetter.OnSwapZoneEnter -= SwapZoneEnter;
+        playerTileSetter.OnSwapZoneExit -= SwapZoneExit;
     }
 
     private void BuildZoneExit()
@@ -68,7 +68,7 @@ public class TowerButtonsController : MonoBehaviour
         }
     }
 
-    private void BombZoneExit()
+    private void SwapZoneExit()
     {
         swapContent.gameObject.SetActive(false);
        // destroyTowerButton.gameObject.SetActive(false);
