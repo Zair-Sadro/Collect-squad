@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 230568696}
-  m_IndirectSpecularColor: {r: 0.2979758, g: 0.51716465, b: 0.5898477, a: 1}
+  m_IndirectSpecularColor: {r: 0.29297245, g: 0.51765144, b: 0.58697355, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -348,7 +348,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2323302
+  m_Name: pb_Mesh-1069824
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2583,7 +2583,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2323418
+  m_Name: pb_Mesh-1069940
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3647,6 +3647,24 @@ PrefabInstance:
 --- !u!20 &1275163102 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 3450337126885269278, guid: 8a63234a78d9b3a49a6683740e67fade,
+    type: 3}
+  m_PrefabInstance: {fileID: 1275163101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1275163103 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2064296137024754791, guid: 8a63234a78d9b3a49a6683740e67fade,
+    type: 3}
+  m_PrefabInstance: {fileID: 1275163101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1275163104 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3450337127806537418, guid: 8a63234a78d9b3a49a6683740e67fade,
+    type: 3}
+  m_PrefabInstance: {fileID: 1275163101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1275163105 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3450337127866390411, guid: 8a63234a78d9b3a49a6683740e67fade,
     type: 3}
   m_PrefabInstance: {fileID: 1275163101}
   m_PrefabAsset: {fileID: 0}
@@ -5492,7 +5510,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2323248
+  m_Name: pb_Mesh-1069768
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5808,7 +5826,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1275163105}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -6241,7 +6259,7 @@ PrefabInstance:
         type: 3}
       propertyPath: winConfetti
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1275163103}
     - target: {fileID: 1176060547158804803, guid: 01453f45fdb1f1e45ae3aa707ddcb33b,
         type: 3}
       propertyPath: uiController
@@ -6470,7 +6488,7 @@ PrefabInstance:
     - target: {fileID: 2048265703, guid: e18814c4217b0914baf469276f3c4b29, type: 3}
       propertyPath: OnDieEvent.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1275163104}
     - target: {fileID: 2048265703, guid: e18814c4217b0914baf469276f3c4b29, type: 3}
       propertyPath: OnDieEvent.m_PersistentCalls.m_Calls.Array.data[6].m_Target
       value: 
@@ -7274,7 +7292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1868254902, guid: ae1cc329c58918644ab53826242af44c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 92.29999
+      value: 92.30005
       objectReference: {fileID: 0}
     - target: {fileID: 258097185405785093, guid: ae1cc329c58918644ab53826242af44c,
         type: 3}
@@ -7568,8 +7586,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6151127968530953080, guid: ae1cc329c58918644ab53826242af44c,
         type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151127968530953080, guid: ae1cc329c58918644ab53826242af44c,
+        type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 317.23047
+      value: 284
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151127968530953080, guid: ae1cc329c58918644ab53826242af44c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -282
       objectReference: {fileID: 0}
     - target: {fileID: 6238844590353395148, guid: ae1cc329c58918644ab53826242af44c,
         type: 3}
@@ -7812,6 +7840,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8526563637680632147, guid: ae1cc329c58918644ab53826242af44c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 161
+      objectReference: {fileID: 0}
+    - target: {fileID: 8526563637680632147, guid: ae1cc329c58918644ab53826242af44c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1136
       objectReference: {fileID: 0}
     - target: {fileID: 8526563637782529657, guid: ae1cc329c58918644ab53826242af44c,
         type: 3}
