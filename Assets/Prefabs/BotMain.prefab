@@ -1323,7 +1323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateCondition: 0
-  chanceToSwapTower: 50
+  chanceToSwapTower: 30
   chanceToBuildStrongerTower: 85
   timeInBuildZone: 1
   botTowers:

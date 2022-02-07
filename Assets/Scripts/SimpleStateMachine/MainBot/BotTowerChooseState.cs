@@ -82,18 +82,23 @@ public class BotTowerChooseState : AState
     private IEnumerator WaitForTime(float time)
     {
         _animator.SetBool("Run", false);
-       
-        if(_botStateControls.TowerToBuild != null)
-            CheckTower(_botStateControls.TowerToBuild);
-
-        if (_botStateControls.TowerToBuild != null)
-            TryBuildTower(_botStateControls.TowerToBuild, _botStateControls.TowerToBuild.ActiveTower);
-
+        Build();
         yield return new WaitForSeconds(time);
         _stateController.ChangeState(StateType.BotFindTile);
     }
 
-    private void CheckTower(TowerBuildPlatform towerToBuild)
+    private void Build()
+    {
+        if (_botStateControls.TowerToBuild != null)
+        {
+            if (IsTowerBuild() && IsOpponentTowerBuild(_botStateControls.TowerToBuild))
+                TrySwapTower(_botStateControls.TowerToBuild);
+            else
+                TryBuildTower(_botStateControls.TowerToBuild, _botStateControls.TowerToBuild.ActiveTower);
+        }
+    }
+
+    private void TrySwapTower(TowerBuildPlatform towerToBuild)
     {
         var randomChance = Random.Range(0, 101);
         if(randomChance <= chanceToSwapTower)
@@ -101,7 +106,7 @@ public class BotTowerChooseState : AState
             if(towerToBuild != null && towerToBuild.ActiveTower.CurrentLevel.LevelType > 0)
             {
                 if(towerToBuild.ActiveTower.Data.Type != GetStrongerTower(towerToBuild.OppositeTower.ActiveTower.Data.Type))
-                    TrySwapTower(towerToBuild);
+                    SwapTower(towerToBuild);
             }
         }
     }
@@ -145,8 +150,7 @@ public class BotTowerChooseState : AState
 
         if (towerToBuild.TilesToUpgrade == 0 && activeTower.CurrentLevel.LevelType == 0)
         {
-            bool isOppositeTowerBuild = towerToBuild.OppositeTower.ActiveTower.CurrentLevel.LevelType > 0;
-            if (isOppositeTowerBuild)
+            if (IsOpponentTowerBuild(towerToBuild))
                 TryBuildStrongerTower(towerToBuild);
             else
             {
@@ -165,7 +169,7 @@ public class BotTowerChooseState : AState
             towerToBuild.BuiltTower(GetStrongerTower(towerToBuild.OppositeTower.ActiveTower.Data.Type));
     }
 
-    private void TrySwapTower(TowerBuildPlatform towerToBuild)
+    private void SwapTower(TowerBuildPlatform towerToBuild)
     {
         var randomChance = Random.Range(0, 101);
         if (randomChance <= chanceToBuildStrongerTower)
@@ -188,6 +192,16 @@ public class BotTowerChooseState : AState
 
 
         return null;
+    }
+
+    private bool IsTowerBuild()
+    {
+        return _botStateControls.TowerToBuild.ActiveTower.CurrentLevel.LevelType > 0;
+    }
+
+    private bool IsOpponentTowerBuild(TowerBuildPlatform towerToBuild)
+    {
+        return towerToBuild.OppositeTower.ActiveTower.CurrentLevel.LevelType > 0;
     }
 
     private UnitType GetStrongerTower(UnitType type)

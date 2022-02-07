@@ -207,7 +207,9 @@ public class TileSetter : MonoBehaviour
         _isGivingTiles = false;
         _isInBuildZone = false;
         StopAllCoroutines();
-        _currentTowerPlatform.OnTowerBuild -= OnBuild;
+
+        if(_currentTowerPlatform != null)
+            _currentTowerPlatform.OnTowerBuild -= OnBuild;
     }
 
     private void OnTriggerStay(Collider other)
