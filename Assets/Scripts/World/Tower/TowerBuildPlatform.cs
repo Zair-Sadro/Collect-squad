@@ -39,6 +39,8 @@ public class TowerBuildPlatform : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private AudioSource swapSound;
+    [SerializeField] private AudioSource buildSound;
+
 
     [SerializeField] private List<ATowerObject> towers = new List<ATowerObject>();
 
@@ -231,6 +233,9 @@ public class TowerBuildPlatform : MonoBehaviour
         tower.gameObject.SetActive(true);
         ResetTilesCounter(tower.CurrentLevel);
         _activeTower = tower;
+
+        if (_activeTower.CurrentLevel.LevelType > 0)
+            buildSound.Play();
     }
 
     private void CreateNewTower(ATowerObject tower)
@@ -238,6 +243,9 @@ public class TowerBuildPlatform : MonoBehaviour
         tower.gameObject.SetActive(true);
         ResetTilesCounter(tower.CurrentLevel);
         _activeTower = tower;
+
+        if (_activeTower.CurrentLevel.LevelType > 0)
+            buildSound.Play();
     }
 
     private void ResetTilesCounter(TowerLevel towerLevel)

@@ -25,9 +25,6 @@ public class TowerSwapButton : MonoBehaviour
 
         if (_playerTileSetter == null)
             _playerTileSetter = tileSetter;
-
-        Debug.Log("Tiles to swap" + _swapContent.TilesToSwap);
-
     }
 
     private void OnDisable()
