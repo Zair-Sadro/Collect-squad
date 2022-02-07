@@ -76,8 +76,6 @@ public class GameController : MonoBehaviour
         OnStateChange += ChangeState;
     }
 
-    
-
     private void OnDestroy()
     {
         OnStateChange -= ChangeState;
@@ -176,6 +174,7 @@ public class GameController : MonoBehaviour
    
 
     #endregion
+
 
     public void OnMenuClick()
     {

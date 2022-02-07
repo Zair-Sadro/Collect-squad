@@ -49,7 +49,8 @@ public class TowerSwapContent : MonoBehaviour
 
     private void OnDisable()
     {
-        _tower.OnUpgradeTilesChange -= OnTilesChange;
+        if(_tower)
+            _tower.OnUpgradeTilesChange -= OnTilesChange;
     }
 
 

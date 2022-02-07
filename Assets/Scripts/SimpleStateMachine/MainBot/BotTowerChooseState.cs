@@ -82,9 +82,11 @@ public class BotTowerChooseState : AState
     private IEnumerator WaitForTime(float time)
     {
         _animator.SetBool("Run", false);
-      //  CheckTower(_botStateControls.TowerToBuild);
-
+       
         if(_botStateControls.TowerToBuild != null)
+            CheckTower(_botStateControls.TowerToBuild);
+
+        if (_botStateControls.TowerToBuild != null)
             TryBuildTower(_botStateControls.TowerToBuild, _botStateControls.TowerToBuild.ActiveTower);
 
         yield return new WaitForSeconds(time);
@@ -99,7 +101,7 @@ public class BotTowerChooseState : AState
             if(towerToBuild != null && towerToBuild.ActiveTower.CurrentLevel.LevelType > 0)
             {
                 if(towerToBuild.ActiveTower.Data.Type != GetStrongerTower(towerToBuild.OppositeTower.ActiveTower.Data.Type))
-                    TryBuildStrongerTower(towerToBuild);
+                    TrySwapTower(towerToBuild);
             }
         }
     }
@@ -161,6 +163,31 @@ public class BotTowerChooseState : AState
         var randomChance = Random.Range(0, 101);
         if(randomChance <= chanceToBuildStrongerTower)
             towerToBuild.BuiltTower(GetStrongerTower(towerToBuild.OppositeTower.ActiveTower.Data.Type));
+    }
+
+    private void TrySwapTower(TowerBuildPlatform towerToBuild)
+    {
+        var randomChance = Random.Range(0, 101);
+        if (randomChance <= chanceToBuildStrongerTower)
+        {
+            Debug.Log("<color=red> Bot swaped tower </color>");
+            towerToBuild.BuiltTower(GetSwapTower(GetStrongerTower(towerToBuild.OppositeTower.ActiveTower.Data.Type)));
+        }
+           
+    }
+
+    private TowerObject GetSwapTower(UnitType type)
+    {
+        if (_botStateControls.TowerToBuild && _botStateControls.TowerToBuild.ActiveTower.CurrentLevel.LevelType > 0)
+            for (int i = 0; i < _botStateControls.TowerToBuild.Towers.Count; i++)
+            {
+                if (_botStateControls.TowerToBuild.Towers[i].Data.Type == type &&
+                   _botStateControls.TowerToBuild.Towers[i].CurrentLevel.LevelType == _botStateControls.TowerToBuild.ActiveTower.CurrentLevel.LevelType)
+                    return (TowerObject)_botStateControls.TowerToBuild.Towers[i];
+            }
+
+
+        return null;
     }
 
     private UnitType GetStrongerTower(UnitType type)

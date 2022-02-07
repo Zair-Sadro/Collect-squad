@@ -73,11 +73,8 @@ public class TileSetter : MonoBehaviour
 
         tile.transform.localRotation = Quaternion.Euler(Vector3.zero);
         tile.transform.localScale = tilesScale;
-        OnTilePickUp?.Invoke();
         _tiles.Add(tile);
         OnTilesCountChanged?.Invoke(_tiles.Count);
-
-      
     }
 
     public void RemoveTiles(Action towerTileIncrease, TowerBuildPlatform tower)
@@ -111,6 +108,7 @@ public class TileSetter : MonoBehaviour
             yield return new WaitForSeconds(timeToRemoveTile);
 
             ClearTiles(i);
+            OnTileRemove?.Invoke();
             towerTileIncrease();
 
             if (!isThisBot)
@@ -168,8 +166,6 @@ public class TileSetter : MonoBehaviour
         if (_tiles.Count <= 0 || count > _tiles.Count)
             return;
 
-        Debug.Log("Ate " + count + " Tiles");
-
         for (int i = count - 1; i >= 0; i--)
             ClearTiles(i);
 
@@ -191,6 +187,7 @@ public class TileSetter : MonoBehaviour
                 Vibration.Vibrate(25);
 
             AddTile(tile);
+            OnTilePickUp?.Invoke();
         }
 
         if (other.TryGetComponent(out TowerBuildPlatform t))
