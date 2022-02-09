@@ -173,11 +173,7 @@ public class BotTowerChooseState : AState
     {
         var randomChance = Random.Range(0, 101);
         if (randomChance <= chanceToBuildStrongerTower)
-        {
-            Debug.Log("<color=red> Bot swaped tower </color>");
             towerToBuild.BuiltTower(GetSwapTower(GetStrongerTower(towerToBuild.OppositeTower.ActiveTower.Data.Type)));
-        }
-           
     }
 
     private TowerObject GetSwapTower(UnitType type)
