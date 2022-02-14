@@ -25,7 +25,7 @@ public abstract class ASimpleStateController : MonoBehaviour
         _currentState.StartState();
     }
 
-    protected virtual void Update()
+    protected virtual void FixedUpdate()
     {
         if(_currentState != null)
             _currentState.Execute();

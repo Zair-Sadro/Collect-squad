@@ -73,6 +73,7 @@ public class GameController : MonoBehaviour
     private void OnEnable()
     {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        Application.targetFrameRate = 60;
         OnStateChange += ChangeState;
     }
 
