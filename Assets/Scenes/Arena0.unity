@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 230568696}
-  m_IndirectSpecularColor: {r: 0.2979758, g: 0.51716465, b: 0.5898477, a: 1}
+  m_IndirectSpecularColor: {r: 0.29297245, g: 0.51765144, b: 0.58697355, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -348,7 +348,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-168170
+  m_Name: pb_Mesh-374520
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2583,7 +2583,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-168286
+  m_Name: pb_Mesh-374636
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5510,7 +5510,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-168114
+  m_Name: pb_Mesh-374466
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7317,7 +7317,17 @@ PrefabInstance:
     - target: {fileID: 519681858398973741, guid: ae1cc329c58918644ab53826242af44c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1380.501
+      value: 3413.3374
+      objectReference: {fileID: 0}
+    - target: {fileID: 519681858398973741, guid: ae1cc329c58918644ab53826242af44c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.6744e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 519681858398973741, guid: ae1cc329c58918644ab53826242af44c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 519681858398973741, guid: ae1cc329c58918644ab53826242af44c,
         type: 3}
@@ -7582,7 +7592,7 @@ PrefabInstance:
     - target: {fileID: 6151127968530953080, guid: ae1cc329c58918644ab53826242af44c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6151127968530953080, guid: ae1cc329c58918644ab53826242af44c,
         type: 3}
@@ -7792,7 +7802,7 @@ PrefabInstance:
     - target: {fileID: 8526563637606993329, guid: ae1cc329c58918644ab53826242af44c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8526563637606993334, guid: ae1cc329c58918644ab53826242af44c,
         type: 3}

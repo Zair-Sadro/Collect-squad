@@ -80,8 +80,8 @@ public class TowerUI : MonoBehaviour
 
     public void SetTilesCounter(int needed, bool isMaxLevel)
     {
-        if(isMaxLevel)
-            tilesCounter.gameObject.SetActive(false);
+        if (isMaxLevel)
+            tilesCounter.text = "MAX";
         else
         {
             tilesCounter.gameObject.SetActive(true);

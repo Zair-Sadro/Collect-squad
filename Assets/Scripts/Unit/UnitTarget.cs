@@ -38,4 +38,13 @@ public class UnitTarget : MonoBehaviour
     {
          transform.localPosition = mainTower.transform.localPosition;
     }
+
+    private void OnDrawGizmos()
+    {
+        if (mainTower == null)
+            return;
+
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawLine(transform.position, mainTower.transform.position);
+    }
 }

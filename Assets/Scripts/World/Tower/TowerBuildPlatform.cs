@@ -24,7 +24,6 @@ public class TowerBuildPlatform : MonoBehaviour
     [SerializeField] private float timeToDestroy;
     [SerializeField] private float timeToDestroyByUnits;
     [SerializeField] private ParticleSystem weakTowerParticle;
-    [SerializeField] private ParticleSystem strongTowerParticle;
 
     [SerializeField] private UnityEvent OnBuildEvent;
     [SerializeField] private UnityEvent OnDestroyEvent;
@@ -129,20 +128,15 @@ public class TowerBuildPlatform : MonoBehaviour
                 tower.ActiveTower.CurrentLevel.LevelType > 0)
             {
                 weakTowerParticle.gameObject.SetActive(true);
-                strongTowerParticle.gameObject.SetActive(false);
             }
             else if(currentTowerType == GetStrongerTower(tower.ActiveTower.Data.Type) &&
                     currentTowerType != tower.ActiveTower.Data.Type &&
                     tower.ActiveTower.CurrentLevel.LevelType > 0)
             {
-                    strongTowerParticle.gameObject.SetActive(true);
                     weakTowerParticle.gameObject.SetActive(false);
             }
             else
-            {
-                strongTowerParticle.gameObject.SetActive(false);
                 weakTowerParticle.gameObject.SetActive(false);
-            }
            
         }
     }
@@ -168,7 +162,7 @@ public class TowerBuildPlatform : MonoBehaviour
     {
         if (_tilesToUpgrade == 0)
         {
-            towerUI.ToggleCounter(false);
+            //towerUI.ToggleCounter(false);
             return;
         }
 
@@ -197,11 +191,6 @@ public class TowerBuildPlatform : MonoBehaviour
 
     public void BuiltTower(UnitType type)
     {
-      // if (_currentTiles < _tilesToUpgrade)
-      // {
-      //     OnNotEnoughTiles?.Invoke();
-      //     return;
-      // }
         DisablePreviousTower(_activeTower);
         CreateNewTower(type);
         StartCoroutine(ResetTilesGet(resetTime));
@@ -213,12 +202,6 @@ public class TowerBuildPlatform : MonoBehaviour
 
     public void BuiltTower(ATowerObject tower)
     {
-       // if (_currentTiles < _tilesToUpgrade)
-       // {
-       //     OnNotEnoughTiles?.Invoke();
-       //     return;
-       // }
-
         DisablePreviousTower(_activeTower);
         CreateNewTower(tower);
         StartCoroutine(ResetTilesGet(resetTime));
@@ -294,7 +277,6 @@ public class TowerBuildPlatform : MonoBehaviour
 
             if (_tilesToUpgrade <= 0)
             {
-                towerUI.ToggleCounter(false);
                 TryToUpgradeTower();
                 tileSetter.StopRemovingTiles();
                 return;
