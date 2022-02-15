@@ -6,55 +6,55 @@ using UnityEngine;
 
 public class TowerSwapContent : MonoBehaviour
 {
-    [SerializeField, Range(1, 100)] private int percentageOfRemainingTiles;
-    [Space]
-    [SerializeField] private TMP_Text tilesToSwapText;
+    [SerializeField] private TMP_Text timerText;
     [SerializeField] private List<TowerSwapButton> swapButtons = new List<TowerSwapButton>();
 
-    private int _tilesToSwap;
     private TowerBuildPlatform _tower;
     private TileSetter _playerTileSetter;
     private UserData _data;
 
-    public int TilesToSwap
-    {
-        get
-        {
-            if (_tower)
-            {
-                int t = Mathf.RoundToInt((_tower.TilesToUpgrade * percentageOfRemainingTiles) / 100);
-                return _tilesToSwap = Mathf.Clamp(t, 0, _data.MaxTiles);
-            }
+    private bool _isSwapTimerSubbed = false;
 
-            Debug.LogWarning("Tower is null, cant set tiles to swap");
-            return 0;
-        }
-       
-    }
+    public List<TowerSwapButton> SwapButtons => swapButtons;
 
     public void Init(TowerBuildPlatform tower, TileSetter playerTiles)
     {
         _tower = tower;
 
-        if(_playerTileSetter == null)
+        if (_playerTileSetter == null)
             _playerTileSetter = playerTiles;
 
         if (_data == null)
             _data = GameController.Data;
-        
+
         InitSwapButtons(tower);
-        UpdateSwapTilesText();
-        _tower.OnUpgradeTilesChange += OnTilesChange;
+        InitSwapTimer();
     }
 
-    private void OnDisable()
+    private void InitSwapTimer()
     {
-        if(_tower)
-            _tower.OnUpgradeTilesChange -= OnTilesChange;
+        SwapTimer_OnCanSwap(_tower.SwapTimer.CanSwap);
+        SwapTimer_OnTimerChanged(_tower.SwapTimer.CurrentSwapTime);
+
+        if (!_isSwapTimerSubbed)
+        {
+            _tower.SwapTimer.OnTimerChanged += SwapTimer_OnTimerChanged;
+            _tower.SwapTimer.OnCanSwap += SwapTimer_OnCanSwap;
+            _isSwapTimerSubbed = true;
+        }
     }
 
+    private void SwapTimer_OnCanSwap(bool value)
+    {
+        ToggleButtons(value);
+    }
 
-    private void InitSwapButtons(TowerBuildPlatform tower)
+    private void SwapTimer_OnTimerChanged(float value)
+    {
+        timerText.text = value <= 0 ? "Ready" : value.ToString("f0");
+    }
+
+    public void InitSwapButtons(TowerBuildPlatform tower)
     {
         for (int i = 0; i < swapButtons.Count; i++)
         {
@@ -68,15 +68,21 @@ public class TowerSwapContent : MonoBehaviour
         }
     }
 
-    private void OnTilesChange(int obj)
+    public void ToggleButtons(bool value)
     {
-        UpdateSwapTilesText();
+        for (int i = 0; i < swapButtons.Count; i++)
+            swapButtons[i].SwapButton.interactable = value;
     }
 
-    private void UpdateSwapTilesText()
+    public void UnsubSwapTimer()
     {
-        tilesToSwapText.SetText(TilesToSwap.ToString());
+        if(_tower)
+        {
+            _tower.SwapTimer.OnTimerChanged -= SwapTimer_OnTimerChanged;
+            _tower.SwapTimer.OnCanSwap -= SwapTimer_OnCanSwap;
+            _isSwapTimerSubbed = false;
+        }
     }
-
+    
 
 }

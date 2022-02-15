@@ -70,6 +70,7 @@ public class TowerButtonsController : MonoBehaviour
 
     private void SwapZoneExit()
     {
+        swapContent.UnsubSwapTimer();
         swapContent.gameObject.SetActive(false);
        // destroyTowerButton.gameObject.SetActive(false);
     }

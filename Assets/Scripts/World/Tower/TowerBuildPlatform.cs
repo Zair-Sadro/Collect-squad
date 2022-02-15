@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 public class TowerBuildPlatform : MonoBehaviour
 {
+    [SerializeField] private SimpleSwapTowerTimer swapTimer;
     [Header("UI")]
     [SerializeField] private TowerUI towerUI;
 
@@ -62,6 +63,7 @@ public class TowerBuildPlatform : MonoBehaviour
 
     #region Properties
 
+    public SimpleSwapTowerTimer SwapTimer => swapTimer;
     public List<ATowerObject> Towers => towers;
     public float FirstUnitInvincibilityTime => firstUnitInvincibilityTime;
     public UnityEvent DestroyEvent => OnDestroyEvent;
