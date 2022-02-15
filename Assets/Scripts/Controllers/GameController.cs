@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
 
 
 
+    public static event Action OnLevelFinish;
     private event Action<GameState> OnStateChange;
 
     private int _sessionScore;
@@ -144,6 +145,7 @@ public class GameController : MonoBehaviour
         if (data.CurrentLevel == 1)
             PlayerPrefs.SetInt("Tutorial", 1);
 
+        OnLevelFinish?.Invoke();
         SetNextArena();
         var winPanel = (WinMenu)uiController.Menus.Where(m => m.Type == MenuType.Win).FirstOrDefault();
         winPanel.SetSessionScore(_sessionScore);

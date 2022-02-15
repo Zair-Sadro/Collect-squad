@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 285a593bbf3d511468c41a7e4e3364cd,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4181,8 +4181,8 @@ MonoBehaviour:
   intersectionEffectsExpanded: 0
   planarReflectionsExpanded: 0
   causticsExpanded: 0
-  reflectionStrength: 0.82
-  reflectionFresnel: 2.5
+  reflectionStrength: 0
+  reflectionFresnel: 0
   causticsStrength: 2.09
   causticsTexture: {fileID: 2800000, guid: f2c40b951cee11943a1f6d5ec1b42f2c, type: 3}
   causticsSplit: 0.318
@@ -4254,17 +4254,17 @@ MonoBehaviour:
   underwaterColorStrength: 0
   underwaterRefractionStrength: 0.099
   surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
-  surfaceFoamSampling: {x: 0.452, y: 0.81}
-  surfaceFoamCutoff: 0.452
-  surfaceFoamDistortion: 0.81
+  surfaceFoamSampling: {x: 0.91, y: 0.43}
+  surfaceFoamCutoff: 0.91
+  surfaceFoamDistortion: 0.43
   surfaceFoamBlend: 1
   surfaceFoamColor1: {r: 1, g: 1, b: 1, a: 0.6666667}
   surfaceFoamColor2: {r: 1, g: 1, b: 1, a: 0.7294118}
-  surfaceFoamMovement: {x: 0.452, y: 0.08, z: 0.411, w: 0.17}
+  surfaceFoamMovement: {x: 0.452, y: 0.07, z: 0.411, w: 0}
   surfaceFoamDirection1: 0.452
   surfaceFoamDirection2: 0.411
-  surfaceFoamSpeed1: 0.08
-  surfaceFoamSpeed2: 0.17
+  surfaceFoamSpeed1: 0.07
+  surfaceFoamSpeed2: 0
   surfaceFoamTilingAndOffset: {x: -1, y: -1, z: 0.35, w: 0}
   surfaceFoamOffsetX: -1
   surfaceFoamOffsetY: -1
@@ -4290,7 +4290,7 @@ MonoBehaviour:
   intersectionFoamSampling: {x: 1, y: 0}
   intersectionFoamCutoff: 1
   intersectionFoamDistortion: 0
-  enableIntersectionEffects: 1
+  enableIntersectionEffects: 0
   intersectionFoamBlend: 1
   intersectionWaterBlend: 0
   shoreFoamSpeed: 0
@@ -4308,7 +4308,7 @@ MonoBehaviour:
   normalsStrength: 0.42
   normalsScale: 0.36
   normalsSpeed: 0.04
-  refractionStrength: 0.022
+  refractionStrength: 0
   waveVisuals: {x: 0, y: 7.9, z: 0}
   waveSteepness: 0
   waveLength: 7.9
