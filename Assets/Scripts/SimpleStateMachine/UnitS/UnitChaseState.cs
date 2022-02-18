@@ -88,17 +88,28 @@ public class UnitChaseState : AState
         var enemyInParent = coll.GetComponentInParent<IBattleUnit>();
         var enemyInChildren = coll.GetComponentInChildren<IBattleUnit>();
 
-        if (enemyInParent != null && enemyInParent.TeamObject.MyTeam != _thisUnitTeam && enemyInParent.IsSpotable)
+        if(!_stateController.UnitController.IngoreUnitAndTower)
+        {
+            if (enemyInParent != null && enemyInParent.TeamObject.MyTeam != _thisUnitTeam && enemyInParent.IsSpotable)
+            {
+                enemy = enemyInParent;
+                return true;
+            }
+
+            if (enemyInChildren != null && enemyInChildren.TeamObject.MyTeam != _thisUnitTeam && enemyInChildren.IsSpotable)
+            {
+                enemy = enemyInChildren;
+                return true;
+            }
+        }
+
+        if (enemyInParent != null && enemyInParent.TeamObject.MyTeam != _thisUnitTeam && enemyInParent.IsSpotable &&
+                 enemyInParent.Type == UnitType.Builder)
         {
             enemy = enemyInParent;
             return true;
         }
-
-        if(enemyInChildren != null && enemyInChildren.TeamObject.MyTeam != _thisUnitTeam && enemyInChildren.IsSpotable)
-        {
-            enemy = enemyInChildren;
-            return true;
-        }
+       
 
         enemy = null;
         return false;

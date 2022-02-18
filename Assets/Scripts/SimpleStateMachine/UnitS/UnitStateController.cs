@@ -16,7 +16,7 @@ public class UnitStateController : ASimpleStateController
     public NavMeshObstacle NavObstacle => navObstacle;
     public BattleUnit CurrentUnit => _currentUnit;
     public Transform ChaseTarget => _chaseTarget;
-
+    public bool IngoreUnitAndTower { get; set; } = false;
 
 
     public void Init(BattleUnit unit)
@@ -32,6 +32,7 @@ public class UnitStateController : ASimpleStateController
     {
         _chaseTarget = finishTarget;
         navAgent.speed = speed;
+        IngoreUnitAndTower = true;
     }
 
 }
